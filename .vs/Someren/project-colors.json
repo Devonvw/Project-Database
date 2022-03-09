@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8086aff6-7cab-4421-87b8-719b409533ab": {
+      "ProjectGuid": "8086aff6-7cab-4421-87b8-719b409533ab",
+      "DisplayName": "SomerenUI",
+      "ColorIndex": 0
+    },
+    "5c8bda73-f134-4af6-bb41-dbe88eba2615": {
+      "ProjectGuid": "5c8bda73-f134-4af6-bb41-dbe88eba2615",
+      "DisplayName": "SomerenDAL",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "715fc326-1104-4e49-8df2-a36e0458067d": {
+      "ProjectGuid": "715fc326-1104-4e49-8df2-a36e0458067d",
+      "DisplayName": "SomerenLogic",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
