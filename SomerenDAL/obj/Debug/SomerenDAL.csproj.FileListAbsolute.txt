@@ -1,0 +1,9 @@
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.dll
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.pdb
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenModel.dll
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenModel.pdb
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.AssemblyReference.cache
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb

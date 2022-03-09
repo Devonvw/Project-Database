@@ -1,0 +1,6 @@
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
+C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
