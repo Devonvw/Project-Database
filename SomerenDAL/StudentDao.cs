@@ -14,7 +14,7 @@ namespace SomerenDAL
     {      
         public List<Student> GetAllStudents()
         {
-            string query = "SELECT studentId, firstName, lastName, dateOfBirth FROM Student";
+            string query = "SELECT studentId, firstName, lastName, roomId, dateOfBirth FROM Student";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -24,15 +24,17 @@ namespace SomerenDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
+                //for each row, each column value as a parameter for the object 
                 int id = (int)dr["studentId"];
-                string firstName = (string)(dr["firstName"].ToString());
-                string lastName = (string)(dr["lastName"].ToString());              
-                DateTime birthDate = (DateTime)dr["birthDate"];
+                string firstName = (string)(dr["firstName"]).ToString();
+                string lastName = (string)(dr["lastName"]);              
                 int roomId = (int)dr["roomId"];
+                DateTime birthDate = Convert.ToDateTime(dr["dateOfBirth"]); //NULL not allowed in this case 
 
-                Student student = new Student(id, firstName, lastName, birthDate, roomId);
+                Student student = new Student(id, firstName, lastName, roomId, birthDate);
                 students.Add(student);
             }
+
             return students;
         }
     }

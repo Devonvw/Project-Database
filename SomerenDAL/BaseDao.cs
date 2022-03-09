@@ -30,6 +30,7 @@ namespace SomerenDAL
             catch (Exception e)
             {
                 //Print.ErrorLog(e);
+                Console.WriteLine(e);
                 throw;
             }
             return conn;
@@ -53,6 +54,7 @@ namespace SomerenDAL
             catch (Exception e)
             {
                 //Print.ErrorLog(e);
+                Console.WriteLine(e);
                 throw;
             }
         }
@@ -72,7 +74,8 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-                // Print.ErrorLog(e);
+                //Print.ErrorLog(e);
+                Console.WriteLine(e);
                 throw;
             }
             finally
@@ -100,7 +103,8 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-                // Print.ErrorLog(e);
+                //Print.ErrorLog(e);
+                Console.WriteLine(e);
                 return null;
                 throw;
             }

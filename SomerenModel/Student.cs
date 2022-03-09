@@ -15,7 +15,7 @@ namespace SomerenModel
         public string FullName { get { return $"{ FirstName } { LastName }"; } }
         public int RoomId { get; set; }
 
-        public Student(int id, string firstName, string lastName, DateTime birthDate, int roomId)
+        public Student(int id, string firstName, string lastName, int roomId, DateTime birthDate)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -25,7 +25,7 @@ namespace SomerenModel
         }
         public override string ToString()
         {
-            return $"{FullName}";
+            return $"{Id} {FullName} {BirthDate} {RoomId}";
         }
     }
 }

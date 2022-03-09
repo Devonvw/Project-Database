@@ -20,7 +20,12 @@
       "ProjectGuid": "715fc326-1104-4e49-8df2-a36e0458067d",
       "DisplayName": "SomerenLogic",
       "ColorIndex": 2
+    },
+    "90a9ed02-35d3-4d84-80e4-458bc835c722": {
+      "ProjectGuid": "90a9ed02-35d3-4d84-80e4-458bc835c722",
+      "DisplayName": "SomerenModel",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }
