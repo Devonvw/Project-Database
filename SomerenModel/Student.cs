@@ -7,9 +7,25 @@ using System.Threading.Tasks;
 namespace SomerenModel
 {
     public class Student
-    { 
-        public string Name { get; set; }
-        public int Number { get; set; } // StudentNumber, e.g. 474791
+    {
+        public int Id { get; set; } // StudentNumber, e.g. 474791
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
+        public string FullName { get { return $"{ FirstName } { LastName }"; } }
+        public int RoomId { get; set; }
+
+        public Student(int id, string firstName, string lastName, DateTime birthDate, int roomId)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Id = id;
+            BirthDate = birthDate;
+            RoomId = roomId;
+        }
+        public override string ToString()
+        {
+            return $"{FullName}";
+        }
     }
 }

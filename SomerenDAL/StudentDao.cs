@@ -14,22 +14,23 @@ namespace SomerenDAL
     {      
         public List<Student> GetAllStudents()
         {
-            string query = "SELECT student_id, student_name FROM [TABLE]";
+            string query = "SELECT studentId, firstName, lastName, dateOfBirth FROM Student";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
         private List<Student> ReadTables(DataTable dataTable)
         {
             List<Student> students = new List<Student>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Student student = new Student()
-                {
-                    Number = (int)dr["student_id"],
-                    Name = (string)(dr["student_name"].ToString())
-                };
+                int id = (int)dr["studentId"];
+                string firstName = (string)(dr["firstName"].ToString());
+                string lastName = (string)(dr["lastName"].ToString());              
+                DateTime birthDate = (DateTime)dr["birthDate"];
+                int roomId = (int)dr["roomId"];
+
+                Student student = new Student(id, firstName, lastName, birthDate, roomId);
                 students.Add(student);
             }
             return students;
