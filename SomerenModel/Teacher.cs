@@ -12,7 +12,7 @@ namespace SomerenModel
         public string LastName { get; set; }
         public int TeacherId { get; set; } // LecturerNumber, e.g. 47198
         public string FullName { get { return $"{FirstName} {LastName}"; } }
-        public Teacher(string firstName, string lastName, int teacherId)
+        public Teacher(int id, string firstName, string lastName, int teacherId, int roomId)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
