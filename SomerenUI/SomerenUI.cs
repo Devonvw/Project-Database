@@ -31,6 +31,7 @@ namespace SomerenUI
             {
                 // hide all other panels
                 pnlStudents.Hide();
+                pnlRooms.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -65,6 +66,38 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
             }
+            else if (panelName == "Rooms")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+
+                // show students
+                pnlRooms.Show();
+
+                try
+                {
+                    // fill the students listview within the students panel with a list of students
+                    RoomService roomService = new RoomService(); ;
+                    List<Room> roomList = roomService.GetRooms(); ;
+
+                    // clear the listview before filling it again
+                    listViewRooms.Items.Clear();
+
+                    foreach (Room room in roomList)
+                    {
+                        ListViewItem li = new ListViewItem(room.Id.ToString());
+                        li.SubItems.Add(room.Capacity.ToString());
+                        li.SubItems.Add(room.Capacity == 1 ? "Teacher" : "Student");
+
+                        listViewRooms.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,6 +128,16 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+        }
+
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Rooms");
+        }
+
+        private void lbl_Students_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
