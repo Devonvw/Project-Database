@@ -47,31 +47,19 @@ namespace SomerenUI
 
                 try
                 {
-                    // clear the listview before filling it again
-                    listViewStudents.Clear();
-
-                    //how the items are viewed
-                    listViewStudents.View = View.Details;
-                    listViewStudents.GridLines = true;
-                    listViewStudents.FullRowSelect = true;
-
-                    //column header (names, width)
-                    listViewStudents.Columns.Add("Student ID", 65);
-                    listViewStudents.Columns.Add("Student Name", 120);
-                    listViewStudents.Columns.Add("Date of Birth", 75);
-                    listViewStudents.Columns.Add("Room ID", 60);
-
-
                     // fill the students listview within the students panel with a list of students
                     StudentService studService = new StudentService(); ;
                     List<Student> studentList = studService.GetStudents(); ;
 
+                    // clear the listview before filling it again
+                    listViewStudents.Items.Clear();
 
-                    foreach (Student s in studentList)
+                    foreach (Student student in studentList)
                     {
-                        //string array to separate the object fields and place them in each item
-                        string[] student = { s.Id.ToString(), s.FullName, s.BirthDate.ToString("dd/MM/yyyy"), s.RoomId.ToString() };
-                        ListViewItem li = new ListViewItem(student);
+                        ListViewItem li = new ListViewItem(student.Id.ToString());
+                        li.SubItems.Add(student.FullName.ToString());
+                        li.SubItems.Add(student.BirthDate.ToString("dd/MM/yyyy"));
+                        li.SubItems.Add(student.RoomId.ToString());
                         listViewStudents.Items.Add(li);
                     }
                 }
@@ -84,7 +72,7 @@ namespace SomerenUI
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            //
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

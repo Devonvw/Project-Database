@@ -23,9 +23,5 @@ namespace SomerenModel
             BirthDate = birthDate;
             RoomId = roomId;
         }
-        public override string ToString()
-        {
-            return $"{Id} {FullName} {BirthDate} {RoomId}";
-        }
     }
 }

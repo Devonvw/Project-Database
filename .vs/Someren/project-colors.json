@@ -11,6 +11,11 @@
       "DisplayName": "SomerenDAL",
       "ColorIndex": 1
     },
+    "90a9ed02-35d3-4d84-80e4-458bc835c722": {
+      "ProjectGuid": "90a9ed02-35d3-4d84-80e4-458bc835c722",
+      "DisplayName": "SomerenModel",
+      "ColorIndex": 2
+    },
     "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
@@ -19,11 +24,6 @@
     "715fc326-1104-4e49-8df2-a36e0458067d": {
       "ProjectGuid": "715fc326-1104-4e49-8df2-a36e0458067d",
       "DisplayName": "SomerenLogic",
-      "ColorIndex": 2
-    },
-    "90a9ed02-35d3-4d84-80e4-458bc835c722": {
-      "ProjectGuid": "90a9ed02-35d3-4d84-80e4-458bc835c722",
-      "DisplayName": "SomerenModel",
       "ColorIndex": 3
     }
   },

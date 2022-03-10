@@ -43,8 +43,12 @@
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnlStudents = new System.Windows.Forms.Panel();
             this.listViewStudents = new System.Windows.Forms.ListView();
+            this.studentID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.studentName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Students = new System.Windows.Forms.Label();
+            this.StudentRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -89,19 +93,19 @@
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -161,6 +165,12 @@
             // 
             // listViewStudents
             // 
+            this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.studentID,
+            this.studentName,
+            this.studentDOB,
+            this.StudentRoom});
+            this.listViewStudents.GridLines = true;
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Location = new System.Drawing.Point(16, 42);
             this.listViewStudents.Name = "listViewStudents";
@@ -168,6 +178,20 @@
             this.listViewStudents.TabIndex = 5;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
             this.listViewStudents.View = System.Windows.Forms.View.Details;
+            // 
+            // studentID
+            // 
+            this.studentID.Text = "ID";
+            // 
+            // studentName
+            // 
+            this.studentName.Text = "Name";
+            this.studentName.Width = 110;
+            // 
+            // studentDOB
+            // 
+            this.studentDOB.Text = "Date of Birth";
+            this.studentDOB.Width = 80;
             // 
             // pictureBox1
             // 
@@ -188,6 +212,10 @@
             this.lbl_Students.Size = new System.Drawing.Size(107, 29);
             this.lbl_Students.TabIndex = 3;
             this.lbl_Students.Text = "Students";
+            // 
+            // StudentRoom
+            // 
+            this.StudentRoom.Text = "Room";
             // 
             // SomerenUI
             // 
@@ -234,6 +262,10 @@
         private System.Windows.Forms.Label lbl_Students;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListView listViewStudents;
+        private System.Windows.Forms.ColumnHeader studentID;
+        private System.Windows.Forms.ColumnHeader studentName;
+        private System.Windows.Forms.ColumnHeader studentDOB;
+        private System.Windows.Forms.ColumnHeader StudentRoom;
     }
 }
 
