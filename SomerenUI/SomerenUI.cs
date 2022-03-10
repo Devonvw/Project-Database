@@ -72,7 +72,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
 
                 // show students
-                pnlStudents.Show();
+                pnlTeacher.Show();
 
                 try
                 {
@@ -82,10 +82,15 @@ namespace SomerenUI
 
                     // clear the listview before filling it again
                     listViewTeacher.Clear();
+                    listViewTeacher.View = View.Details;
+                    listViewTeacher.Columns.Add("Teacher ID", 100);
+                    listViewTeacher.Columns.Add("First Name", 100);
+                    listViewTeacher.Columns.Add("Last Name", 100);
+                    listViewTeacher.Columns.Add("Room ID", 100);
 
                     foreach (Teacher teacher in teacherList)
                     {
-                        listViewTeacher.Items.Add(teacher.TeacherId.ToString());
+                        //listViewTeacher.Items.Add(teacher.TeacherId.ToString());
 
                         ListViewItem item = new ListViewItem(teacher.TeacherId.ToString());
                         item.SubItems.Add(teacher.FirstName.ToString());
@@ -134,21 +139,8 @@ namespace SomerenUI
 
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showPanel("Teachers");
-
-            TeacherService teacherService = new TeacherService();
-            List<Teacher> allTeachers = teacherService.GetTeachers();
-
-            
+            showPanel("Lecturers");
         }
-        /*private void DisplayTeacher()
-        {
-            listViewTeacher.Items.Clear();
-            foreach (Teacher teacher in TeacherServ)
-            {
-
-            }
-        }*/
 
         private void listViewTeacher_SelectedIndexChanged(object sender, EventArgs e)
         {
