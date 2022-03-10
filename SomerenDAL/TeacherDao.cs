@@ -25,13 +25,13 @@ namespace SomerenDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                int id = (int)dr["teacherId"];
+                int teacherId = (int)dr["teacherId"];
                 string firstName = (string)(dr["firstName"]).ToString();
                 string lastName = (string)(dr["lastName"]);
-                int cla = (int)(dr["class"]);
+                int classId = (int)(dr["class"]);
                 int roomId = (int)dr["roomId"];
 
-                Teacher teacher = new Teacher(id, firstName, lastName, cla, roomId);
+                Teacher teacher = new Teacher(teacherId, firstName, lastName, classId, roomId);
                 teachers.Add(teacher);
             }
             return teachers;
