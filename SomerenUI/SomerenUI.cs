@@ -65,6 +65,41 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
             }
+            else if (panelName == "Lecturers")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+
+                // show students
+                pnlStudents.Show();
+
+                try
+                {
+                    // fill the students listview within the students panel with a list of students
+                    TeacherService teacherService = new TeacherService(); ;
+                    List<Teacher> teacherList = teacherService.GetTeachers(); ;
+
+                    // clear the listview before filling it again
+                    listViewTeacher.Clear();
+
+                    foreach (Teacher teacher in teacherList)
+                    {
+                        listViewTeacher.Items.Add(teacher.TeacherId.ToString());
+
+                        ListViewItem item = new ListViewItem(teacher.TeacherId.ToString());
+                        item.SubItems.Add(teacher.FirstName.ToString());
+                        item.SubItems.Add(teacher.LastName.ToString());
+                        item.SubItems.Add(teacher.RoomId.ToString());
+
+                        listViewTeacher.Items.Add(item);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the lecturers: " + e.Message);
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,18 +139,7 @@ namespace SomerenUI
             TeacherService teacherService = new TeacherService();
             List<Teacher> allTeachers = teacherService.GetTeachers();
 
-            foreach (Teacher teacher in allTeachers)
-            {
-                // add teachers
-                listViewTeacher.Items.Add(teacher.TeacherId.ToString());
-
-                ListViewItem item = new ListViewItem(teacher.TeacherId.ToString()); 
-                item.SubItems.Add(teacher.FirstName.ToString());
-                item.SubItems.Add(teacher.LastName.ToString());
-                item.SubItems.Add(teacher.RoomId.ToString());
-
-                listViewTeacher.Items.Add(item);
-            }
+            
         }
         /*private void DisplayTeacher()
         {
@@ -127,6 +151,11 @@ namespace SomerenUI
         }*/
 
         private void listViewTeacher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuTeacher_Click(object sender, EventArgs e)
         {
 
         }

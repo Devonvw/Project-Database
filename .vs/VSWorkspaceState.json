@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SomerenDAL",
+    "\\SomerenModel"
   ],
-  "SelectedNode": "\\Someren.sln",
+  "SelectedNode": "\\SomerenModel\\Teacher.cs",
   "PreviewInSolutionExplorer": false
 }
