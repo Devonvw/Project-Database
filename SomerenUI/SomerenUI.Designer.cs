@@ -248,6 +248,10 @@
             this.studentDOB.Text = "Date of Birth";
             this.studentDOB.Width = 80;
             // 
+            // studentName
+            // 
+            this.StudentRoom.Text = "Room ID";
+            //
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
@@ -280,30 +284,7 @@
             this.pnlStudents.Name = "pnlStudents";
             this.pnlStudents.Size = new System.Drawing.Size(1251, 574);
             this.pnlStudents.TabIndex = 4;
-            // 
-            // listViewStudents
-            // 
-            this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.studentID,
-            this.studentName,
-            this.studentDOB});
-            this.listViewStudents.HideSelection = false;
-            this.listViewStudents.Location = new System.Drawing.Point(20, 59);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4);
-            this.listViewStudents.Name = "listViewStudents";
-            this.listViewStudents.Size = new System.Drawing.Size(1020, 377);
-            this.listViewStudents.TabIndex = 5;
-            this.listViewStudents.UseCompatibleStateImageBehavior = false;
-            // 
-            // studentID
-            // 
-            this.studentID.Text = "ID";
-            // 
-            // studentName
-            // StudentRoom
-            // 
-            this.StudentRoom.Text = "Room";
-            // 
+            //  
             // lbl_Students
             // 
             this.lbl_Students.AutoSize = true;

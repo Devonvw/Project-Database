@@ -74,6 +74,7 @@ namespace SomerenUI
                 // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
+                pnlStudents.Hide();
 
                 // show students
                 pnlRooms.Show();
