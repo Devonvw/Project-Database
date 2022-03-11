@@ -316,6 +316,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listViewTeacher.GridLines = true;
             this.listViewTeacher.HideSelection = false;
             this.listViewTeacher.Location = new System.Drawing.Point(16, 42);
             this.listViewTeacher.Name = "listViewTeacher";

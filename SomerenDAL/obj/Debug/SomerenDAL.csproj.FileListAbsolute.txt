@@ -39,3 +39,4 @@ C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\Somere
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb
+C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.dll.config
