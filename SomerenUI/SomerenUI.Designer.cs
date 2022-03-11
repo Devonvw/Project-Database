@@ -361,9 +361,9 @@
             // 
             this.teacherLabel.AutoSize = true;
             this.teacherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherLabel.Location = new System.Drawing.Point(10, 10);
+            this.teacherLabel.Location = new System.Drawing.Point(13, 12);
             this.teacherLabel.Name = "teacherLabel";
-            this.teacherLabel.Size = new System.Drawing.Size(103, 29);
+            this.teacherLabel.Size = new System.Drawing.Size(129, 33);
             this.teacherLabel.TabIndex = 3;
             this.teacherLabel.Text = "Teacher";
             // 
