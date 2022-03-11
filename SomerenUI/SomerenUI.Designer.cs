@@ -77,10 +77,8 @@
             // 
             // imgDashboard
             // 
-            this.imgDashboard.Location = new System.Drawing.Point(836, 0);
             this.imgDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.imgDashboard.Name = "imgDashboard";
-            this.imgDashboard.Size = new System.Drawing.Size(415, 332);
             this.imgDashboard.Location = new System.Drawing.Point(627, 0);
             this.imgDashboard.Name = "imgDashboard";
             this.imgDashboard.Size = new System.Drawing.Size(311, 270);
@@ -219,10 +217,11 @@
             // 
             this.capacity.Text = "Capacity";
             // 
-            // capacity
+            // room type
             // 
             this.roomType.Text = "Room Type";
             this.roomType.Width = 70;
+            //
             // pnlStudents
             // 
             this.pnlStudents.Controls.Add(this.listViewStudents);
@@ -323,24 +322,7 @@
             this.listViewTeacher.Size = new System.Drawing.Size(766, 307);
             this.listViewTeacher.TabIndex = 5;
             this.listViewTeacher.UseCompatibleStateImageBehavior = false;
-            // 
-            // studentName
-            // StudentRoom
-            // 
-            this.StudentRoom.Text = "Room";
-            // 
-            //  
-            // lbl_Students
-            // 
-            this.lbl_Students.AutoSize = true;
-            this.lbl_Students.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Students.Location = new System.Drawing.Point(13, 12);
-            this.lbl_Students.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_Students.Name = "lbl_Students";
-            this.lbl_Students.Size = new System.Drawing.Size(129, 33);
-            this.lbl_Students.TabIndex = 3;
-            this.lbl_Students.Text = "Students";
-            this.lbl_Students.Click += new System.EventHandler(this.lbl_Students_Click);
+            //
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
@@ -353,6 +335,18 @@
             // 
             this.columnHeader3.Text = "Date of Birth";
             // 
+            // lbl_Students
+            // 
+            this.lbl_Students.AutoSize = true;
+            this.lbl_Students.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Students.Location = new System.Drawing.Point(13, 12);
+            this.lbl_Students.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Students.Name = "lbl_Students";
+            this.lbl_Students.Size = new System.Drawing.Size(129, 33);
+            this.lbl_Students.TabIndex = 3;
+            this.lbl_Students.Text = "Students";
+            this.lbl_Students.Click += new System.EventHandler(this.lbl_Students_Click);
+            //
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SomerenUI.Properties.Resources.someren;
