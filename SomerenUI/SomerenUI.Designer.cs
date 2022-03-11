@@ -54,6 +54,8 @@
             this.studentName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_Students = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.StudentRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -68,6 +70,9 @@
             this.imgDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.imgDashboard.Name = "imgDashboard";
             this.imgDashboard.Size = new System.Drawing.Size(415, 332);
+            this.imgDashboard.Location = new System.Drawing.Point(627, 0);
+            this.imgDashboard.Name = "imgDashboard";
+            this.imgDashboard.Size = new System.Drawing.Size(311, 270);
             this.imgDashboard.TabIndex = 0;
             this.imgDashboard.TabStop = false;
             this.imgDashboard.Click += new System.EventHandler(this.imgDashboard_Click);
@@ -203,7 +208,50 @@
             // 
             this.roomType.Text = "Room Type";
             this.roomType.Width = 70;
+            // pnlStudents
             // 
+            this.pnlStudents.Controls.Add(this.listViewStudents);
+            this.pnlStudents.Controls.Add(this.pictureBox1);
+            this.pnlStudents.Controls.Add(this.lbl_Students);
+            this.pnlStudents.Location = new System.Drawing.Point(12, 24);
+            this.pnlStudents.Name = "pnlStudents";
+            this.pnlStudents.Size = new System.Drawing.Size(938, 466);
+            this.pnlStudents.TabIndex = 4;
+            // 
+            // listViewStudents
+            // 
+            this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.studentID,
+            this.studentName,
+            this.studentDOB,
+            this.StudentRoom});
+            this.listViewStudents.GridLines = true;
+            this.listViewStudents.HideSelection = false;
+            this.listViewStudents.Location = new System.Drawing.Point(16, 42);
+            this.listViewStudents.Name = "listViewStudents";
+            this.listViewStudents.Size = new System.Drawing.Size(766, 307);
+            this.listViewStudents.TabIndex = 5;
+            this.listViewStudents.UseCompatibleStateImageBehavior = false;
+            this.listViewStudents.View = System.Windows.Forms.View.Details;
+            // 
+            // studentID
+            // 
+            this.studentID.Text = "ID";
+            // 
+            // studentName
+            // 
+            this.studentName.Text = "Name";
+            this.studentName.Width = 110;
+            // 
+            // studentDOB
+            // 
+            this.studentDOB.Text = "Date of Birth";
+            this.studentDOB.Width = 80;
+            // 
+            // studentName
+            // 
+            this.StudentRoom.Text = "Room ID";
+            //
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
@@ -236,33 +284,7 @@
             this.pnlStudents.Name = "pnlStudents";
             this.pnlStudents.Size = new System.Drawing.Size(1251, 574);
             this.pnlStudents.TabIndex = 4;
-            // 
-            // listViewStudents
-            // 
-            this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.studentID,
-            this.studentName,
-            this.studentDOB});
-            this.listViewStudents.HideSelection = false;
-            this.listViewStudents.Location = new System.Drawing.Point(20, 59);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4);
-            this.listViewStudents.Name = "listViewStudents";
-            this.listViewStudents.Size = new System.Drawing.Size(1020, 377);
-            this.listViewStudents.TabIndex = 5;
-            this.listViewStudents.UseCompatibleStateImageBehavior = false;
-            // 
-            // studentID
-            // 
-            this.studentID.Text = "ID";
-            // 
-            // studentName
-            // 
-            this.studentName.Text = "Name";
-            // 
-            // studentDOB
-            // 
-            this.studentDOB.Text = "Date of Birth";
-            // 
+            //  
             // lbl_Students
             // 
             this.lbl_Students.AutoSize = true;
@@ -333,6 +355,7 @@
         private System.Windows.Forms.ColumnHeader roomID;
         private System.Windows.Forms.ColumnHeader capacity;
         private System.Windows.Forms.ColumnHeader roomType;
+        private System.Windows.Forms.ColumnHeader StudentRoom;
     }
 }
 

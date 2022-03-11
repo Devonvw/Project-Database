@@ -53,11 +53,14 @@ namespace SomerenUI
                     List<Student> studentList = studService.GetStudents(); ;
 
                     // clear the listview before filling it again
-                    listViewStudents.Clear();
+                    listViewStudents.Items.Clear();
 
-                    foreach (Student s in studentList)
+                    foreach (Student student in studentList)
                     {
-                        ListViewItem li = new ListViewItem(s.Name);
+                        ListViewItem li = new ListViewItem(student.Id.ToString());
+                        li.SubItems.Add(student.FullName.ToString());
+                        li.SubItems.Add(student.BirthDate.ToString("dd/MM/yyyy"));
+                        li.SubItems.Add(student.RoomId.ToString());
                         listViewStudents.Items.Add(li);
                     }
                 }
@@ -71,6 +74,7 @@ namespace SomerenUI
                 // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
+                pnlStudents.Hide();
 
                 // show students
                 pnlRooms.Show();
