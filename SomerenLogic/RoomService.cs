@@ -21,8 +21,8 @@ namespace SomerenLogic
 
         public List<Room> GetRooms()
         {
-            List<Room> room = roomdb.GetAllRooms();
-            return room;
+            List<Room> rooms = roomdb.GetAllRooms();
+            return rooms;
         }
     }
 }

@@ -33,6 +33,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlTeacher.Hide();
+                pnlRevenue.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -45,6 +46,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlRooms.Hide();
                 pnlTeacher.Hide();
+                pnlRevenue.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -79,6 +81,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlRooms.Hide();
                 pnlStudents.Hide();
+                pnlRevenue.Hide();
 
                 // show students
                 pnlTeacher.Show();
@@ -121,6 +124,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlTeacher.Hide();
                 pnlStudents.Hide();
+                pnlRevenue.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -148,6 +152,27 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
                 }
             }
+            else if (panelName == "Generate Report")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+
+                // show students
+                pnlRevenue.Show();
+
+                try
+                {
+                    
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,12 +189,6 @@ namespace SomerenUI
         {
             showPanel("Dashboard");
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void imgDashboard_Click(object sender, EventArgs e)
         {
             MessageBox.Show("What happens in Someren, stays in Someren!");
@@ -184,23 +203,25 @@ namespace SomerenUI
         {
             showPanel("Rooms");
         }
-
-        private void lbl_Students_Click(object sender, EventArgs e){
-
-        }
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Lecturers");
         }
-
-        private void listViewTeacher_SelectedIndexChanged(object sender, EventArgs e)
+        private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            showPanel("Generate Report");
         }
 
-        private void menuTeacher_Click(object sender, EventArgs e)
+        private void btnGenerateReport_Click(object sender, EventArgs e)
         {
+            lblSalesOutput.Text = "69";
+            lblTurnoverOutput.Text = "69.69";
+            lblCustomersOutput.Text = "69";
+        }
 
+        private void revenueEndDate_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            revenueStartDate.MaxDate = e.Start.AddDays(-1);
         }
     }
 }
