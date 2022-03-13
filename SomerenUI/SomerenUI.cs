@@ -90,6 +90,17 @@ namespace SomerenUI
                         supplyList.SubItems.Add(supply.Stock.ToString());
                         supplyList.SubItems.Add($"{supply.Price} token(s)");
                         supplyList.SubItems.Add(supply.AmountSold.ToString());
+
+                        string warning;
+
+                        if (supply.Stock < 10)
+                        {
+                            warning = "Stock nearly depleted";
+                        }
+                        else warning = "Stock sufficient";
+
+                        supplyList.SubItems.Add(warning);
+
                         listViewDrinksSupplies.Items.Add(supplyList);
                     }
                 }
@@ -99,7 +110,70 @@ namespace SomerenUI
                 }
             }
         }
+        private void drinkAddButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(drinkNameTextBox.Text) || string.IsNullOrEmpty(drinkSupplyTextBox.Text) || string.IsNullOrEmpty(drinkPriceTextBox.Text))
+            {
+                return;
+            }
+            else
+            {
+                ListViewItem supplyList = new ListViewItem(drinkNameTextBox.Text);
+                supplyList.SubItems.Add(drinkSupplyTextBox.Text);
+                supplyList.SubItems.Add($"{drinkPriceTextBox.Text} token(s)");
+                supplyList.SubItems.Add("0");
 
+                string warning;
+
+                if (int.Parse(drinkSupplyTextBox.Text) < 10)
+                {
+                    warning = "Stock nearly depleted";
+                }
+                else warning = "Stock sufficient";
+
+                supplyList.SubItems.Add(warning);
+
+                listViewDrinksSupplies.Items.Add(supplyList);
+                drinkNameTextBox.Clear();
+                drinkPriceTextBox.Clear();
+                drinkSupplyTextBox.Clear();
+            }
+        }
+        private void drinkUpdateButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(drinkNameTextBox.Text))
+            {
+                listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text = drinkNameTextBox.Text;
+            }
+            if (!string.IsNullOrEmpty(drinkSupplyTextBox.Text))
+            {
+                listViewDrinksSupplies.SelectedItems[0].SubItems[1].Text = drinkSupplyTextBox.Text;
+
+                if (int.Parse(drinkSupplyTextBox.Text) < 10)
+                {
+                    listViewDrinksSupplies.SelectedItems[0].SubItems[4].Text = "Stock nearly depleted";
+                }
+                else if (int.Parse(drinkSupplyTextBox.Text) >= 10)
+                {
+                    listViewDrinksSupplies.SelectedItems[0].SubItems[4].Text = "Stock sufficient";
+                }
+            }
+            if (!string.IsNullOrEmpty(drinkPriceTextBox.Text))
+            {
+                listViewDrinksSupplies.SelectedItems[0].SubItems[2].Text = $"{drinkPriceTextBox.Text} token(s)";
+            }
+
+            drinkNameTextBox.Clear();
+            drinkPriceTextBox.Clear();
+            drinkSupplyTextBox.Clear();
+        }
+        private void drinkDeleteButton_Click(object sender, EventArgs e)
+        {
+            if (listViewDrinksSupplies.Items.Count > 0)
+            {
+                listViewDrinksSupplies.Items.Remove(listViewDrinksSupplies.SelectedItems[0]);
+            }
+        }
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //
