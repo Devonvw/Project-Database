@@ -31,6 +31,7 @@ namespace SomerenUI
             {
                 // hide all other panels
                 pnlStudents.Hide();
+                pnlDrinksSupplies.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -41,6 +42,7 @@ namespace SomerenUI
                 // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
+                pnlDrinksSupplies.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -66,6 +68,34 @@ namespace SomerenUI
                 catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                }
+            }
+            else if(panelName == "Drinks Supplies")
+            {
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlDrinksSupplies.Show();
+
+                try
+                {
+                    DrinkSupplyService supplyService = new DrinkSupplyService();
+                    List<DrinkSupply> drinksSupplies = supplyService.GetDrinksSupplies();
+
+                    listViewDrinksSupplies.Items.Clear();
+
+                    foreach (DrinkSupply supply in drinksSupplies)
+                    {
+                        ListViewItem supplyList = new ListViewItem(supply.DrinkName.ToString());
+                        supplyList.SubItems.Add(supply.Stock.ToString());
+                        supplyList.SubItems.Add($"{supply.Price} token(s)");
+                        supplyList.SubItems.Add(supply.AmountSold.ToString());
+                        listViewDrinksSupplies.Items.Add(supplyList);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the Drinks Supplies: " + e.Message);
                 }
             }
         }
@@ -98,6 +128,16 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+        }
+
+        private void drinksSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Drinks Supplies");
+        }
+
+        private void listViewDrinksSupplies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
