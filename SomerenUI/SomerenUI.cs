@@ -51,7 +51,7 @@ namespace SomerenUI
                 {
                     // fill the students listview within the students panel with a list of students
                     StudentService studService = new StudentService(); ;
-                    List<Student> studentList = studService.GetStudents(); ;
+                    List<Student> studentList = studService.GetStudents();
 
                     // clear the listview before filling it again
                     listViewStudents.Items.Clear();
@@ -117,7 +117,16 @@ namespace SomerenUI
                 return;
             }
             else
-            {
+            {              
+                if (listViewDrinksSupplies.FindItemWithText(drinkNameTextBox.Text) != null)
+                {
+                    MessageBox.Show($"{drinkNameTextBox.Text} already exist ");
+                    drinkNameTextBox.Clear();
+                    drinkPriceTextBox.Clear();
+                    drinkSupplyTextBox.Clear();
+                    return;
+                }
+
                 ListViewItem supplyList = new ListViewItem(drinkNameTextBox.Text);
                 supplyList.SubItems.Add(drinkSupplyTextBox.Text);
                 supplyList.SubItems.Add($"{drinkPriceTextBox.Text} token(s)");
@@ -143,20 +152,30 @@ namespace SomerenUI
         {
             if (!string.IsNullOrEmpty(drinkNameTextBox.Text))
             {
+                if (listViewDrinksSupplies.FindItemWithText(drinkNameTextBox.Text) != null)
+                {
+                    MessageBox.Show($"{drinkNameTextBox.Text} already exist ");
+                    drinkNameTextBox.Clear();
+                    drinkPriceTextBox.Clear();
+                    drinkSupplyTextBox.Clear();
+                    return;
+                }
                 listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text = drinkNameTextBox.Text;
             }
             if (!string.IsNullOrEmpty(drinkSupplyTextBox.Text))
             {
                 listViewDrinksSupplies.SelectedItems[0].SubItems[1].Text = drinkSupplyTextBox.Text;
 
+                string warning;
+
                 if (int.Parse(drinkSupplyTextBox.Text) < 10)
                 {
-                    listViewDrinksSupplies.SelectedItems[0].SubItems[4].Text = "Stock nearly depleted";
+                    warning = "Stock nearly depleted";
                 }
-                else if (int.Parse(drinkSupplyTextBox.Text) >= 10)
-                {
-                    listViewDrinksSupplies.SelectedItems[0].SubItems[4].Text = "Stock sufficient";
-                }
+                else warning = "Stock sufficient";
+
+                listViewDrinksSupplies.SelectedItems[0].SubItems[4].Text = warning;
+                
             }
             if (!string.IsNullOrEmpty(drinkPriceTextBox.Text))
             {
@@ -166,6 +185,8 @@ namespace SomerenUI
             drinkNameTextBox.Clear();
             drinkPriceTextBox.Clear();
             drinkSupplyTextBox.Clear();
+
+            List<DrinkSupply> drink = new List<DrinkSupply>();
         }
         private void drinkDeleteButton_Click(object sender, EventArgs e)
         {
