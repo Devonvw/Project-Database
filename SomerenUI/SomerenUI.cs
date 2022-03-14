@@ -14,6 +14,7 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        bool addDrinkButtonClicked;
         public SomerenUI()
         {
             InitializeComponent();
@@ -22,8 +23,7 @@ namespace SomerenUI
         private void SomerenUI_Load(object sender, EventArgs e)
         {
             showPanel("Dashboard");
-        }
-
+        }       
         private void showPanel(string panelName)
         {
 
@@ -79,29 +79,32 @@ namespace SomerenUI
 
                 try
                 {
-                    DrinkSupplyService supplyService = new DrinkSupplyService();
-                    List<DrinkSupply> drinksSupplies = supplyService.GetDrinksSupplies();
-
-                    listViewDrinksSupplies.Items.Clear();
-
-                    foreach (DrinkSupply supply in drinksSupplies)
+                    if(!addDrinkButtonClicked)
                     {
-                        ListViewItem supplyList = new ListViewItem(supply.DrinkName.ToString());
-                        supplyList.SubItems.Add(supply.Stock.ToString());
-                        supplyList.SubItems.Add($"{supply.Price} token(s)");
-                        supplyList.SubItems.Add(supply.AmountSold.ToString());
+                        DrinkSupplyService supplyService = new DrinkSupplyService();
+                        List<DrinkSupply> drinksSupplies = supplyService.GetDrinksSupplies();
 
-                        string warning;
+                        //listViewDrinksSupplies.Items.Clear();
 
-                        if (supply.Stock < 10)
+                        foreach (DrinkSupply supply in drinksSupplies)
                         {
-                            warning = "Stock nearly depleted";
+                            ListViewItem supplyList = new ListViewItem(supply.DrinkName.ToString());
+                            supplyList.SubItems.Add(supply.Stock.ToString());
+                            supplyList.SubItems.Add($"{supply.Price} token(s)");
+                            supplyList.SubItems.Add(supply.AmountSold.ToString());
+
+                            string warning;
+
+                            if (supply.Stock < 10)
+                            {
+                                warning = "Stock nearly depleted";
+                            }
+                            else warning = "Stock sufficient";
+
+                            supplyList.SubItems.Add(warning);
+
+                            listViewDrinksSupplies.Items.Add(supplyList);
                         }
-                        else warning = "Stock sufficient";
-
-                        supplyList.SubItems.Add(warning);
-
-                        listViewDrinksSupplies.Items.Add(supplyList);
                     }
                 }
                 catch (Exception e)
@@ -112,6 +115,8 @@ namespace SomerenUI
         }
         private void drinkAddButton_Click(object sender, EventArgs e)
         {
+            addDrinkButtonClicked = true;
+
             if (string.IsNullOrEmpty(drinkNameTextBox.Text) || string.IsNullOrEmpty(drinkSupplyTextBox.Text) || string.IsNullOrEmpty(drinkPriceTextBox.Text))
             {
                 return;
@@ -185,8 +190,6 @@ namespace SomerenUI
             drinkNameTextBox.Clear();
             drinkPriceTextBox.Clear();
             drinkSupplyTextBox.Clear();
-
-            List<DrinkSupply> drink = new List<DrinkSupply>();
         }
         private void drinkDeleteButton_Click(object sender, EventArgs e)
         {
@@ -195,6 +198,7 @@ namespace SomerenUI
                 listViewDrinksSupplies.Items.Remove(listViewDrinksSupplies.SelectedItems[0]);
             }
         }
+   
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //

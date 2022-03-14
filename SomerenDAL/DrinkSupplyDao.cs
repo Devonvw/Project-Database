@@ -13,12 +13,11 @@ namespace SomerenDAL
     {
         public List<DrinkSupply> GetAllDrinkSupplies()
         {
-            string query = "SELECT [name], stock = (stock - SUM(Contain.amount)), price, SUM(Contain.amount) AS [amount] " +
-                           "FROM Drink, Contain " +
-                           "WHERE Drink.drinkId = Contain.drinkId " +
-                           "GROUP BY [name], stock, Price " +
-                           "HAVING Drink.price > 1 AND Drink.price > 1 " +
-                           "ORDER BY stock DESC, price, [amount] DESC;";
+            string query = "select [name], stock, price, COALESCE(amountSold, 0) AS amount " +
+                           "FROM Drink " +
+                           "GROUP BY [name], stock, price, amountSold " +
+                           "HAVING Drink.stock > 1 AND Drink.price > 1 " +
+                           "ORDER BY stock, price, [amount] DESC;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -40,5 +39,4 @@ namespace SomerenDAL
             return drinksSupplies;
         }
     }
-
 }
