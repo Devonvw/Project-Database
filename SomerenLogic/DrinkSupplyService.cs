@@ -21,6 +21,21 @@ namespace SomerenLogic
             List<DrinkSupply> drinkksSupplies = drinkSupplydb.GetAllDrinkSupplies();
             return drinkksSupplies;
         }
+        public void AddDrinkSupply(DrinkSupply drink)
+        {
+            drinkSupplydb.AddDrinkSupply(drink);
+        }
+        public void UpdateDrinkSupply(DrinkSupply drink)
+        {
+            drinkSupplydb.UpdateDrinkSupply(drink);
+        }
+        public void DeleteDrinkSupply(DrinkSupply drink)
+        {
+            drinkSupplydb.DeleteDrinkSupply(drink);
+        }
+        public int GenerateId()
+        {
+            return drinkSupplydb.GenerateId();
+        }
     }
-
 }

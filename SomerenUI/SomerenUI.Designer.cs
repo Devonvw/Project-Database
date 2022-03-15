@@ -39,6 +39,7 @@
             this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drinksSuppliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnlStudents = new System.Windows.Forms.Panel();
@@ -49,25 +50,28 @@
             this.StudentRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Students = new System.Windows.Forms.Label();
-            this.drinksSuppliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDrinksSupplies = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nonAlcoholButton = new System.Windows.Forms.Button();
+            this.alcoholButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.drinkDeleteButton = new System.Windows.Forms.Button();
+            this.drinkUpdateButton = new System.Windows.Forms.Button();
+            this.drinkAddButton = new System.Windows.Forms.Button();
+            this.drinkPriceTextBox = new System.Windows.Forms.TextBox();
+            this.drinkSupplyTextBox = new System.Windows.Forms.TextBox();
+            this.drinkNameTextBox = new System.Windows.Forms.TextBox();
             this.listViewDrinksSupplies = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.drinkNameTextBox = new System.Windows.Forms.TextBox();
-            this.drinkSupplyTextBox = new System.Windows.Forms.TextBox();
-            this.drinkPriceTextBox = new System.Windows.Forms.TextBox();
-            this.drinkAddButton = new System.Windows.Forms.Button();
-            this.drinkUpdateButton = new System.Windows.Forms.Button();
-            this.drinkDeleteButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -156,6 +160,13 @@
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.roomsToolStripMenuItem.Text = "Rooms";
             // 
+            // drinksSuppliesToolStripMenuItem
+            // 
+            this.drinksSuppliesToolStripMenuItem.Name = "drinksSuppliesToolStripMenuItem";
+            this.drinksSuppliesToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.drinksSuppliesToolStripMenuItem.Text = "Drinks Supplies";
+            this.drinksSuppliesToolStripMenuItem.Click += new System.EventHandler(this.drinksSuppliesToolStripMenuItem_Click);
+            // 
             // pnlDashboard
             // 
             this.pnlDashboard.Controls.Add(this.lbl_Dashboard);
@@ -239,15 +250,11 @@
             this.lbl_Students.TabIndex = 3;
             this.lbl_Students.Text = "Students";
             // 
-            // drinksSuppliesToolStripMenuItem
-            // 
-            this.drinksSuppliesToolStripMenuItem.Name = "drinksSuppliesToolStripMenuItem";
-            this.drinksSuppliesToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
-            this.drinksSuppliesToolStripMenuItem.Text = "Drinks Supplies";
-            this.drinksSuppliesToolStripMenuItem.Click += new System.EventHandler(this.drinksSuppliesToolStripMenuItem_Click);
-            // 
             // pnlDrinksSupplies
             // 
+            this.pnlDrinksSupplies.Controls.Add(this.label5);
+            this.pnlDrinksSupplies.Controls.Add(this.nonAlcoholButton);
+            this.pnlDrinksSupplies.Controls.Add(this.alcoholButton);
             this.pnlDrinksSupplies.Controls.Add(this.label4);
             this.pnlDrinksSupplies.Controls.Add(this.label3);
             this.pnlDrinksSupplies.Controls.Add(this.label2);
@@ -265,9 +272,117 @@
             this.pnlDrinksSupplies.Size = new System.Drawing.Size(938, 466);
             this.pnlDrinksSupplies.TabIndex = 6;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(618, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 17);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Alter Drink Supply";
+            // 
+            // nonAlcoholButton
+            // 
+            this.nonAlcoholButton.Location = new System.Drawing.Point(694, 183);
+            this.nonAlcoholButton.Name = "nonAlcoholButton";
+            this.nonAlcoholButton.Size = new System.Drawing.Size(84, 23);
+            this.nonAlcoholButton.TabIndex = 16;
+            this.nonAlcoholButton.Text = "Alcohol Free";
+            this.nonAlcoholButton.UseVisualStyleBackColor = true;
+            // 
+            // alcoholButton
+            // 
+            this.alcoholButton.Location = new System.Drawing.Point(601, 183);
+            this.alcoholButton.Name = "alcoholButton";
+            this.alcoholButton.Size = new System.Drawing.Size(87, 23);
+            this.alcoholButton.TabIndex = 15;
+            this.alcoholButton.Text = "Alcohol";
+            this.alcoholButton.UseVisualStyleBackColor = true;
+            this.alcoholButton.Click += new System.EventHandler(this.alcoholButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(561, 149);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Price:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(553, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Supply:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(557, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Name:";
+            // 
+            // drinkDeleteButton
+            // 
+            this.drinkDeleteButton.Location = new System.Drawing.Point(601, 296);
+            this.drinkDeleteButton.Name = "drinkDeleteButton";
+            this.drinkDeleteButton.Size = new System.Drawing.Size(177, 31);
+            this.drinkDeleteButton.TabIndex = 11;
+            this.drinkDeleteButton.Text = "Delete";
+            this.drinkDeleteButton.UseVisualStyleBackColor = true;
+            this.drinkDeleteButton.Click += new System.EventHandler(this.drinkDeleteButton_Click);
+            // 
+            // drinkUpdateButton
+            // 
+            this.drinkUpdateButton.Location = new System.Drawing.Point(601, 259);
+            this.drinkUpdateButton.Name = "drinkUpdateButton";
+            this.drinkUpdateButton.Size = new System.Drawing.Size(177, 31);
+            this.drinkUpdateButton.TabIndex = 10;
+            this.drinkUpdateButton.Text = "Update";
+            this.drinkUpdateButton.UseVisualStyleBackColor = true;
+            this.drinkUpdateButton.Click += new System.EventHandler(this.drinkUpdateButton_Click);
+            // 
+            // drinkAddButton
+            // 
+            this.drinkAddButton.Location = new System.Drawing.Point(601, 221);
+            this.drinkAddButton.Name = "drinkAddButton";
+            this.drinkAddButton.Size = new System.Drawing.Size(177, 32);
+            this.drinkAddButton.TabIndex = 9;
+            this.drinkAddButton.Text = "Add";
+            this.drinkAddButton.UseVisualStyleBackColor = true;
+            this.drinkAddButton.Click += new System.EventHandler(this.drinkAddButton_Click);
+            // 
+            // drinkPriceTextBox
+            // 
+            this.drinkPriceTextBox.Location = new System.Drawing.Point(601, 146);
+            this.drinkPriceTextBox.Name = "drinkPriceTextBox";
+            this.drinkPriceTextBox.Size = new System.Drawing.Size(177, 20);
+            this.drinkPriceTextBox.TabIndex = 8;
+            // 
+            // drinkSupplyTextBox
+            // 
+            this.drinkSupplyTextBox.Location = new System.Drawing.Point(601, 111);
+            this.drinkSupplyTextBox.Name = "drinkSupplyTextBox";
+            this.drinkSupplyTextBox.Size = new System.Drawing.Size(177, 20);
+            this.drinkSupplyTextBox.TabIndex = 7;
+            // 
+            // drinkNameTextBox
+            // 
+            this.drinkNameTextBox.Location = new System.Drawing.Point(601, 78);
+            this.drinkNameTextBox.Name = "drinkNameTextBox";
+            this.drinkNameTextBox.Size = new System.Drawing.Size(177, 20);
+            this.drinkNameTextBox.TabIndex = 6;
+            // 
             // listViewDrinksSupplies
             // 
             this.listViewDrinksSupplies.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -304,13 +419,18 @@
             this.columnHeader4.Text = "Amount Sold";
             this.columnHeader4.Width = 74;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Warning";
+            this.columnHeader5.Width = 179;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
             this.pictureBox2.Location = new System.Drawing.Point(805, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox2.Size = new System.Drawing.Size(130, 120);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -324,88 +444,10 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Drinks Supplies";
             // 
-            // columnHeader5
+            // columnHeader6
             // 
-            this.columnHeader5.Text = "Warning";
-            this.columnHeader5.Width = 200;
-            // 
-            // drinkNameTextBox
-            // 
-            this.drinkNameTextBox.Location = new System.Drawing.Point(601, 42);
-            this.drinkNameTextBox.Name = "drinkNameTextBox";
-            this.drinkNameTextBox.Size = new System.Drawing.Size(177, 20);
-            this.drinkNameTextBox.TabIndex = 6;
-            // 
-            // drinkSupplyTextBox
-            // 
-            this.drinkSupplyTextBox.Location = new System.Drawing.Point(601, 85);
-            this.drinkSupplyTextBox.Name = "drinkSupplyTextBox";
-            this.drinkSupplyTextBox.Size = new System.Drawing.Size(177, 20);
-            this.drinkSupplyTextBox.TabIndex = 7;
-            // 
-            // drinkPriceTextBox
-            // 
-            this.drinkPriceTextBox.Location = new System.Drawing.Point(601, 131);
-            this.drinkPriceTextBox.Name = "drinkPriceTextBox";
-            this.drinkPriceTextBox.Size = new System.Drawing.Size(177, 20);
-            this.drinkPriceTextBox.TabIndex = 8;
-            // 
-            // drinkAddButton
-            // 
-            this.drinkAddButton.Location = new System.Drawing.Point(601, 180);
-            this.drinkAddButton.Name = "drinkAddButton";
-            this.drinkAddButton.Size = new System.Drawing.Size(177, 32);
-            this.drinkAddButton.TabIndex = 9;
-            this.drinkAddButton.Text = "Add";
-            this.drinkAddButton.UseVisualStyleBackColor = true;
-            this.drinkAddButton.Click += new System.EventHandler(this.drinkAddButton_Click);
-            // 
-            // drinkUpdateButton
-            // 
-            this.drinkUpdateButton.Location = new System.Drawing.Point(601, 239);
-            this.drinkUpdateButton.Name = "drinkUpdateButton";
-            this.drinkUpdateButton.Size = new System.Drawing.Size(177, 31);
-            this.drinkUpdateButton.TabIndex = 10;
-            this.drinkUpdateButton.Text = "Update";
-            this.drinkUpdateButton.UseVisualStyleBackColor = true;
-            this.drinkUpdateButton.Click += new System.EventHandler(this.drinkUpdateButton_Click);
-            // 
-            // drinkDeleteButton
-            // 
-            this.drinkDeleteButton.Location = new System.Drawing.Point(601, 296);
-            this.drinkDeleteButton.Name = "drinkDeleteButton";
-            this.drinkDeleteButton.Size = new System.Drawing.Size(177, 31);
-            this.drinkDeleteButton.TabIndex = 11;
-            this.drinkDeleteButton.Text = "Delete";
-            this.drinkDeleteButton.UseVisualStyleBackColor = true;
-            this.drinkDeleteButton.Click += new System.EventHandler(this.drinkDeleteButton_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(531, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Drink name:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(553, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Supply:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(561, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Price:";
+            this.columnHeader6.Text = "ID";
+            this.columnHeader6.Width = 24;
             // 
             // SomerenUI
             // 
@@ -479,6 +521,10 @@
         private System.Windows.Forms.TextBox drinkPriceTextBox;
         private System.Windows.Forms.TextBox drinkSupplyTextBox;
         private System.Windows.Forms.TextBox drinkNameTextBox;
+        private System.Windows.Forms.Button nonAlcoholButton;
+        private System.Windows.Forms.Button alcoholButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 
