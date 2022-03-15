@@ -64,18 +64,18 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.teacherLabel = new System.Windows.Forms.Label();
             this.pnlRevenue = new System.Windows.Forms.Panel();
+            this.lblCustomersOutput = new System.Windows.Forms.Label();
+            this.lblTurnoverOutput = new System.Windows.Forms.Label();
+            this.lblSalesOutput = new System.Windows.Forms.Label();
+            this.lblCustomers = new System.Windows.Forms.Label();
+            this.lblTurnover = new System.Windows.Forms.Label();
+            this.lblSales = new System.Windows.Forms.Label();
             this.btnGenerateReport = new System.Windows.Forms.Button();
             this.lblToDate = new System.Windows.Forms.Label();
             this.lblFromDate = new System.Windows.Forms.Label();
             this.revenueEndDate = new System.Windows.Forms.MonthCalendar();
             this.revenueStartDate = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblSales = new System.Windows.Forms.Label();
-            this.lblTurnover = new System.Windows.Forms.Label();
-            this.lblCustomers = new System.Windows.Forms.Label();
-            this.lblSalesOutput = new System.Windows.Forms.Label();
-            this.lblTurnoverOutput = new System.Windows.Forms.Label();
-            this.lblCustomersOutput = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -127,19 +127,19 @@
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(165, 26);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -388,6 +388,60 @@
             this.pnlRevenue.Size = new System.Drawing.Size(950, 478);
             this.pnlRevenue.TabIndex = 7;
             // 
+            // lblCustomersOutput
+            // 
+            this.lblCustomersOutput.AutoSize = true;
+            this.lblCustomersOutput.Location = new System.Drawing.Point(645, 154);
+            this.lblCustomersOutput.Name = "lblCustomersOutput";
+            this.lblCustomersOutput.Size = new System.Drawing.Size(14, 16);
+            this.lblCustomersOutput.TabIndex = 11;
+            this.lblCustomersOutput.Text = "0";
+            // 
+            // lblTurnoverOutput
+            // 
+            this.lblTurnoverOutput.AutoSize = true;
+            this.lblTurnoverOutput.Location = new System.Drawing.Point(645, 126);
+            this.lblTurnoverOutput.Name = "lblTurnoverOutput";
+            this.lblTurnoverOutput.Size = new System.Drawing.Size(14, 16);
+            this.lblTurnoverOutput.TabIndex = 10;
+            this.lblTurnoverOutput.Text = "0";
+            // 
+            // lblSalesOutput
+            // 
+            this.lblSalesOutput.AutoSize = true;
+            this.lblSalesOutput.Location = new System.Drawing.Point(645, 96);
+            this.lblSalesOutput.Name = "lblSalesOutput";
+            this.lblSalesOutput.Size = new System.Drawing.Size(14, 16);
+            this.lblSalesOutput.TabIndex = 9;
+            this.lblSalesOutput.Text = "0";
+            // 
+            // lblCustomers
+            // 
+            this.lblCustomers.AutoSize = true;
+            this.lblCustomers.Location = new System.Drawing.Point(551, 154);
+            this.lblCustomers.Name = "lblCustomers";
+            this.lblCustomers.Size = new System.Drawing.Size(71, 16);
+            this.lblCustomers.TabIndex = 8;
+            this.lblCustomers.Text = "Customers";
+            // 
+            // lblTurnover
+            // 
+            this.lblTurnover.AutoSize = true;
+            this.lblTurnover.Location = new System.Drawing.Point(551, 126);
+            this.lblTurnover.Name = "lblTurnover";
+            this.lblTurnover.Size = new System.Drawing.Size(64, 16);
+            this.lblTurnover.TabIndex = 7;
+            this.lblTurnover.Text = "Turnover:";
+            // 
+            // lblSales
+            // 
+            this.lblSales.AutoSize = true;
+            this.lblSales.Location = new System.Drawing.Point(551, 96);
+            this.lblSales.Name = "lblSales";
+            this.lblSales.Size = new System.Drawing.Size(45, 16);
+            this.lblSales.TabIndex = 6;
+            this.lblSales.Text = "Sales:";
+            // 
             // btnGenerateReport
             // 
             this.btnGenerateReport.Location = new System.Drawing.Point(186, 326);
@@ -419,7 +473,7 @@
             // revenueEndDate
             // 
             this.revenueEndDate.Location = new System.Drawing.Point(257, 94);
-            this.revenueEndDate.MaxDate = new System.DateTime(2022, 3, 12, 0, 0, 0, 0);
+            this.revenueEndDate.MaxDate = new System.DateTime(2022, 3, 15, 0, 0, 0, 0);
             this.revenueEndDate.Name = "revenueEndDate";
             this.revenueEndDate.TabIndex = 2;
             this.revenueEndDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.revenueEndDate_DateChanged);
@@ -427,7 +481,7 @@
             // revenueStartDate
             // 
             this.revenueStartDate.Location = new System.Drawing.Point(20, 94);
-            this.revenueStartDate.MaxDate = new System.DateTime(2022, 3, 12, 0, 0, 0, 0);
+            this.revenueStartDate.MaxDate = new System.DateTime(2022, 3, 15, 0, 0, 0, 0);
             this.revenueStartDate.Name = "revenueStartDate";
             this.revenueStartDate.TabIndex = 1;
             // 
@@ -440,60 +494,6 @@
             this.label1.Size = new System.Drawing.Size(357, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Generate a revenue report";
-            // 
-            // lblSales
-            // 
-            this.lblSales.AutoSize = true;
-            this.lblSales.Location = new System.Drawing.Point(551, 96);
-            this.lblSales.Name = "lblSales";
-            this.lblSales.Size = new System.Drawing.Size(45, 16);
-            this.lblSales.TabIndex = 6;
-            this.lblSales.Text = "Sales:";
-            // 
-            // lblTurnover
-            // 
-            this.lblTurnover.AutoSize = true;
-            this.lblTurnover.Location = new System.Drawing.Point(551, 126);
-            this.lblTurnover.Name = "lblTurnover";
-            this.lblTurnover.Size = new System.Drawing.Size(64, 16);
-            this.lblTurnover.TabIndex = 7;
-            this.lblTurnover.Text = "Turnover:";
-            // 
-            // lblCustomers
-            // 
-            this.lblCustomers.AutoSize = true;
-            this.lblCustomers.Location = new System.Drawing.Point(551, 154);
-            this.lblCustomers.Name = "lblCustomers";
-            this.lblCustomers.Size = new System.Drawing.Size(71, 16);
-            this.lblCustomers.TabIndex = 8;
-            this.lblCustomers.Text = "Customers";
-            // 
-            // lblSalesOutput
-            // 
-            this.lblSalesOutput.AutoSize = true;
-            this.lblSalesOutput.Location = new System.Drawing.Point(645, 96);
-            this.lblSalesOutput.Name = "lblSalesOutput";
-            this.lblSalesOutput.Size = new System.Drawing.Size(14, 16);
-            this.lblSalesOutput.TabIndex = 9;
-            this.lblSalesOutput.Text = "0";
-            // 
-            // lblTurnoverOutput
-            // 
-            this.lblTurnoverOutput.AutoSize = true;
-            this.lblTurnoverOutput.Location = new System.Drawing.Point(645, 126);
-            this.lblTurnoverOutput.Name = "lblTurnoverOutput";
-            this.lblTurnoverOutput.Size = new System.Drawing.Size(14, 16);
-            this.lblTurnoverOutput.TabIndex = 10;
-            this.lblTurnoverOutput.Text = "0";
-            // 
-            // lblCustomersOutput
-            // 
-            this.lblCustomersOutput.AutoSize = true;
-            this.lblCustomersOutput.Location = new System.Drawing.Point(645, 154);
-            this.lblCustomersOutput.Name = "lblCustomersOutput";
-            this.lblCustomersOutput.Size = new System.Drawing.Size(14, 16);
-            this.lblCustomersOutput.TabIndex = 11;
-            this.lblCustomersOutput.Text = "0";
             // 
             // SomerenUI
             // 

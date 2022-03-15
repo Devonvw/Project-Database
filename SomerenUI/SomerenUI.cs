@@ -14,8 +14,10 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        private RevenueService revenueService;
         public SomerenUI()
         {
+            revenueService = new RevenueService();
             InitializeComponent();
         }
 
@@ -166,7 +168,8 @@ namespace SomerenUI
 
                 try
                 {
-                    
+                    //RevenueService revenueService = new RevenueService(); ;
+                    //int sales = revenueService.GetSales(revenueStartDate.DateSelected.Value, revenueEndDate.DateSelected.Value);
                 }
                 catch (Exception e)
                 {
@@ -214,9 +217,16 @@ namespace SomerenUI
 
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
-            lblSalesOutput.Text = "69";
-            lblTurnoverOutput.Text = "69.69";
-            lblCustomersOutput.Text = "69";
+            try
+            {
+                lblSalesOutput.Text = revenueService.GetSales(revenueStartDate.SelectionRange.Start, revenueEndDate.SelectionRange.Start).ToString();
+                lblTurnoverOutput.Text = revenueService.GetTurnover(revenueStartDate.SelectionRange.Start, revenueEndDate.SelectionRange.Start).ToString();
+                lblCustomersOutput.Text = revenueService.GetCustomers(revenueStartDate.SelectionRange.Start, revenueEndDate.SelectionRange.Start).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong while loading the rooms: " + ex.Message);
+            }
         }
 
         private void revenueEndDate_DateChanged(object sender, DateRangeEventArgs e)
