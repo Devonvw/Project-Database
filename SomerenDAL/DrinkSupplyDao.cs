@@ -13,6 +13,8 @@ namespace SomerenDAL
     {
         public List<DrinkSupply> GetAllDrinkSupplies()
         {
+            UpdateAmountOfSalesForEachDrink();
+
             string query = "select drinkId, [name], stock, price, vatId, COALESCE(amountSold, 0) AS amount " +
                            "FROM Drink " +
                            "GROUP BY drinkId, [name], stock, price, amountSold, vatId " +
@@ -44,23 +46,23 @@ namespace SomerenDAL
         {
             string queryID = $"SELECT TOP 1 drinkId FROM Drink ORDER BY drinkId DESC;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadLastIdFromTable(ExecuteSelectQuery(queryID, sqlParameters)) + 1;
+            DataTable dataTable = ExecuteSelectQuery(queryID, sqlParameters);
+            return (int)dataTable.Rows[0]["drinkId"] + 1;
         }
-        private int ReadLastIdFromTable(DataTable dataTable)
+        public void UpdateAmountOfSalesForEachDrink()
         {
-            int ID = 0;
-
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                ID = (int)(dr["drinkId"]);
-            }
-            return ID;
+            SqlCommand command = new SqlCommand();
+            command.Connection = OpenConnection();
+            string queryID = $"UPDATE Drink SET amountSold = (SELECT SUM(amount) AS sales FROM Contain WHERE drinkId = Drink.drinkId);";
+            command.CommandText = queryID;
+            command.ExecuteNonQuery();
+            command.Connection.Close();
         }
         public void AddDrinkSupply(DrinkSupply drink)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = OpenConnection();
-            string query = "SET IDENTITY_INSERT Drink ON INSERT INTO Drink(drinkId, [name], stock, price, vatId, amountSold) VALUES(3, 'Fanta', 100, 2, 1, 0) SET IDENTITY_INSERT Drink OFF;";
+            string query = "SET IDENTITY_INSERT Drink ON INSERT INTO Drink(drinkId, [name], stock, price, vatId, amountSold) VALUES(@drinkId, @name, @stock, @price, @vatId, @amount) SET IDENTITY_INSERT Drink OFF;";
             command.CommandText = query;
             command.Parameters.AddWithValue("@drinkId", drink.DrinkId);
             command.Parameters.AddWithValue("@name", drink.DrinkName);

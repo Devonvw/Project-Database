@@ -307,11 +307,6 @@ namespace SomerenUI
             showPanel("Dashboard");
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void imgDashboard_Click(object sender, EventArgs e)
         {
             MessageBox.Show("What happens in Someren, stays in Someren!");
@@ -322,14 +317,9 @@ namespace SomerenUI
             showPanel("Students");
         }
 
-        private void drinksSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void drinksSuppliesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             showPanel("Drinks Supplies");
-        }
-
-        private void listViewDrinksSupplies_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
