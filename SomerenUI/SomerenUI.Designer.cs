@@ -473,7 +473,7 @@
             // revenueEndDate
             // 
             this.revenueEndDate.Location = new System.Drawing.Point(257, 94);
-            this.revenueEndDate.MaxDate = new System.DateTime(2022, 3, 15, 0, 0, 0, 0);
+            this.revenueEndDate.MaxDate = System.DateTime.Today;
             this.revenueEndDate.Name = "revenueEndDate";
             this.revenueEndDate.TabIndex = 2;
             this.revenueEndDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.revenueEndDate_DateChanged);
@@ -481,7 +481,7 @@
             // revenueStartDate
             // 
             this.revenueStartDate.Location = new System.Drawing.Point(20, 94);
-            this.revenueStartDate.MaxDate = new System.DateTime(2022, 3, 15, 0, 0, 0, 0);
+            this.revenueStartDate.MaxDate = System.DateTime.Today;
             this.revenueStartDate.Name = "revenueStartDate";
             this.revenueStartDate.TabIndex = 1;
             // 
