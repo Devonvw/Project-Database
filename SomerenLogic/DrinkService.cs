@@ -17,7 +17,7 @@ namespace SomerenLogic
             drinkdb = new DrinkDao();
         }
 
-        public List<Drink> GetRooms()
+        public List<Drink> GetDrinks()
         {
             List<Drink> drinks = drinkdb.GetDrinks();
             return drinks;

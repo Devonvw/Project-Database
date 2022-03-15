@@ -36,6 +36,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlTeacher.Hide();
                 pnlRevenue.Hide();
+                pnlCashRegister.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -166,6 +167,63 @@ namespace SomerenUI
                 // show students
                 pnlRevenue.Show();
             }
+            else if (panelName == "Cash Register")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlCashRegister.Hide();
+
+                //show cash register
+                pnlCashRegister.Show();
+
+                // 
+                try
+                {
+                    StudentService studService = new StudentService(); 
+                    List<Student> studentList = studService.GetStudents(); 
+
+                    // clear the listview before filling it again
+                    studentListView.Items.Clear();
+
+                    studentListView.View = View.Details;
+                    studentListView.FullRowSelect = true;
+                    studentListView.Columns.Add("Student id");
+                    studentListView.Columns.Add("Full Name");
+                    studentListView.Columns.Add("Bday");
+                    
+
+                    foreach (Student student in studentList)
+                    {
+                        ListViewItem li = new ListViewItem(student.Id.ToString());
+                        li.SubItems.Add(student.FullName.ToString());
+                        li.SubItems.Add(student.BirthDate.ToString("dd/MM/yyyy"));
+                        studentListView.Items.Add(li);
+                    }
+
+                    //Drinks
+                    DrinkService drinkService = new DrinkService();
+                    List<Drink> drinkList = drinkService.GetDrinks();
+
+                    // clear the listview before filling it again
+                    drinkListView.Items.Clear();
+
+                    foreach (Drink drink in drinkList)
+                    {
+                        ListViewItem li = new ListViewItem(drink.Name);
+                        li.SubItems.Add(drink.Price.ToString());
+                        li.SubItems.Add(drink.Stock.ToString());
+                        listViewStudents.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while calculating price: " + e.Message);
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -222,6 +280,11 @@ namespace SomerenUI
         private void revenueEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             revenueStartDate.MaxDate = e.Start;
+        }
+
+        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Cash Register");
         }
     }
 }

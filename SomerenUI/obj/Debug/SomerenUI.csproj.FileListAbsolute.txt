@@ -50,6 +50,5 @@ C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Datab
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.Properties.Resources.resources
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.GenerateResource.cache
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
-C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
