@@ -9,9 +9,9 @@ using SomerenModel;
 
 namespace SomerenDAL
 {
-    public class DrinkSupplyDao : BaseDao
+    public class DrinkDao : BaseDao
     {
-        public List<DrinkSupply> GetAllDrinkSupplies()
+        public List<Drink> GetAllDrinkSupplies()
         {
             UpdateAmountOfSalesForEachDrink();
 
@@ -23,9 +23,9 @@ namespace SomerenDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<DrinkSupply> ReadTables(DataTable dataTable)
+        private List<Drink> ReadTables(DataTable dataTable)
         {
-            List<DrinkSupply> drinksSupplies = new List<DrinkSupply>();
+            List<Drink> drinksSupplies = new List<Drink>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
@@ -36,18 +36,12 @@ namespace SomerenDAL
                 int vatId = (int)(dr["vatId"]);
                 int amount = (int)(dr["amount"]);
 
-                DrinkSupply drinkSuply = new DrinkSupply(drinkId, name, stock, price, vatId, amount);
+                Drink drinkSuply = new Drink(name, stock, price, vatId, amount);
+                drinkSuply.DrinkId = drinkId;
                 drinksSupplies.Add(drinkSuply);
             }
 
             return drinksSupplies;
-        }
-        public int GenerateId()
-        {
-            string queryID = $"SELECT TOP 1 drinkId FROM Drink ORDER BY drinkId DESC;";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            DataTable dataTable = ExecuteSelectQuery(queryID, sqlParameters);
-            return (int)dataTable.Rows[0]["drinkId"] + 1;
         }
         public void UpdateAmountOfSalesForEachDrink()
         {
@@ -58,23 +52,22 @@ namespace SomerenDAL
             command.ExecuteNonQuery();
             command.Connection.Close();
         }
-        public void AddDrinkSupply(DrinkSupply drink)
+        public void AddDrinkSupply(Drink drink)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = OpenConnection();
-            string query = "SET IDENTITY_INSERT Drink ON INSERT INTO Drink(drinkId, [name], stock, price, vatId, amountSold) VALUES(@drinkId, @name, @stock, @price, @vatId, @amount) SET IDENTITY_INSERT Drink OFF;";
+            string query = "INSERT INTO Drink([name], stock, price, vatId, amountSold) VALUES(@name, @stock, @price, @vatId, @amountSold);";
             command.CommandText = query;
-            command.Parameters.AddWithValue("@drinkId", drink.DrinkId);
             command.Parameters.AddWithValue("@name", drink.DrinkName);
             command.Parameters.AddWithValue("@stock", drink.Stock);
             command.Parameters.AddWithValue("@price", drink.Price);
             command.Parameters.AddWithValue("@vatId", drink.VatId);
-            command.Parameters.AddWithValue("@amount", drink.AmountSold);
+            command.Parameters.AddWithValue("@amountSold", drink.AmountSold);
             command.ExecuteNonQuery();
             command.Connection.Close();
             
         }
-        public void UpdateDrinkSupply(DrinkSupply drink)
+        public void UpdateDrinkSupply(Drink drink)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = OpenConnection();
@@ -87,7 +80,7 @@ namespace SomerenDAL
             command.ExecuteNonQuery();
             command.Connection.Close();
         }
-        public void DeleteDrinkSupply(DrinkSupply drink)
+        public void DeleteDrinkSupply(Drink drink)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = OpenConnection();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SomerenModel
 {
-    public class DrinkSupply
+    public class Drink
     {
         public int DrinkId { get; set; }
         public string DrinkName { get; set; }
@@ -15,9 +15,8 @@ namespace SomerenModel
         public int VatId { get; set; }
         public int AmountSold { get; set; }
 
-        public DrinkSupply(int drinkId, string drinkName, int stock, double price, int vatId, int amountSold)
+        public Drink(string drinkName, int stock, double price, int vatId, int amountSold)
         {
-            DrinkId = drinkId;
             DrinkName = drinkName;
             Stock = stock;
             Price = price;
