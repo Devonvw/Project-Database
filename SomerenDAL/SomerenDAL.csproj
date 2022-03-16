@@ -64,11 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDao.cs" />
-<<<<<<< HEAD
     <Compile Include="DrinkDao.cs" />
-=======
     <Compile Include="DrinkSupplyDao.cs" />
->>>>>>> origin/Alan
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RevenueDao.cs" />
     <Compile Include="RoomDao.cs" />
