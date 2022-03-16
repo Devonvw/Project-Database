@@ -17,3 +17,7 @@ C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\Somere
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.AssemblyReference.cache
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SomerenModel;
 using System.Data;
 using System.Data.SqlClient;
+using SomerenModel;
 
 namespace SomerenDAL
 {
