@@ -15,19 +15,18 @@ namespace SomerenUI
     public partial class SomerenUI : Form
     {
         private RevenueService revenueService;
+        private bool drinkIsAlcohol;
         public SomerenUI()
         {
             revenueService = new RevenueService();
             InitializeComponent();
         }
-
         private void SomerenUI_Load(object sender, EventArgs e)
         {
             showPanel("Dashboard");
         }   
         private void showPanel(string panelName)
         {
-
             if (panelName == "Dashboard")
             {
                 pnlStudents.Hide();
@@ -81,6 +80,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlStudents.Hide();
                 pnlRevenue.Hide();
+                pnlDrinksSupplies.Hide();
 
                 // show students
                 pnlTeacher.Show();
@@ -116,14 +116,51 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the lecturers: " + e.Message);
                 }
             }
-            else if(panelName == "Drinks Supplies")
+            else if (panelName == "Rooms")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlStudents.Hide();
+                pnlRevenue.Hide();
+                pnlDrinksSupplies.Hide();
+
+                // show students
+                pnlRooms.Show();
+
+                try
+                {
+                    // fill the students listview within the students panel with a list of students
+                    RoomService roomService = new RoomService(); ;
+                    List<Room> roomList = roomService.GetRooms(); ;
+
+                    // clear the listview before filling it again
+                    listViewRooms.Items.Clear();
+
+                    foreach (Room room in roomList)
+                    {
+                        ListViewItem li = new ListViewItem(room.Id.ToString());
+                        li.SubItems.Add(room.Capacity.ToString());
+                        li.SubItems.Add(room.Capacity == 1 ? "Teacher" : "Student");
+
+                        listViewRooms.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
+                }
+            }
+            else if (panelName == "Drinks Supplies")
             {
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
                 pnlStudents.Hide();
-                //pnlLectures.Hide();
-                //pnlActivities.Hide();
-                //pnlRoom.Hide();
+                pnlTeacher.Hide();
+                pnlRooms.Hide();
+                pnlRevenue.Hide();
+
                 pnlDrinksSupplies.Show();
 
                 try
@@ -160,41 +197,6 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the Drinks Supplies: " + e.Message);
                 }
             }
-            else if (panelName == "Rooms")
-            {
-                // hide all other panels
-                pnlDashboard.Hide();
-                imgDashboard.Hide();
-                pnlTeacher.Hide();
-                pnlStudents.Hide();
-                pnlRevenue.Hide();
-
-                // show students
-                pnlRooms.Show();
-
-                try
-                {
-                    // fill the students listview within the students panel with a list of students
-                    RoomService roomService = new RoomService(); ;
-                    List<Room> roomList = roomService.GetRooms(); ;
-
-                    // clear the listview before filling it again
-                    listViewRooms.Items.Clear();
-
-                    foreach (Room room in roomList)
-                    {
-                        ListViewItem li = new ListViewItem(room.Id.ToString());
-                        li.SubItems.Add(room.Capacity.ToString());
-                        li.SubItems.Add(room.Capacity == 1 ? "Teacher" : "Student");
-
-                        listViewRooms.Items.Add(li);
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
-                }
-            }
             else if (panelName == "Generate Report")
             {
                 // hide all other panels
@@ -203,14 +205,12 @@ namespace SomerenUI
                 pnlTeacher.Hide();
                 pnlStudents.Hide();
                 pnlRooms.Hide();
+                pnlDrinksSupplies.Hide();
 
                 // show students
                 pnlRevenue.Show();
             }
         }
-
-        //Bool Used to give each added drink a VAT TYPE (1 OR 2)
-        public bool drinkIsAlcohol;
         //Confirm Alcohol
         private void alcoholButton_Click(object sender, EventArgs e)
         {
@@ -221,7 +221,6 @@ namespace SomerenUI
         {
             drinkIsAlcohol = false;
         }
-
         //ADD drinks to List AND Database (DONE)
         private void drinkAddButton_Click(object sender, EventArgs e)
         {
@@ -386,12 +385,10 @@ namespace SomerenUI
         {
             //
         }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             showPanel("Dashboard");
@@ -400,12 +397,10 @@ namespace SomerenUI
         {
             MessageBox.Show("What happens in Someren, stays in Someren!");
         }
-
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
         }
-
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Rooms");
@@ -418,7 +413,10 @@ namespace SomerenUI
         {
             showPanel("Generate Report");
         }
-
+        private void drinksSuppliesStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Drinks Supplies");
+        }
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
             try
@@ -432,19 +430,9 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while generating the revenue report: " + ex.Message);
             }
         }
-
         private void revenueEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             revenueStartDate.MaxDate = e.Start;
-        }
-
-    private void drinksSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void drinksSuppliesStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Drinks Supplies");
         }
     }
 }
