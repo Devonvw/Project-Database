@@ -165,16 +165,6 @@ namespace SomerenUI
 
                 // show students
                 pnlRevenue.Show();
-
-                try
-                {
-                    //RevenueService revenueService = new RevenueService(); ;
-                    //int sales = revenueService.GetSales(revenueStartDate.DateSelected.Value, revenueEndDate.DateSelected.Value);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
-                }
             }
         }
 
@@ -225,13 +215,13 @@ namespace SomerenUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong while loading the rooms: " + ex.Message);
+                MessageBox.Show("Something went wrong while generating the revenue report: " + ex.Message);
             }
         }
 
         private void revenueEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
-            revenueStartDate.MaxDate = e.Start.AddDays(-1);
+            revenueStartDate.MaxDate = e.Start;
         }
     }
 }
