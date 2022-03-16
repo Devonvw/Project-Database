@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SomerenDAL</RootNamespace>
     <AssemblyName>SomerenDAL</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDao.cs" />
+    <Compile Include="DrinkDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RevenueDao.cs" />
     <Compile Include="RoomDao.cs" />

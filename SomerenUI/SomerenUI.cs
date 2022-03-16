@@ -14,8 +14,10 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        private RevenueService revenueService;
         public SomerenUI()
         {
+            revenueService = new RevenueService();
             InitializeComponent();
         }
 
@@ -34,6 +36,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlTeacher.Hide();
                 pnlRevenue.Hide();
+                pnlCashRegister.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -163,14 +166,62 @@ namespace SomerenUI
 
                 // show students
                 pnlRevenue.Show();
+            }
+            else if (panelName == "Cash Register")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlCashRegister.Hide();
 
+                //show cash register
+                pnlCashRegister.Show();
+
+                // 
                 try
                 {
+                    StudentService studService = new StudentService(); 
+                    List<Student> studentList = studService.GetStudents(); 
+
+                    // clear the listview before filling it again
+                    studentListView.Items.Clear();
+
+                    studentListView.View = View.Details;
+                    studentListView.FullRowSelect = true;
+                    studentListView.Columns.Add("Student id");
+                    studentListView.Columns.Add("Full Name");
+                    studentListView.Columns.Add("Bday");
                     
+
+                    foreach (Student student in studentList)
+                    {
+                        ListViewItem li = new ListViewItem(student.Id.ToString());
+                        li.SubItems.Add(student.FullName.ToString());
+                        li.SubItems.Add(student.BirthDate.ToString("dd/MM/yyyy"));
+                        studentListView.Items.Add(li);
+                    }
+
+                    //Drinks
+                    DrinkService drinkService = new DrinkService();
+                    List<Drink> drinkList = drinkService.GetDrinks();
+
+                    // clear the listview before filling it again
+                    drinkListView.Items.Clear();
+
+                    foreach (Drink drink in drinkList)
+                    {
+                        ListViewItem li = new ListViewItem(drink.Name);
+                        li.SubItems.Add(drink.Price.ToString());
+                        li.SubItems.Add(drink.Stock.ToString());
+                        listViewStudents.Items.Add(li);
+                    }
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
+                    MessageBox.Show("Something went wrong while calculating price: " + e.Message);
                 }
             }
         }
@@ -214,14 +265,26 @@ namespace SomerenUI
 
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
-            lblSalesOutput.Text = "69";
-            lblTurnoverOutput.Text = "69.69";
-            lblCustomersOutput.Text = "69";
+            try
+            {
+                lblSalesOutput.Text = revenueService.GetSales(revenueStartDate.SelectionRange.Start, revenueEndDate.SelectionRange.Start).ToString();
+                lblTurnoverOutput.Text = revenueService.GetTurnover(revenueStartDate.SelectionRange.Start, revenueEndDate.SelectionRange.Start).ToString();
+                lblCustomersOutput.Text = revenueService.GetCustomers(revenueStartDate.SelectionRange.Start, revenueEndDate.SelectionRange.Start).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong while generating the revenue report: " + ex.Message);
+            }
         }
 
         private void revenueEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
-            revenueStartDate.MaxDate = e.Start.AddDays(-1);
+            revenueStartDate.MaxDate = e.Start;
+        }
+
+        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Cash Register");
         }
     }
 }
