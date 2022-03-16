@@ -31,9 +31,6 @@ namespace SomerenUI
                 // hide all other panels
                 pnlStudents.Hide();
                 pnlDrinksSupplies.Hide();
-                //pnlLectures.Hide();
-                //pnlActivities.Hide();
-                //pnlRoom.Hide();
 
                 pnlDashboard.Show();
                 imgDashboard.Show();
@@ -44,9 +41,6 @@ namespace SomerenUI
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
                 pnlDrinksSupplies.Hide();
-                //pnlLectures.Hide();
-                //pnlActivities.Hide();
-                //pnlRoom.Hide();
 
                 pnlStudents.Show();
 
@@ -78,9 +72,7 @@ namespace SomerenUI
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
                 pnlStudents.Hide();
-                //pnlLectures.Hide();
-                //pnlActivities.Hide();
-                //pnlRoom.Hide();
+
                 pnlDrinksSupplies.Show();
 
                 try
@@ -317,7 +309,7 @@ namespace SomerenUI
             showPanel("Students");
         }
 
-        private void drinksSuppliesToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void barToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Drinks Supplies");
         }
