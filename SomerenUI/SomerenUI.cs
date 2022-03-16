@@ -316,10 +316,9 @@ namespace SomerenUI
         {
             showPanel("Students");
         }
-
-        private void drinksSuppliesToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void drinksSuppliesStripMenuItem_Click(object sender, EventArgs e)
         {
-            showPanel("Drinks Supplies");
+            showPanel("Students");
         }
     }
 }

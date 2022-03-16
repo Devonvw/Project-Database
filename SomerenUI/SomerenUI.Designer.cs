@@ -39,8 +39,7 @@
             this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.barToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.drinksSuppliesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.drinksSuppliesStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnlStudents = new System.Windows.Forms.Panel();
@@ -99,7 +98,7 @@
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.barToolStripMenuItem});
+            this.drinksSuppliesStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(962, 24);
@@ -161,20 +160,12 @@
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.roomsToolStripMenuItem.Text = "Rooms";
             // 
-            // barToolStripMenuItem
+            // drinksSuppliesStripMenuItem
             // 
-            this.barToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.drinksSuppliesToolStripMenuItem1});
-            this.barToolStripMenuItem.Name = "barToolStripMenuItem";
-            this.barToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.barToolStripMenuItem.Text = "Bar Service";
-            // 
-            // drinksSuppliesToolStripMenuItem1
-            // 
-            this.drinksSuppliesToolStripMenuItem1.Name = "drinksSuppliesToolStripMenuItem1";
-            this.drinksSuppliesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.drinksSuppliesToolStripMenuItem1.Text = "Drinks Supplies";
-            this.drinksSuppliesToolStripMenuItem1.Click += new System.EventHandler(this.drinksSuppliesToolStripMenuItem1_Click);
+            this.drinksSuppliesStripMenuItem.Name = "drinksSuppliesStripMenuItem";
+            this.drinksSuppliesStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.drinksSuppliesStripMenuItem.Text = "Drinks Supplies";
+            this.drinksSuppliesStripMenuItem.Click += new System.EventHandler(this.drinksSuppliesStripMenuItem_Click);
             // 
             // pnlDashboard
             // 
@@ -531,8 +522,7 @@
         private System.Windows.Forms.Button alcoholButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ToolStripMenuItem barToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem drinksSuppliesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem drinksSuppliesStripMenuItem;
     }
 }
 
