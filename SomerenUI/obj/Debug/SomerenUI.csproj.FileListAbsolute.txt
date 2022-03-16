@@ -35,3 +35,4 @@ C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\Someren
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll.config
+C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll.config

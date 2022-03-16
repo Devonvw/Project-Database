@@ -82,10 +82,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SomerenDAL\SomerenDAL.csproj">
-      <Project>{5c8bda73-f134-4af6-bb41-dbe88eba2615}</Project>
-      <Name>SomerenDAL</Name>
-    </ProjectReference>
+    <None Include="Resources\someren.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SomerenLogic\SomerenLogic.csproj">
       <Project>{715fc326-1104-4e49-8df2-a36e0458067d}</Project>
       <Name>SomerenLogic</Name>
@@ -94,9 +93,6 @@
       <Project>{90a9ed02-35d3-4d84-80e4-458bc835c722}</Project>
       <Name>SomerenModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\someren.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
