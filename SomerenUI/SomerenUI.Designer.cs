@@ -78,11 +78,25 @@
             this.revenueStartDate = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlCashRegister = new System.Windows.Forms.Panel();
+            this.amountDrinksLabel = new System.Windows.Forms.Label();
+            this.amountTextbox = new System.Windows.Forms.TextBox();
+            this.orderLabel = new System.Windows.Forms.Label();
+            this.yourOrderListView = new System.Windows.Forms.ListView();
             this.checkOutButton = new System.Windows.Forms.Button();
             this.drinkLabel = new System.Windows.Forms.Label();
             this.studentLabel = new System.Windows.Forms.Label();
             this.drinkListView = new System.Windows.Forms.ListView();
+            this.drinkIdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.drinkNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.drinkPriceHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.studentListView = new System.Windows.Forms.ListView();
+            this.studentIdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.studentNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bdayHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.addDrinkButton = new System.Windows.Forms.Button();
+            this.drinkOrderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.orderPriceHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.amountHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -522,6 +536,11 @@
             // 
             // pnlCashRegister
             // 
+            this.pnlCashRegister.Controls.Add(this.addDrinkButton);
+            this.pnlCashRegister.Controls.Add(this.amountDrinksLabel);
+            this.pnlCashRegister.Controls.Add(this.amountTextbox);
+            this.pnlCashRegister.Controls.Add(this.orderLabel);
+            this.pnlCashRegister.Controls.Add(this.yourOrderListView);
             this.pnlCashRegister.Controls.Add(this.checkOutButton);
             this.pnlCashRegister.Controls.Add(this.drinkLabel);
             this.pnlCashRegister.Controls.Add(this.studentLabel);
@@ -532,21 +551,62 @@
             this.pnlCashRegister.Size = new System.Drawing.Size(828, 338);
             this.pnlCashRegister.TabIndex = 8;
             // 
+            // amountDrinksLabel
+            // 
+            this.amountDrinksLabel.AutoSize = true;
+            this.amountDrinksLabel.Location = new System.Drawing.Point(716, 13);
+            this.amountDrinksLabel.Name = "amountDrinksLabel";
+            this.amountDrinksLabel.Size = new System.Drawing.Size(85, 12);
+            this.amountDrinksLabel.TabIndex = 8;
+            this.amountDrinksLabel.Text = "Type Amount:";
+            // 
+            // amountTextbox
+            // 
+            this.amountTextbox.Location = new System.Drawing.Point(718, 37);
+            this.amountTextbox.Name = "amountTextbox";
+            this.amountTextbox.Size = new System.Drawing.Size(100, 21);
+            this.amountTextbox.TabIndex = 7;
+            // 
+            // orderLabel
+            // 
+            this.orderLabel.AutoSize = true;
+            this.orderLabel.Location = new System.Drawing.Point(29, 213);
+            this.orderLabel.Name = "orderLabel";
+            this.orderLabel.Size = new System.Drawing.Size(66, 12);
+            this.orderLabel.TabIndex = 6;
+            this.orderLabel.Text = "Total Price";
+            // 
+            // yourOrderListView
+            // 
+            this.yourOrderListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.drinkOrderName,
+            this.orderPriceHeader,
+            this.amountHeader});
+            this.yourOrderListView.FullRowSelect = true;
+            this.yourOrderListView.HideSelection = false;
+            this.yourOrderListView.Location = new System.Drawing.Point(163, 211);
+            this.yourOrderListView.Name = "yourOrderListView";
+            this.yourOrderListView.Size = new System.Drawing.Size(378, 97);
+            this.yourOrderListView.TabIndex = 5;
+            this.yourOrderListView.UseCompatibleStateImageBehavior = false;
+            this.yourOrderListView.View = System.Windows.Forms.View.Details;
+            // 
             // checkOutButton
             // 
             this.checkOutButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkOutButton.Location = new System.Drawing.Point(566, 280);
+            this.checkOutButton.Location = new System.Drawing.Point(566, 270);
             this.checkOutButton.Name = "checkOutButton";
             this.checkOutButton.Size = new System.Drawing.Size(132, 38);
             this.checkOutButton.TabIndex = 4;
             this.checkOutButton.Text = "Checkout";
             this.checkOutButton.UseVisualStyleBackColor = true;
+            this.checkOutButton.Click += new System.EventHandler(this.checkOutButton_Click);
             // 
             // drinkLabel
             // 
             this.drinkLabel.AutoSize = true;
             this.drinkLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drinkLabel.Location = new System.Drawing.Point(400, 34);
+            this.drinkLabel.Location = new System.Drawing.Point(371, 15);
             this.drinkLabel.Name = "drinkLabel";
             this.drinkLabel.Size = new System.Drawing.Size(47, 16);
             this.drinkLabel.TabIndex = 3;
@@ -556,7 +616,7 @@
             // 
             this.studentLabel.AutoSize = true;
             this.studentLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentLabel.Location = new System.Drawing.Point(29, 34);
+            this.studentLabel.Location = new System.Drawing.Point(28, 15);
             this.studentLabel.Name = "studentLabel";
             this.studentLabel.Size = new System.Drawing.Size(65, 16);
             this.studentLabel.TabIndex = 2;
@@ -564,30 +624,92 @@
             // 
             // drinkListView
             // 
+            this.drinkListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.drinkIdHeader,
+            this.drinkNameHeader,
+            this.drinkPriceHeader});
+            this.drinkListView.FullRowSelect = true;
             this.drinkListView.HideSelection = false;
-            this.drinkListView.Location = new System.Drawing.Point(402, 60);
+            this.drinkListView.Location = new System.Drawing.Point(374, 37);
             this.drinkListView.Name = "drinkListView";
-            this.drinkListView.Size = new System.Drawing.Size(296, 198);
+            this.drinkListView.Size = new System.Drawing.Size(296, 158);
             this.drinkListView.TabIndex = 1;
             this.drinkListView.UseCompatibleStateImageBehavior = false;
+            this.drinkListView.View = System.Windows.Forms.View.Details;
+            // 
+            // drinkIdHeader
+            // 
+            this.drinkIdHeader.Text = "drink ID";
+            // 
+            // drinkNameHeader
+            // 
+            this.drinkNameHeader.Text = "drink name";
+            this.drinkNameHeader.Width = 90;
+            // 
+            // drinkPriceHeader
+            // 
+            this.drinkPriceHeader.Text = "Price";
             // 
             // studentListView
             // 
+            this.studentListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.studentIdHeader,
+            this.studentNameHeader,
+            this.bdayHeader});
+            this.studentListView.FullRowSelect = true;
             this.studentListView.HideSelection = false;
-            this.studentListView.Location = new System.Drawing.Point(31, 60);
+            this.studentListView.Location = new System.Drawing.Point(31, 37);
             this.studentListView.Name = "studentListView";
-            this.studentListView.Size = new System.Drawing.Size(275, 198);
+            this.studentListView.Size = new System.Drawing.Size(275, 158);
             this.studentListView.TabIndex = 0;
             this.studentListView.UseCompatibleStateImageBehavior = false;
             this.studentListView.View = System.Windows.Forms.View.Details;
+            // 
+            // studentIdHeader
+            // 
+            this.studentIdHeader.Text = "Student ID";
+            this.studentIdHeader.Width = 80;
+            // 
+            // studentNameHeader
+            // 
+            this.studentNameHeader.Text = "Student Name";
+            this.studentNameHeader.Width = 100;
+            // 
+            // bdayHeader
+            // 
+            this.bdayHeader.Text = "Bday";
+            this.bdayHeader.Width = 100;
+            // 
+            // addDrinkButton
+            // 
+            this.addDrinkButton.Location = new System.Drawing.Point(718, 87);
+            this.addDrinkButton.Name = "addDrinkButton";
+            this.addDrinkButton.Size = new System.Drawing.Size(100, 32);
+            this.addDrinkButton.TabIndex = 9;
+            this.addDrinkButton.Text = "Add Drink !";
+            this.addDrinkButton.UseVisualStyleBackColor = true;
+            this.addDrinkButton.Click += new System.EventHandler(this.addDrinkButton_Click);
+            // 
+            // drinkOrderName
+            // 
+            this.drinkOrderName.Text = "Drink Name";
+            this.drinkOrderName.Width = 90;
+            // 
+            // orderPriceHeader
+            // 
+            this.orderPriceHeader.Text = "Price";
+            // 
+            // amountHeader
+            // 
+            this.amountHeader.Text = "Amount";
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 379);
-            this.Controls.Add(this.pnlCashRegister);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlCashRegister);
             this.Controls.Add(this.pnlRevenue);
             this.Controls.Add(this.pnlRooms);
             this.Controls.Add(this.pnlDashboard);
@@ -678,6 +800,20 @@
         private System.Windows.Forms.Label studentLabel;
         private System.Windows.Forms.ListView drinkListView;
         private System.Windows.Forms.ListView studentListView;
+        private System.Windows.Forms.Label orderLabel;
+        private System.Windows.Forms.ListView yourOrderListView;
+        private System.Windows.Forms.ColumnHeader drinkIdHeader;
+        private System.Windows.Forms.ColumnHeader drinkNameHeader;
+        private System.Windows.Forms.ColumnHeader drinkPriceHeader;
+        private System.Windows.Forms.Label amountDrinksLabel;
+        private System.Windows.Forms.TextBox amountTextbox;
+        private System.Windows.Forms.ColumnHeader studentIdHeader;
+        private System.Windows.Forms.ColumnHeader studentNameHeader;
+        private System.Windows.Forms.ColumnHeader bdayHeader;
+        private System.Windows.Forms.Button addDrinkButton;
+        private System.Windows.Forms.ColumnHeader drinkOrderName;
+        private System.Windows.Forms.ColumnHeader orderPriceHeader;
+        private System.Windows.Forms.ColumnHeader amountHeader;
     }
 }
 

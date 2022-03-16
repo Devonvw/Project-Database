@@ -11,11 +11,11 @@ namespace SomerenModel
         public int Id { get; set; } // StudentNumber, e.g. 474791
         public string Name { get; set; }
         public int Stock { get; set; }
-        public float Price { get; set; }
+        public double Price { get; set; }
         public int VatId { get; set; }
         public int AmountSold { get; set; }
 
-        public Drink(int id, string name, int stock, float price, int vatId, int amountSold)
+        public Drink(int id, string name, int stock, double price, int vatId, int amountSold)
         {
             Id = id;
             Name = name;

@@ -15,9 +15,12 @@ namespace SomerenUI
     public partial class SomerenUI : Form
     {
         private RevenueService revenueService;
+        private OrderService orderService;
         public SomerenUI()
         {
             revenueService = new RevenueService();
+            orderService = new OrderService();
+
             InitializeComponent();
         }
 
@@ -25,6 +28,10 @@ namespace SomerenUI
         {
             showPanel("Dashboard");
         }
+
+        string studentNameForListView = string.Empty;
+        List<int> drinkIdList = new List<int>();
+
 
         private void showPanel(string panelName)
         {
@@ -184,17 +191,11 @@ namespace SomerenUI
                 try
                 {
                     StudentService studService = new StudentService(); 
-                    List<Student> studentList = studService.GetStudents(); 
+                    List<Student> studentList = studService.GetStudents();
+
 
                     // clear the listview before filling it again
                     studentListView.Items.Clear();
-
-                    studentListView.View = View.Details;
-                    studentListView.FullRowSelect = true;
-                    studentListView.Columns.Add("Student id");
-                    studentListView.Columns.Add("Full Name");
-                    studentListView.Columns.Add("Bday");
-                    
 
                     foreach (Student student in studentList)
                     {
@@ -204,7 +205,7 @@ namespace SomerenUI
                         studentListView.Items.Add(li);
                     }
 
-                    //Drinks
+                    // Drinks
                     DrinkService drinkService = new DrinkService();
                     List<Drink> drinkList = drinkService.GetDrinks();
 
@@ -213,10 +214,11 @@ namespace SomerenUI
 
                     foreach (Drink drink in drinkList)
                     {
-                        ListViewItem li = new ListViewItem(drink.Name);
+                        ListViewItem li = new ListViewItem(drink.Id.ToString());
+                        li.SubItems.Add(drink.Name);
                         li.SubItems.Add(drink.Price.ToString());
-                        li.SubItems.Add(drink.Stock.ToString());
-                        listViewStudents.Items.Add(li);
+                        drinkListView.Items.Add(li);
+                        
                     }
                 }
                 catch (Exception e)
@@ -285,6 +287,52 @@ namespace SomerenUI
         private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Cash Register");
+        }
+
+        // add orders to DB
+        private void checkOutButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Order> orderList = orderService.GetOrders();
+
+                yourOrderListView.Items.Clear();
+
+                
+
+                string[] drinkList = new string[] { };
+
+                foreach (Order order in orderList)
+                {
+                    ListViewItem li = new ListViewItem(order.Id.ToString());
+                    studentListView.Items.Add(li);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Your transaction has been succeeded! " + ex.Message);
+            }
+        }
+
+        private void addDrinkButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (amountTextbox.Text == "")
+                {
+                    throw new Exception("Please add amount of drinks. ");
+                }
+                ListViewItem li = new ListViewItem(drinkListView.SelectedItems[0].SubItems[1].Text);
+                li.SubItems.Add((double.Parse(drinkListView.SelectedItems[0].SubItems[2].Text.ToString()) *  double.Parse(amountTextbox.Text)).ToString());
+                li.SubItems.Add(amountTextbox.Text);
+
+                yourOrderListView.Items.Add(li);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Order not successful: " + ex.Message);
+            }
+            
         }
     }
 }

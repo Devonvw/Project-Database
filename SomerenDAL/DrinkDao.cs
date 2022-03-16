@@ -13,7 +13,7 @@ namespace SomerenDAL
     {
         public List<Drink> GetDrinks()
         {
-            string query = "SELECT drinkId, name, stock, price, vatId, amountSold FROM Drink";
+            string query = "SELECT drinkId, name, stock, price, vatId, COALESCE(amountSold, 0) AS amountSold FROM Drink;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,7 +27,7 @@ namespace SomerenDAL
                 int id = (int)dr["drinkId"];
                 string name = (string)(dr["name"]).ToString();
                 int stock = (int)dr["stock"];
-                float price = (float)dr["price"];
+                double price = (double)dr["price"];
                 int vatId = (int)dr["vatId"];
                 int amountSold = (int)dr["amountSold"];
 
