@@ -1,3 +1,0 @@
-C:\Users\aland\source\Repos\Devonvw\Project-Database\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
-C:\Users\aland\source\Repos\Devonvw\Project-Database\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.SuggestedBindingRedirects.cache
-C:\Users\aland\source\Repos\Devonvw\Project-Database\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
