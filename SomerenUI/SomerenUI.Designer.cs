@@ -76,7 +76,6 @@
             this.revenueEndDate = new System.Windows.Forms.MonthCalendar();
             this.revenueStartDate = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
-            this.drinksSuppliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -106,8 +105,7 @@
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.revenueReportToolStripMenuItem,
-            this.drinksSuppliesToolStripMenuItem});
+            this.revenueReportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -129,19 +127,19 @@
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -507,13 +505,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Generate a revenue report";
             // 
-            // drinksSuppliesToolStripMenuItem
-            // 
-            this.drinksSuppliesToolStripMenuItem.Name = "drinksSuppliesToolStripMenuItem";
-            this.drinksSuppliesToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
-            this.drinksSuppliesToolStripMenuItem.Text = "Drinks Supplies";
-            this.drinksSuppliesToolStripMenuItem.Click += new System.EventHandler(this.drinksSuppliesToolStripMenuItem_Click);
-            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -600,7 +591,6 @@
         private System.Windows.Forms.Label lblTurnoverOutput;
         private System.Windows.Forms.Label lblSalesOutput;
         private System.Windows.Forms.Label lblCustomersOutput;
-        private System.Windows.Forms.ToolStripMenuItem drinksSuppliesToolStripMenuItem;
     }
 }
 
