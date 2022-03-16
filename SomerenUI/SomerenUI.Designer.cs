@@ -76,6 +76,7 @@
             this.revenueEndDate = new System.Windows.Forms.MonthCalendar();
             this.revenueStartDate = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
+            this.drinksSuppliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -105,7 +106,8 @@
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.revenueReportToolStripMenuItem});
+            this.revenueReportToolStripMenuItem,
+            this.drinksSuppliesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -271,7 +273,7 @@
             this.listViewStudents.GridLines = true;
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Location = new System.Drawing.Point(12, 34);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(2);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(576, 250);
             this.listViewStudents.TabIndex = 5;
@@ -312,7 +314,7 @@
             this.pnlTeacher.Controls.Add(this.pictureBox2);
             this.pnlTeacher.Controls.Add(this.teacherLabel);
             this.pnlTeacher.Location = new System.Drawing.Point(9, 20);
-            this.pnlTeacher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTeacher.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTeacher.Name = "pnlTeacher";
             this.pnlTeacher.Size = new System.Drawing.Size(704, 379);
             this.pnlTeacher.TabIndex = 6;
@@ -326,7 +328,7 @@
             this.listViewTeacher.GridLines = true;
             this.listViewTeacher.HideSelection = false;
             this.listViewTeacher.Location = new System.Drawing.Point(12, 34);
-            this.listViewTeacher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewTeacher.Margin = new System.Windows.Forms.Padding(2);
             this.listViewTeacher.Name = "listViewTeacher";
             this.listViewTeacher.Size = new System.Drawing.Size(576, 250);
             this.listViewTeacher.TabIndex = 5;
@@ -349,7 +351,7 @@
             this.pictureBox2.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
             this.pictureBox2.Location = new System.Drawing.Point(604, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(98, 100);
             this.pictureBox2.TabIndex = 0;
@@ -381,7 +383,7 @@
             this.pnlRevenue.Controls.Add(this.revenueStartDate);
             this.pnlRevenue.Controls.Add(this.label1);
             this.pnlRevenue.Location = new System.Drawing.Point(9, 22);
-            this.pnlRevenue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlRevenue.Margin = new System.Windows.Forms.Padding(2);
             this.pnlRevenue.Name = "pnlRevenue";
             this.pnlRevenue.Size = new System.Drawing.Size(712, 388);
             this.pnlRevenue.TabIndex = 7;
@@ -449,7 +451,7 @@
             // btnGenerateReport
             // 
             this.btnGenerateReport.Location = new System.Drawing.Point(140, 265);
-            this.btnGenerateReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGenerateReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerateReport.Name = "btnGenerateReport";
             this.btnGenerateReport.Size = new System.Drawing.Size(77, 20);
             this.btnGenerateReport.TabIndex = 5;
@@ -480,7 +482,7 @@
             // revenueEndDate
             // 
             this.revenueEndDate.Location = new System.Drawing.Point(183, 57);
-            this.revenueEndDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.revenueEndDate.Margin = new System.Windows.Forms.Padding(6);
             this.revenueEndDate.MaxDate = new System.DateTime(2022, 3, 16, 0, 0, 0, 0);
             this.revenueEndDate.Name = "revenueEndDate";
             this.revenueEndDate.TabIndex = 2;
@@ -489,7 +491,7 @@
             // revenueStartDate
             // 
             this.revenueStartDate.Location = new System.Drawing.Point(14, 57);
-            this.revenueStartDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.revenueStartDate.Margin = new System.Windows.Forms.Padding(6);
             this.revenueStartDate.MaxDate = new System.DateTime(2022, 3, 16, 0, 0, 0, 0);
             this.revenueStartDate.Name = "revenueStartDate";
             this.revenueStartDate.TabIndex = 1;
@@ -504,6 +506,13 @@
             this.label1.Size = new System.Drawing.Size(295, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Generate a revenue report";
+            // 
+            // drinksSuppliesToolStripMenuItem
+            // 
+            this.drinksSuppliesToolStripMenuItem.Name = "drinksSuppliesToolStripMenuItem";
+            this.drinksSuppliesToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.drinksSuppliesToolStripMenuItem.Text = "Drinks Supplies";
+            this.drinksSuppliesToolStripMenuItem.Click += new System.EventHandler(this.drinksSuppliesToolStripMenuItem_Click);
             // 
             // SomerenUI
             // 
@@ -591,6 +600,7 @@
         private System.Windows.Forms.Label lblTurnoverOutput;
         private System.Windows.Forms.Label lblSalesOutput;
         private System.Windows.Forms.Label lblCustomersOutput;
+        private System.Windows.Forms.ToolStripMenuItem drinksSuppliesToolStripMenuItem;
     }
 }
 

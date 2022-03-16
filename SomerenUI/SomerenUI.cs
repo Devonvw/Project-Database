@@ -223,5 +223,10 @@ namespace SomerenUI
         {
             revenueStartDate.MaxDate = e.Start;
         }
+
+        private void drinksSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
