@@ -15,10 +15,16 @@ namespace SomerenUI
     public partial class SomerenUI : Form
     {
         private RevenueService revenueService;
+        private OrderService orderService;
         private bool drinkIsAlcohol;
+        private List<OrderLine> orderLines;
+
         public SomerenUI()
         {
             revenueService = new RevenueService();
+            orderService = new OrderService();
+            orderLines = new List<OrderLine>();
+
             InitializeComponent();
         }
         private void SomerenUI_Load(object sender, EventArgs e)
@@ -34,6 +40,7 @@ namespace SomerenUI
                 pnlTeacher.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlCashRegister.Hide();
 
                 pnlDashboard.Show();
                 imgDashboard.Show();
@@ -173,8 +180,8 @@ namespace SomerenUI
 
                     foreach (Drink supply in drinksSupplies)
                     {
-                        ListViewItem supplyList = new ListViewItem(supply.DrinkId.ToString());
-                        supplyList.SubItems.Add(supply.DrinkName.ToString());
+                        ListViewItem supplyList = new ListViewItem(supply.Id.ToString());
+                        supplyList.SubItems.Add(supply.Name.ToString());
                         supplyList.SubItems.Add(supply.Stock.ToString());
                         supplyList.SubItems.Add($"{supply.Price} token(s)");
                         supplyList.SubItems.Add(supply.AmountSold.ToString());
@@ -195,6 +202,58 @@ namespace SomerenUI
                 catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong while loading the Drinks Supplies: " + e.Message);
+                }
+            }
+            else if (panelName == "Cash Register")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+
+                //show cash register
+                pnlCashRegister.Show();
+
+                // 
+                try
+                {
+                    StudentService studService = new StudentService();
+                    List<Student> studentList = studService.GetStudents();
+
+
+                    // clear the listview before filling it again
+                    studentListView.Items.Clear();
+
+                    foreach (Student student in studentList)
+                    {
+                        ListViewItem li = new ListViewItem(student.Id.ToString());
+                        li.SubItems.Add(student.FullName.ToString());
+                        li.SubItems.Add(student.BirthDate.ToString("dd/MM/yyyy"));
+                        studentListView.Items.Add(li);
+                    }
+
+                    // Drinks
+                    DrinkService drinkService = new DrinkService();
+                    List<Drink> drinkList = drinkService.GetDrinks();
+
+                    // clear the listview before filling it again
+                    drinkListView.Items.Clear();
+
+                    foreach (Drink drink in drinkList)
+                    {
+                        ListViewItem li = new ListViewItem(drink.Id.ToString());
+                        li.SubItems.Add(drink.Name);
+                        li.SubItems.Add(drink.Price.ToString());
+                        li.SubItems.Add(drink.VatId.ToString());
+                        drinkListView.Items.Add(li);
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while calculating price: " + e.Message);
                 }
             }
             else if (panelName == "Generate Report")
@@ -268,11 +327,11 @@ namespace SomerenUI
                     }
                     else vatId = 1;
 
-                    Drink drink = new Drink(drinkNameTextBox.Text, int.Parse(drinkSupplyTextBox.Text), int.Parse(drinkPriceTextBox.Text), vatId, 0);
+                    /*Drink drink = new Drink(drinkNameTextBox.Text, int.Parse(drinkSupplyTextBox.Text), int.Parse(drinkPriceTextBox.Text), vatId, 0);
 
                     service.AddDrinkSupply(drink);
 
-                    MessageBox.Show($"Succesfully added: {drink.DrinkName}!");
+                    MessageBox.Show($"Succesfully added: {drink.Name}!");*/
                 }
             }
             catch (Exception Add)
@@ -297,7 +356,7 @@ namespace SomerenUI
 
                 foreach (Drink supply in drinksSupplies)
                 {
-                    if (supply.DrinkId == int.Parse(listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text))
+                    if (supply.Id == int.Parse(listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text))
                     {
                         drink = supply;
                     }
@@ -314,7 +373,7 @@ namespace SomerenUI
                         return;
                     }
                     listViewDrinksSupplies.SelectedItems[0].SubItems[1].Text = drinkNameTextBox.Text;
-                    drink.DrinkName = drinkNameTextBox.Text;
+                    drink.Name = drinkNameTextBox.Text;
                 }
                 if (!string.IsNullOrEmpty(drinkSupplyTextBox.Text))
                 {
@@ -364,7 +423,7 @@ namespace SomerenUI
 
                     foreach (Drink supply in drinksSupplies)
                     {
-                        if (supply.DrinkName == listViewDrinksSupplies.SelectedItems[0].SubItems[1].Text)
+                        if (supply.Name == listViewDrinksSupplies.SelectedItems[0].SubItems[1].Text)
                         {
                             supplyService.DeleteDrinkSupply(supply);
                         }
@@ -431,6 +490,51 @@ namespace SomerenUI
         private void revenueEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             revenueStartDate.MaxDate = e.Start;
+        }
+
+
+        private void cashRegisterToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            showPanel("Cash Register");
+        }
+
+        private void checkOutButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                yourOrderListView.Items.Clear();
+                orderService.AddOrder(int.Parse(studentListView.SelectedItems[0].SubItems[0].Text),
+                        DateTime.Parse(studentListView.SelectedItems[0].SubItems[2].Text),
+                        orderLines);
+                MessageBox.Show("Your transaction has been succeeded!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Your transaction has NOT been succeeded! " + ex.Message);
+            }
+        }
+
+        private void addDrinkButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (amountTextbox.Text == "")
+                {
+                    throw new Exception("Please add amount of drinks. ");
+                }
+                ListViewItem li = new ListViewItem(drinkListView.SelectedItems[0].SubItems[1].Text);
+                li.SubItems.Add((double.Parse(drinkListView.SelectedItems[0].SubItems[2].Text.ToString()) * double.Parse(amountTextbox.Text)).ToString());
+                li.SubItems.Add(amountTextbox.Text);
+
+
+                orderLines.Add(new OrderLine(int.Parse(amountTextbox.Text), new Drink(int.Parse(drinkListView.SelectedItems[0].SubItems[0].Text), int.Parse(drinkListView.SelectedItems[0].SubItems[3].Text) )));
+
+                yourOrderListView.Items.Add(li);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Order not successful: " + ex.Message);
+            }
         }
     }
 }
