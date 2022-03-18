@@ -34,6 +34,7 @@ C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\Someren
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
+<<<<<<< HEAD
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll.config
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe.config
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe
@@ -52,3 +53,6 @@ C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Datab
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
 C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
+C:\Users\kimhy\OneDrive\문서\InHolland INF1A\periode_3\TlqkfJjin\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
+=======
+>>>>>>> 8128bf4e97699f0d229ca20c6b923a0a53bc39b7
