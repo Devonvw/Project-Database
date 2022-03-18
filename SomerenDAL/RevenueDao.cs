@@ -28,7 +28,7 @@ namespace SomerenDAL
             {
                 return (int)dataTable.Rows[0]["sales"];
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new InvalidOperationException($"No data found");
             }
@@ -47,7 +47,7 @@ namespace SomerenDAL
             {
                 return (double)dataTable.Rows[0]["turnover"];
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new InvalidOperationException($"No data found");
             }
@@ -67,7 +67,7 @@ namespace SomerenDAL
             {
                 return (int)dataTable.Rows[0]["customers"];
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new InvalidOperationException($"No data found");
             }
