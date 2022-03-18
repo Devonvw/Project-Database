@@ -21,7 +21,6 @@ C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\Some
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.pdb
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll.config
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll.config
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.AssemblyReference.cache
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll

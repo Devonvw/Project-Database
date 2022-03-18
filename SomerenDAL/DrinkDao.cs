@@ -21,11 +21,11 @@ namespace SomerenDAL
         {
             UpdateAmountOfSalesForEachDrink();
 
-            string query = "select drinkId, [name], stock, price, vatId, COALESCE(amountSold, 0) AS amount " +
+            string query = "select drinkId, [name], stock, price, vatId, COALESCE(amountSold, 0) AS amountSold " +
                            "FROM Drink " +
                            "GROUP BY drinkId, [name], stock, price, amountSold, vatId " +
                            "HAVING Drink.stock > 1 AND Drink.price > 1 " +
-                           "ORDER BY stock, price, [amount] DESC;";
+                           "ORDER BY stock, price, [amountSold] DESC;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

@@ -161,6 +161,7 @@ namespace SomerenUI
             }
             else if (panelName == "Drinks Supplies")
             {
+                // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
                 pnlStudents.Hide();
@@ -169,11 +170,11 @@ namespace SomerenUI
                 pnlRevenue.Hide();
                 pnlCashRegister.Hide();
 
+                //show Drink Supplies
                 pnlDrinksSupplies.Show();
 
                 try
                 {
-                    //List with Drinks directly from DB
                     DrinkSupplyService supplyService = new DrinkSupplyService();
                     List<Drink> drinksSupplies = supplyService.GetDrinksSupplies();
 
@@ -202,7 +203,7 @@ namespace SomerenUI
                 }
                 catch (Exception e)
                 {
-                    //MessageBox.Show("Something went wrong while loading the Drinks Supplies: " + e.Message);
+                    MessageBox.Show("Something went wrong while loading the Drinks Supplies: " + e.Message);
                 }
             }
             else if (panelName == "Cash Register")
@@ -267,6 +268,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlCashRegister.Hide();
 
                 // show students
                 pnlRevenue.Show();
@@ -304,7 +306,7 @@ namespace SomerenUI
 
                     DrinkSupplyService service = new DrinkSupplyService();
 
-                    ListViewItem supplyList = new ListViewItem("new");
+                    ListViewItem supplyList = new ListViewItem("X");
                     supplyList.SubItems.Add(drinkNameTextBox.Text);
                     supplyList.SubItems.Add(drinkSupplyTextBox.Text);
                     supplyList.SubItems.Add($"{drinkPriceTextBox.Text} token(s)");
@@ -472,7 +474,7 @@ namespace SomerenUI
         {
             showPanel("Generate Report");
         }
-        private void drinksSuppliesStripMenuItem_Click(object sender, EventArgs e)
+        private void drinksSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Drinks Supplies");
         }
@@ -495,7 +497,7 @@ namespace SomerenUI
         }
 
 
-        private void cashRegisterToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Cash Register");
         }

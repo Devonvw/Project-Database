@@ -21,7 +21,6 @@ C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\Somere
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.dll.config
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.dll
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.pdb
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenModel.dll
