@@ -29,15 +29,14 @@ namespace SomerenDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                int drinkId = (int)(dr["drinkId"]);
+                int id = (int)(dr["drinkId"]);
                 string name = (string)(dr["name"]).ToString();
                 int stock = (int)(dr["stock"]);
                 double price = (double)dr["price"];
                 int vatId = (int)(dr["vatId"]);
                 int amount = (int)(dr["amount"]);
 
-                Drink drinkSuply = new Drink(name, stock, price, vatId, amount);
-                drinkSuply.DrinkId = drinkId;
+                Drink drinkSuply = new Drink(id, name, stock, price, vatId, amount);
                 drinksSupplies.Add(drinkSuply);
             }
 
@@ -73,7 +72,7 @@ namespace SomerenDAL
             command.Connection = OpenConnection();
             string query = "UPDATE Drink SET [name]=@name, stock=@stock, price=@price WHERE drinkId=@drinkId;";
             command.CommandText = query;
-            command.Parameters.AddWithValue("@drinkId", drink.DrinkId);
+            command.Parameters.AddWithValue("@drinkId", drink.Id);
             command.Parameters.AddWithValue("@name", drink.DrinkName);
             command.Parameters.AddWithValue("@stock", drink.Stock);
             command.Parameters.AddWithValue("@price", drink.Price);
@@ -87,7 +86,7 @@ namespace SomerenDAL
             string query = "DELETE FROM Drink WHERE drinkId=@drinkId;";
 
             command.CommandText = query;
-            command.Parameters.AddWithValue("@drinkId", drink.DrinkId);
+            command.Parameters.AddWithValue("@drinkId", drink.Id);
             command.ExecuteNonQuery();
             command.Connection.Close();
         }

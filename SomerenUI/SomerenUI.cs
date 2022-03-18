@@ -173,7 +173,7 @@ namespace SomerenUI
 
                     foreach (Drink supply in drinksSupplies)
                     {
-                        ListViewItem supplyList = new ListViewItem(supply.DrinkId.ToString());
+                        ListViewItem supplyList = new ListViewItem(supply.Id.ToString());
                         supplyList.SubItems.Add(supply.DrinkName.ToString());
                         supplyList.SubItems.Add(supply.Stock.ToString());
                         supplyList.SubItems.Add($"{supply.Price} token(s)");
@@ -268,7 +268,7 @@ namespace SomerenUI
                     }
                     else vatId = 1;
 
-                    Drink drink = new Drink(drinkNameTextBox.Text, int.Parse(drinkSupplyTextBox.Text), int.Parse(drinkPriceTextBox.Text), vatId, 0);
+                    Drink drink = new Drink(0, drinkNameTextBox.Text, int.Parse(drinkSupplyTextBox.Text), int.Parse(drinkPriceTextBox.Text), vatId, 0);
 
                     service.AddDrinkSupply(drink);
 
@@ -297,7 +297,7 @@ namespace SomerenUI
 
                 foreach (Drink supply in drinksSupplies)
                 {
-                    if (supply.DrinkId == int.Parse(listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text))
+                    if (supply.Id == int.Parse(listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text))
                     {
                         drink = supply;
                     }
