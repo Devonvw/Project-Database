@@ -29,6 +29,16 @@ namespace SomerenDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+        
+        public void UpdateAmountOfSalesForEachDrink()
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = OpenConnection();
+            string queryID = $"UPDATE Drink SET amountSold = (SELECT SUM(amount) AS sales FROM Contain WHERE drinkId = Drink.drinkId);";
+            command.CommandText = queryID;
+            command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
         public void AddDrinkSupply(Drink drink)
         {
             SqlCommand command = new SqlCommand();
@@ -65,15 +75,6 @@ namespace SomerenDAL
 
             command.CommandText = query;
             command.Parameters.AddWithValue("@drinkId", drink.Id);
-            command.ExecuteNonQuery();
-            command.Connection.Close();
-        }
-        public void UpdateAmountOfSalesForEachDrink()
-        {
-            SqlCommand command = new SqlCommand();
-            command.Connection = OpenConnection();
-            string queryID = $"UPDATE Drink SET amountSold = (SELECT SUM(amount) AS sales FROM Contain WHERE drinkId = Drink.drinkId);";
-            command.CommandText = queryID;
             command.ExecuteNonQuery();
             command.Connection.Close();
         }

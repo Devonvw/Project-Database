@@ -10,6 +10,7 @@ namespace SomerenModel
     {
         public int Id { get; set; } // StudentNumber, e.g. 474791
         public string Name { get; set; }
+
         public int Stock { get; set; }
         public double Price { get; set; }
         public int VatId { get; set; }
@@ -19,10 +20,15 @@ namespace SomerenModel
             Id = id;
             VatId = vatId;
         }
-        public Drink(int id, string name, int stock, double price, int vatId, int amountSold)
+        public Drink(int id, string name)
         {
             Id = id;
             Name = name;
+        }
+        public Drink(int id, string drinkName, int stock, double price, int vatId, int amountSold)
+        {
+            Id = id;
+            Name = drinkName;
             Stock = stock;
             Price = price;
             VatId = vatId;
