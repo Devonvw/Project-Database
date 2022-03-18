@@ -37,3 +37,40 @@ C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Security.Permissions.xml
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.pdb
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenModel.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Data.SqlClient.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Security.AccessControl.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Security.Permissions.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\SomerenModel.pdb
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Data.SqlClient.xml
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Security.AccessControl.xml
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Security.Permissions.xml
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.AssemblyReference.cache
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.pdb
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\SomerenModel.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Data.SqlClient.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Security.AccessControl.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Security.Permissions.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\SomerenModel.pdb
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Data.SqlClient.xml
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Security.AccessControl.xml
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Security.Permissions.xml
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.AssemblyReference.cache
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb
