@@ -11,3 +11,8 @@ Week 2
 A = Alan
 B = Helina
 C = Devon
+
+Week 3
+A = Alan
+B = Helina
+C = Devon
