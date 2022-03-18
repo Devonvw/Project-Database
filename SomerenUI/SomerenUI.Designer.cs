@@ -531,7 +531,7 @@
             // lblToDate
             // 
             this.lblToDate.AutoSize = true;
-            this.lblToDate.Location = new System.Drawing.Point(193, 56);
+            this.lblToDate.Location = new System.Drawing.Point(193, 50);
             this.lblToDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblToDate.Name = "lblToDate";
             this.lblToDate.Size = new System.Drawing.Size(46, 13);
@@ -541,7 +541,7 @@
             // lblFromDate
             // 
             this.lblFromDate.AutoSize = true;
-            this.lblFromDate.Location = new System.Drawing.Point(15, 56);
+            this.lblFromDate.Location = new System.Drawing.Point(15, 50);
             this.lblFromDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFromDate.Name = "lblFromDate";
             this.lblFromDate.Size = new System.Drawing.Size(56, 13);
@@ -550,18 +550,18 @@
             // 
             // revenueEndDate
             // 
-            this.revenueEndDate.Location = new System.Drawing.Point(183, 57);
+            this.revenueEndDate.Location = new System.Drawing.Point(188, 64);
             this.revenueEndDate.Margin = new System.Windows.Forms.Padding(6);
-            this.revenueEndDate.MaxDate = new System.DateTime(2022, 3, 16, 0, 0, 0, 0);
+            this.revenueEndDate.MaxDate = System.DateTime.Today;
             this.revenueEndDate.Name = "revenueEndDate";
             this.revenueEndDate.TabIndex = 2;
             this.revenueEndDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.revenueEndDate_DateChanged);
             // 
             // revenueStartDate
             // 
-            this.revenueStartDate.Location = new System.Drawing.Point(14, 57);
+            this.revenueStartDate.Location = new System.Drawing.Point(14, 64);
             this.revenueStartDate.Margin = new System.Windows.Forms.Padding(6);
-            this.revenueStartDate.MaxDate = new System.DateTime(2022, 3, 16, 0, 0, 0, 0);
+            this.revenueStartDate.MaxDate = System.DateTime.Today;
             this.revenueStartDate.Name = "revenueStartDate";
             this.revenueStartDate.TabIndex = 1;
             // 
