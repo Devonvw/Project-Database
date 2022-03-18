@@ -8,7 +8,7 @@ namespace SomerenDAL
     public abstract class BaseDao
     {
         private SqlDataAdapter adapter;
-        protected SqlConnection conn;
+        private SqlConnection conn;
 
         public BaseDao()
         {
@@ -96,7 +96,7 @@ namespace SomerenDAL
                 command.Connection = OpenConnection();
                 command.CommandText = query;
                 command.Parameters.AddRange(sqlParameters);
-                //command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
                 adapter.SelectCommand = command;
                 adapter.Fill(dataSet);
                 dataTable = dataSet.Tables[0];

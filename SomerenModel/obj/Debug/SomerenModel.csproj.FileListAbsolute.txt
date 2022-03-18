@@ -10,9 +10,3 @@ C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\Some
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
