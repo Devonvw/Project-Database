@@ -1,54 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SomerenModel;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace SomerenDAL
 {
-    public class DrinkSupplyDao : BaseDao
+    public class DrinkDao : BaseDao
     {
-        public List<DrinkSupply> GetAllDrinkSupplies()
+        public List<Drink> GetDrinks()
         {
-            UpdateAmountOfSalesForEachDrink();
-
-            string query = "select drinkId, [name], stock, price, vatId, COALESCE(amountSold, 0) AS amount " +
-                           "FROM Drink " +
-                           "GROUP BY drinkId, [name], stock, price, amountSold, vatId " +
-                           "HAVING Drink.stock > 1 AND Drink.price > 1 " +
-                           "ORDER BY stock, price, [amount] DESC;";
+            string query = "SELECT drinkId, name, stock, price, vatId, COALESCE(amountSold, 0) AS amountSold FROM Drink;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<DrinkSupply> ReadTables(DataTable dataTable)
+        public List<Drink> GetAllDrinkSupplies()
         {
-            List<DrinkSupply> drinksSupplies = new List<DrinkSupply>();
+            UpdateAmountOfSalesForEachDrink();
 
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                int drinkId = (int)(dr["drinkId"]);
-                string name = (string)(dr["name"]).ToString();
-                int stock = (int)(dr["stock"]);
-                double price = (double)dr["price"];
-                int vatId = (int)(dr["vatId"]);
-                int amount = (int)(dr["amount"]);
-
-                DrinkSupply drinkSuply = new DrinkSupply(drinkId, name, stock, price, vatId, amount);
-                drinksSupplies.Add(drinkSuply);
-            }
-
-            return drinksSupplies;
-        }
-        public int GenerateId()
-        {
-            string queryID = $"SELECT TOP 1 drinkId FROM Drink ORDER BY drinkId DESC;";
+            string query = "select drinkId, [name], stock, price, vatId, COALESCE(amountSold, 0) AS amountSold " +
+                           "FROM Drink " +
+                           "GROUP BY drinkId, [name], stock, price, amountSold, vatId " +
+                           "HAVING Drink.stock > 1 AND Drink.price > 1 " +
+                           "ORDER BY stock, price, [amountSold] DESC;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            DataTable dataTable = ExecuteSelectQuery(queryID, sqlParameters);
-            return (int)dataTable.Rows[0]["drinkId"] + 1;
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+        
         public void UpdateAmountOfSalesForEachDrink()
         {
             SqlCommand command = new SqlCommand();
@@ -58,45 +39,65 @@ namespace SomerenDAL
             command.ExecuteNonQuery();
             command.Connection.Close();
         }
-        public void AddDrinkSupply(DrinkSupply drink)
+        public void AddDrinkSupply(Drink drink)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = OpenConnection();
-            string query = "SET IDENTITY_INSERT Drink ON INSERT INTO Drink(drinkId, [name], stock, price, vatId, amountSold) VALUES(@drinkId, @name, @stock, @price, @vatId, @amount) SET IDENTITY_INSERT Drink OFF;";
+            string query = "INSERT INTO Drink([name], stock, price, vatId, amountSold) VALUES(@name, @stock, @price, @vatId, @amountSold);";
             command.CommandText = query;
-            command.Parameters.AddWithValue("@drinkId", drink.DrinkId);
-            command.Parameters.AddWithValue("@name", drink.DrinkName);
+            command.Parameters.AddWithValue("@name", drink.Name);
             command.Parameters.AddWithValue("@stock", drink.Stock);
             command.Parameters.AddWithValue("@price", drink.Price);
             command.Parameters.AddWithValue("@vatId", drink.VatId);
-            command.Parameters.AddWithValue("@amount", drink.AmountSold);
+            command.Parameters.AddWithValue("@amountSold", drink.AmountSold);
             command.ExecuteNonQuery();
             command.Connection.Close();
-            
+
         }
-        public void UpdateDrinkSupply(DrinkSupply drink)
+        public void UpdateDrinkSupply(Drink drink)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = OpenConnection();
             string query = "UPDATE Drink SET [name]=@name, stock=@stock, price=@price WHERE drinkId=@drinkId;";
             command.CommandText = query;
-            command.Parameters.AddWithValue("@drinkId", drink.DrinkId);
-            command.Parameters.AddWithValue("@name", drink.DrinkName);
+            command.Parameters.AddWithValue("@drinkId", drink.Id);
+            command.Parameters.AddWithValue("@name", drink.Name);
             command.Parameters.AddWithValue("@stock", drink.Stock);
             command.Parameters.AddWithValue("@price", drink.Price);
             command.ExecuteNonQuery();
             command.Connection.Close();
         }
-        public void DeleteDrinkSupply(DrinkSupply drink)
+        public void DeleteDrinkSupply(Drink drink)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = OpenConnection();
             string query = "DELETE FROM Drink WHERE drinkId=@drinkId;";
 
             command.CommandText = query;
-            command.Parameters.AddWithValue("@drinkId", drink.DrinkId);
+            command.Parameters.AddWithValue("@drinkId", drink.Id);
             command.ExecuteNonQuery();
             command.Connection.Close();
+        }
+        private List<Drink> ReadTables(DataTable dataTable)
+        {
+            List<Drink> drinks = new List<Drink>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                //for each row, each column value as a parameter for the object 
+                int id = (int)dr["drinkId"];
+                string name = (string)(dr["name"]).ToString();
+                int stock = (int)dr["stock"];
+                double price = (double)dr["price"];
+                int vatId = (int)dr["vatId"];
+                int amountSold = (int)dr["amountSold"];
+
+
+                Drink drink = new Drink(id, name, stock, price, vatId, amountSold);
+                drinks.Add(drink);
+            }
+
+            return drinks;
         }
     }
 }

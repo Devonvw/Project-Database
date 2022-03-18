@@ -10,32 +10,28 @@ namespace SomerenLogic
 {
     public class DrinkSupplyService
     {
-        DrinkSupplyDao drinkSupplydb;
+        DrinkDao drinkSupplydb;
 
         public DrinkSupplyService()
         {
-            drinkSupplydb = new DrinkSupplyDao();
+            drinkSupplydb = new DrinkDao();
         }
-        public List<DrinkSupply> GetDrinksSupplies()
+        public List<Drink> GetDrinksSupplies()
         {
-            List<DrinkSupply> drinkksSupplies = drinkSupplydb.GetAllDrinkSupplies();
+            List<Drink> drinkksSupplies = drinkSupplydb.GetAllDrinkSupplies();
             return drinkksSupplies;
         }
-        public void AddDrinkSupply(DrinkSupply drink)
+        public void AddDrinkSupply(Drink drink)
         {
             drinkSupplydb.AddDrinkSupply(drink);
         }
-        public void UpdateDrinkSupply(DrinkSupply drink)
+        public void UpdateDrinkSupply(Drink drink)
         {
             drinkSupplydb.UpdateDrinkSupply(drink);
         }
-        public void DeleteDrinkSupply(DrinkSupply drink)
+        public void DeleteDrinkSupply(Drink drink)
         {
             drinkSupplydb.DeleteDrinkSupply(drink);
-        }
-        public int GenerateId()
-        {
-            return drinkSupplydb.GenerateId();
         }
     }
 }
