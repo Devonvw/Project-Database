@@ -16,3 +16,9 @@ C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\Some
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb

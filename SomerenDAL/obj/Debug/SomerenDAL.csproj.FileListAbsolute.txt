@@ -74,3 +74,4 @@ C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete

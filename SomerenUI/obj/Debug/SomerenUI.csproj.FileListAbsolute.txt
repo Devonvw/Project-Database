@@ -70,3 +70,4 @@ C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\D
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
