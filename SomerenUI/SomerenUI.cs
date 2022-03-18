@@ -182,8 +182,8 @@ namespace SomerenUI
 
                     foreach (Drink supply in drinksSupplies)
                     {
-                        ListViewItem supplyList = new ListViewItem(supply.Id.ToString());
-                        supplyList.SubItems.Add(supply.Name.ToString());
+                        ListViewItem supplyList = new ListViewItem(supply.Name.ToString());
+                        //supplyList.SubItems.Add(supply.Name.ToString());
                         supplyList.SubItems.Add(supply.Stock.ToString());
                         supplyList.SubItems.Add($"{supply.Price} token(s)");
                         supplyList.SubItems.Add(supply.AmountSold.ToString());

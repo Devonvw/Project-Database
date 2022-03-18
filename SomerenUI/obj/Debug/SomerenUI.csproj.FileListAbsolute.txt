@@ -1,76 +1,18 @@
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe.config
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.pdb
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenLogic.dll
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenModel.dll
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.pdb
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenLogic.pdb
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenModel.pdb
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.AssemblyReference.cache
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.SuggestedBindingRedirects.cache
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.SomerenUI.resources
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.Properties.Resources.resources
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.GenerateResource.cache
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe.config
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.pdb
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenLogic.dll
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenModel.dll
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.pdb
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenLogic.pdb
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenModel.pdb
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.AssemblyReference.cache
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.SuggestedBindingRedirects.cache
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.SomerenUI.resources
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.Properties.Resources.resources
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.GenerateResource.cache
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
-C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
-C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll.config
-<<<<<<< HEAD
-C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll.config
-=======
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.AssemblyReference.cache
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.SuggestedBindingRedirects.cache
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.SomerenUI.resources
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.Properties.Resources.resources
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.GenerateResource.cache
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe.config
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.pdb
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenLogic.dll
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenModel.dll
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenLogic.pdb
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenModel.pdb
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.pdb
-C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe.config
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenUI.pdb
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenLogic.dll
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenModel.dll
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenLogic.pdb
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenModel.pdb
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenDAL.pdb
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.AssemblyReference.cache
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.SomerenUI.resources
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.Properties.Resources.resources
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.GenerateResource.cache
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
-C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
->>>>>>> origin/Develop
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe.config
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenUI.pdb
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenLogic.dll
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenModel.dll
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenLogic.pdb
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenModel.pdb
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\bin\Debug\SomerenDAL.pdb
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.AssemblyReference.cache
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.SomerenUI.resources
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.Properties.Resources.resources
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.GenerateResource.cache
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
+C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb

@@ -84,7 +84,6 @@ namespace SomerenDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                //for each row, each column value as a parameter for the object 
                 int id = (int)dr["drinkId"];
                 string name = (string)(dr["name"]).ToString();
                 int stock = (int)dr["stock"];

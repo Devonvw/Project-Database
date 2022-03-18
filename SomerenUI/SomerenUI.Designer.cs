@@ -93,7 +93,6 @@
             this.drinkSupplyTextBox = new System.Windows.Forms.TextBox();
             this.drinkNameTextBox = new System.Windows.Forms.TextBox();
             this.listViewDrinksSupplies = new System.Windows.Forms.ListView();
-            this.drinkidclm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.drinknameclm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.drinksupplyclm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.drinkpriceclm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -230,21 +229,21 @@
             // drinksSuppliesToolStripMenuItem
             // 
             this.drinksSuppliesToolStripMenuItem.Name = "drinksSuppliesToolStripMenuItem";
-            this.drinksSuppliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.drinksSuppliesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.drinksSuppliesToolStripMenuItem.Text = "Drinks Supplies";
             this.drinksSuppliesToolStripMenuItem.Click += new System.EventHandler(this.drinksSuppliesToolStripMenuItem_Click);
             // 
             // cashRegisterToolStripMenuItem
             // 
             this.cashRegisterToolStripMenuItem.Name = "cashRegisterToolStripMenuItem";
-            this.cashRegisterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cashRegisterToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.cashRegisterToolStripMenuItem.Text = "Cash Register";
             this.cashRegisterToolStripMenuItem.Click += new System.EventHandler(this.cashRegisterToolStripMenuItem_Click);
             // 
             // revenueReportToolStripMenuItem
             // 
             this.revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
-            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.revenueReportToolStripMenuItem.Text = "Revenue Report";
             this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
             // 
@@ -707,7 +706,6 @@
             // listViewDrinksSupplies
             // 
             this.listViewDrinksSupplies.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.drinkidclm,
             this.drinknameclm,
             this.drinksupplyclm,
             this.drinkpriceclm,
@@ -722,11 +720,6 @@
             this.listViewDrinksSupplies.TabIndex = 5;
             this.listViewDrinksSupplies.UseCompatibleStateImageBehavior = false;
             this.listViewDrinksSupplies.View = System.Windows.Forms.View.Details;
-            // 
-            // drinkidclm
-            // 
-            this.drinkidclm.Text = "ID";
-            this.drinkidclm.Width = 25;
             // 
             // drinknameclm
             // 
@@ -751,7 +744,7 @@
             // drinkwarningclm
             // 
             this.drinkwarningclm.Text = "Warning";
-            this.drinkwarningclm.Width = 175;
+            this.drinkwarningclm.Width = 205;
             // 
             // lblDRINKSUPPLIES
             // 
@@ -775,7 +768,7 @@
             this.pnlCashRegister.Controls.Add(this.amountDrinksLabel);
             this.pnlCashRegister.Controls.Add(this.drinkLabel);
             this.pnlCashRegister.Controls.Add(this.studentLabel);
-            this.pnlCashRegister.Location = new System.Drawing.Point(8, 27);
+            this.pnlCashRegister.Location = new System.Drawing.Point(8, 28);
             this.pnlCashRegister.Name = "pnlCashRegister";
             this.pnlCashRegister.Size = new System.Drawing.Size(939, 465);
             this.pnlCashRegister.TabIndex = 9;
@@ -1048,7 +1041,6 @@
         private System.Windows.Forms.Button nonAlcoholButton;
         private System.Windows.Forms.Button alcoholButton;
         private System.Windows.Forms.Label lblALTERDRINKSUPPLIES;
-        private System.Windows.Forms.ColumnHeader drinkidclm;
         private System.Windows.Forms.Panel pnlCashRegister;
         private System.Windows.Forms.Button addDrinkButton;
         private System.Windows.Forms.Button checkOutButton;

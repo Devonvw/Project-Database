@@ -84,11 +84,5 @@
       <Name>SomerenModel</Name>
     </ProjectReference>
   </ItemGroup>
-<<<<<<< HEAD
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-=======
->>>>>>> origin/Develop
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -86,20 +86,6 @@ namespace SomerenDAL
             }
 
             conn.Close();
-
-                        
-
-            /*try
-            {
-                DataRow dataRow = dataTable.Rows[0];
-                orderId = int.Parse(dataRow[0].ToString());
-
-                Debug.WriteLine(orderId.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidOperationException(ex.Message);
-            }*/
         }
 
         private List<Order> ReadTables(DataTable dataTable)
