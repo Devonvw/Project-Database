@@ -8,10 +8,10 @@ Alan de Haas
 Helina Kim
 Devon van Wichen
 
-1.A = Alan
-1.B = Helina
-1.C = Devon
- 
 2.A = Alan
 2.B = Helina
 2.C = Devon
+ 
+3.A = Alan
+3.B = Helina
+3.C = Devon
