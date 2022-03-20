@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
 using SomerenModel;
+using System.Diagnostics;
 
 namespace SomerenDAL
 {
@@ -14,37 +15,62 @@ namespace SomerenDAL
     {
         public int GetSales(DateTime start, DateTime end)
         {
-            string query = "SELECT SUM(OD.amount) as sales FROM Order as O, Drink as D Order_Drink as OD WHERE O.dateTime BETWEEN @start AND @end";
+            //Debug.WriteLine($"{start.ToString()}, {end.ToString()}");
+            string query = "SELECT SUM(C.amount) as sales FROM Contain as C INNER JOIN Drink as D ON D.drinkId = C.drinkId INNER JOIN [Order] as O ON O.orderId = C.orderId WHERE O.dateTime BETWEEN @start AND @end";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            sqlParameters.Append(new SqlParameter("@start", start));
-            sqlParameters.Append(new SqlParameter("@end", end));
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+            new SqlParameter("@start", SqlDbType.DateTime) { Value = start },
+            new SqlParameter("@end", SqlDbType.DateTime) { Value = end }
+            };
             DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
-            
-            return (int)dataTable.Rows[0]["sales"];
+            try
+            {
+                return (int)dataTable.Rows[0]["sales"];
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException($"No data found");
+            }
         }
         public double GetTurnover(DateTime start, DateTime end)
         {
-            string query = "SELECT SUM(OD.amount * D.price) as turnover FROM Order as O, Drink as D Order_Drink as OD WHERE O.dateTime BETWEEN @start AND @end";
+            string query = "SELECT SUM(C.amount * D.price) as turnover FROM Contain as C INNER JOIN Drink as D ON D.drinkId = C.drinkId INNER JOIN [Order] as O ON O.orderId = C.orderId WHERE O.dateTime BETWEEN @start AND @end";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            sqlParameters.Append(new SqlParameter("@start", start));
-            sqlParameters.Append(new SqlParameter("@end", end));
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+            new SqlParameter("@start", SqlDbType.DateTime) { Value = start },
+            new SqlParameter("@end", SqlDbType.DateTime) { Value = end }
+            };
             DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
-
-            return (double)dataTable.Rows[0]["turnover"];
+            try
+            {
+                return (double)dataTable.Rows[0]["turnover"];
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException($"No data found");
+            }
         }
 
         public int GetCustomers(DateTime start, DateTime end)
         {
-            string query = "SELECT COUNT(DISTINCT O.studentId) AS customers FROM Order as O, Drink as D Order_Drink as OD WHERE O.dateTime BETWEEN @start AND @end";
+            string query = "SELECT COUNT(DISTINCT O.studentId) as customers FROM Contain as C INNER JOIN Drink as D ON D.drinkId = C.drinkId INNER JOIN [Order] as O ON O.orderId = C.orderId WHERE O.dateTime BETWEEN @start AND @end";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            sqlParameters.Append(new SqlParameter("@start", start));
-            sqlParameters.Append(new SqlParameter("@end", end));
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+            new SqlParameter("@start", SqlDbType.DateTime) { Value = start },
+            new SqlParameter("@end", SqlDbType.DateTime) { Value = end }
+            };
             DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
-
-            return (int)dataTable.Rows[0]["customers"];
+            try
+            {
+                return (int)dataTable.Rows[0]["customers"];
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException($"No data found");
+            }
         }
 
         private List<Room> ReadTables(DataTable dataTable)
