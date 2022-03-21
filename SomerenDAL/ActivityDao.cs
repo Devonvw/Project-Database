@@ -52,33 +52,29 @@ namespace SomerenDAL
         }
         public List<Activity> GetActivity()
         {
-            string query = "SELECT activityId, startDateTime, activityTypeId, description, endDateTime, activityName FROM Activity";
+            string query = "SELECT activityId, startDateTime, description, endDateTime FROM Activity";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         public void UpdateActivity(Activity activity)
         {
             conn.Open();
-            SqlCommand command = new SqlCommand("UPDATE Activity SET startDateTime=@startDatetime, activityTypeId=@activityTypeId, description=@description, activityName=@activityName WHERE activityId=@activityId;", conn);
+            SqlCommand command = new SqlCommand("UPDATE Activity SET startDateTime=@startDatetime, description=@description endDateTime=@endDateTime WHERE activityId=@activityId;", conn);
             command.Parameters.AddWithValue("@activityId", activity.ActivityId);
             command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
-            command.Parameters.AddWithValue("@activityTypeId", activity.ActivityTypeId);
             command.Parameters.AddWithValue("@description", activity.ActivityDescription);
             command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
-            command.Parameters.AddWithValue("@activityName", activity.ActivityName);
             command.ExecuteNonQuery();
             conn.Close();
         }
         public void AddActivity(Activity activity)
         {
             conn.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO Activity(activityId, startDateTime, activityTypeId, description, endDateTime) VALUES(@activityId, @startDateTime, @activityTypeId, @description, @endDateTime, activityName=@activityName);", conn);
+            SqlCommand command = new SqlCommand("INSERT INTO Activity(activityId, description, startDateTime, endDateTime) VALUES(@activityId, @description, @startDateTime, @endDateTime);", conn);
             command.Parameters.AddWithValue("@activityId", activity.ActivityId);
-            command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
-            command.Parameters.AddWithValue("@activityTypeId", activity.ActivityTypeId);
             command.Parameters.AddWithValue("@description", activity.ActivityDescription);
+            command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
             command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
-            command.Parameters.AddWithValue("@activityName", activity.ActivityName);
             command.ExecuteNonQuery();
             conn.Close();
         }
@@ -98,12 +94,11 @@ namespace SomerenDAL
             {
                 int activityId = (int)dr["activityId"];
                 DateTime startDateTime = (DateTime)dr["startDateTime"];
-                int activityTypeId = (int)dr["activityTypeId"];
                 string description = (string)(dr["description"]);
                 DateTime endDateTime = (DateTime)dr["endDateTime"];
                 string activityName = (string)(dr["activityName"]);
 
-                Activity activity = new Activity(activityId, startDateTime, activityTypeId, description, endDateTime, activityName);
+                Activity activity = new Activity(activityId, description, startDateTime, endDateTime);
                 activities.Add(activity);
             }
             return activities;

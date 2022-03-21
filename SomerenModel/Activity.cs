@@ -9,19 +9,15 @@ namespace SomerenModel
     public class Activity
     {
         public int ActivityId { get; set; }
+        public string ActivityDescription { get; set; }
         public DateTime ActivityStartDateTime { get; set; }
         public DateTime ActivityEndDateTime { get; set; }
-        public string ActivityDescription { get; set; }
-        public int ActivityTypeId { get; set; }
-        public string ActivityName { get; set; }
-        public Activity(int activityId, DateTime startDateTime, int activityTypeId, string description, DateTime endDateTime, string activityName)
+        public Activity(int activityId, string description, DateTime startDateTime, DateTime endDateTime)
         {
             ActivityId = activityId;
-            ActivityStartDateTime = startDateTime;
-            ActivityTypeId = activityTypeId;
             ActivityDescription = description;
+            ActivityStartDateTime = startDateTime;
             ActivityEndDateTime = endDateTime;
-            ActivityName = activityName;
         }
     }
 }

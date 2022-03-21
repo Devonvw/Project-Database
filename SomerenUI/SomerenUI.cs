@@ -232,10 +232,9 @@ namespace SomerenUI
                     foreach (Activity activity in activities)
                     {
                         ListViewItem listViewItem = new ListViewItem(activity.ActivityId.ToString());
-                        listViewItem.SubItems.Add(activity.ActivityName);
+                        listViewItem.SubItems.Add(activity.ActivityDescription);
                         listViewItem.SubItems.Add(activity.ActivityStartDateTime.ToString());
                         listViewItem.SubItems.Add(activity.ActivityEndDateTime.ToString());
-                        listViewItem.SubItems.Add(activity.ActivityDescription);
                     }
                 }
                 catch (Exception e)
@@ -471,26 +470,30 @@ namespace SomerenUI
             try
             {
                 ActivityService activityService = new ActivityService();
-                if (string.IsNullOrEmpty(activityNameTextbox.Text) || string.IsNullOrEmpty(activityStartTextbox.Text) || string.IsNullOrEmpty(activityEndTextbox.Text) || string.IsNullOrEmpty(activityDescriptionTextbox.Text))
+                if (string.IsNullOrEmpty(activityDescriptionTextbox.Text) || string.IsNullOrEmpty(activityStartTextbox.Text) || string.IsNullOrEmpty(activityEndTextbox.Text))
                 {
                     return;
                 }
                 else
                 {
-                    if (listViewActivity.FindItemWithText(activityNameTextbox.Text) != null)
+                    if (listViewActivity.FindItemWithText(activityDescriptionTextbox.Text) != null)
                     {
-                        MessageBox.Show($"{activityNameTextbox.Text} already exist");
-                        activityNameTextbox.Clear();
+                        MessageBox.Show($"{activityDescriptionTextbox.Text} already exist");
                         activityStartTextbox.Clear();
                         activityEndTextbox.Clear();
                         activityDescriptionTextbox.Clear();
                     }
                 }
-                Activity activity = new Activity(0, activityNameTextbox.Text, activityStartTextbox.Text, activityEndTextbox.Text, activityDescriptionTextbox.Text);
+                Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
 
                 activityService.AddActivity(activity);
 
-                MessageBox.Show($"Succesfully added: {activity.ActivityName}");
+                ListViewItem activityItem = new ListViewItem(activityDescriptionTextbox.Text);
+                activityItem.SubItems.Add(activityStartTextbox.Text);
+                activityItem.SubItems.Add(activityEndTextbox.Text);
+                listViewActivity.Items.Add(activityItem);
+
+                MessageBox.Show($"Succesfully added: {activity.ActivityDescription}");
             }
             catch (Exception Add)
             {
@@ -498,10 +501,9 @@ namespace SomerenUI
             }
             finally
             {
-                activityNameTextbox.Clear();
+                activityDescriptionTextbox.Clear();
                 activityStartTextbox.Clear();
                 activityEndTextbox.Clear();
-                activityDescriptionTextbox.Clear();
             }
         }
 
@@ -526,30 +528,67 @@ namespace SomerenUI
                     }
                 }
 
-                if (!string.IsNullOrEmpty(activityNameTextbox.Text))
+                if (!string.IsNullOrEmpty(activityDescriptionTextbox.Text))
                 {
-                    if (listViewActivity.FindItemWithText(activityNameTextbox.Text) != null)
+                    if (listViewActivity.FindItemWithText(activityDescriptionTextbox.Text) != null)
                     {
-                        MessageBox.Show($"{activityNameTextbox.Text} already exist");
-                        activityNameTextbox.Clear();
+                        MessageBox.Show($"{activityDescriptionTextbox.Text} already exist");
+                        activityDescriptionTextbox.Clear();
                         activityStartTextbox.Clear();
                         activityEndTextbox.Clear();
-                        activityDescriptionTextbox.Clear();
                         return;
                     }
-                    listViewActivity.SelectedItems[0].SubItems[1].Text = activityNameTextbox.Text;
-                    activity.ActivityName = activityNameTextbox.Text;
+                    listViewActivity.SelectedItems[0].SubItems[1].Text = activityDescriptionTextbox.Text;
+                    activity.ActivityDescription = activityDescriptionTextbox.Text;
                 }
                 if (!string.IsNullOrEmpty(activityStartTextbox.Text))
                 {
                     listViewActivity.SelectedItems[0].SubItems[2].Text = activityStartTextbox.Text;
+                    activity.ActivityStartDateTime = DateTime.Parse(activityStartTextbox.Text);
+                }
+                if (!string.IsNullOrEmpty(activityEndTextbox.Text))
+                {
+                    listViewActivity.SelectedItems[0].SubItems[3].Text = activityEndTextbox.Text;
+                    activity.ActivityEndDateTime = DateTime.Parse(activityEndTextbox.Text);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                activityDescriptionTextbox.Clear();
+                activityStartTextbox.Clear();
+                activityEndTextbox.Clear();
+            }
+        }
+
+        private void deleteActivityButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you wish to remove this activity?", "Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activities = activityService.GetActivities();
+
+                    foreach (Activity activity in activities)
+                    {
+                        if (activity.ActivityDescription == listViewActivity.SelectedItems[0].SubItems[1].Text)
+                        {
+                            activityService.DeleteActivity(activity);
+                        }
+                    }
+                    listViewActivity.Items.Remove(listViewActivity.SelectedItems[0]);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot delete activity: " + ex.Message);
+                }
+            }
+            
         }
     }
 }

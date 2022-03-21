@@ -75,3 +75,4 @@ C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\D
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.SuggestedBindingRedirects.cache
 >>>>>>> Stashed changes
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll.config
