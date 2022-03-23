@@ -470,6 +470,7 @@ namespace SomerenUI
             try
             {
                 ActivityService activityService = new ActivityService();
+
                 if (string.IsNullOrEmpty(activityDescriptionTextbox.Text) || string.IsNullOrEmpty(activityStartTextbox.Text) || string.IsNullOrEmpty(activityEndTextbox.Text))
                 {
                     return;
@@ -484,6 +485,15 @@ namespace SomerenUI
                         activityDescriptionTextbox.Clear();
                     }
                 }
+
+                DateTime startDateTime = DateTime.Parse(activityStartTextbox.Text);
+                DateTime endDateTime = DateTime.Parse(activityEndTextbox.Text);
+
+                if (startDateTime >= endDateTime)
+                {
+                    throw new Exception("End date time must be after start date time!");
+                }
+
                 Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
 
                 activityService.AddActivity(activity);
@@ -504,6 +514,8 @@ namespace SomerenUI
                 activityDescriptionTextbox.Clear();
                 activityStartTextbox.Clear();
                 activityEndTextbox.Clear();
+
+                listViewActivity.Refresh();
             }
         }
 

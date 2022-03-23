@@ -111,10 +111,9 @@
             this.updateActivityButton = new System.Windows.Forms.Button();
             this.activityAddButton = new System.Windows.Forms.Button();
             this.listViewActivity = new System.Windows.Forms.ListView();
-            this.activityIdclm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activityStartDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activityEndDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.activityDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -886,7 +885,6 @@
             // listViewActivity
             // 
             this.listViewActivity.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.activityIdclm,
             this.activityDescription,
             this.activityStartDateTime,
             this.activityEndDateTime});
@@ -898,10 +896,10 @@
             this.listViewActivity.UseCompatibleStateImageBehavior = false;
             this.listViewActivity.View = System.Windows.Forms.View.Details;
             // 
-            // activityIdclm
+            // activityDescription
             // 
-            this.activityIdclm.Text = "ID";
-            this.activityIdclm.Width = 50;
+            this.activityDescription.Text = "Description";
+            this.activityDescription.Width = 120;
             // 
             // activityStartDateTime
             // 
@@ -912,11 +910,6 @@
             // 
             this.activityEndDateTime.Text = "End Time";
             this.activityEndDateTime.Width = 120;
-            // 
-            // activityDescription
-            // 
-            this.activityDescription.Text = "Description";
-            this.activityDescription.Width = 120;
             // 
             // SomerenUI
             // 
@@ -1044,7 +1037,6 @@
         private System.Windows.Forms.Button activityAddButton;
         private System.Windows.Forms.ListView listViewActivity;
         private System.Windows.Forms.Label lblAlterActivity;
-        private System.Windows.Forms.ColumnHeader activityIdclm;
         private System.Windows.Forms.ColumnHeader activityStartDateTime;
         private System.Windows.Forms.ColumnHeader activityEndDateTime;
         private System.Windows.Forms.ColumnHeader activityDescription;
