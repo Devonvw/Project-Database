@@ -9,3 +9,14 @@ C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\Some
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll
 C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.pdb
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenLogic.dll
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenLogic.pdb
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenModel.dll
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.pdb
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenModel.pdb
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.AssemblyReference.cache
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.pdb
