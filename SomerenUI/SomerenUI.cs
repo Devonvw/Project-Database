@@ -464,13 +464,16 @@ namespace SomerenUI
         {
             revenueStartDate.MaxDate = e.Start;
         }
-
+        private void ActivityClear()
+        {
+            activityDescriptionTextbox.Clear();
+            activityStartTextbox.Clear();
+            activityEndTextbox.Clear();
+        }
         private void activityAddButton_Click(object sender, EventArgs e)
         {
             try
             {
-                ActivityService activityService = new ActivityService();
-
                 if (string.IsNullOrEmpty(activityDescriptionTextbox.Text) || string.IsNullOrEmpty(activityStartTextbox.Text) || string.IsNullOrEmpty(activityEndTextbox.Text))
                 {
                     return;
@@ -483,6 +486,7 @@ namespace SomerenUI
                         activityStartTextbox.Clear();
                         activityEndTextbox.Clear();
                         activityDescriptionTextbox.Clear();
+                        return;
                     }
                 }
 
@@ -494,14 +498,18 @@ namespace SomerenUI
                     throw new Exception("End date time must be after start date time!");
                 }
 
-                Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
-
-                activityService.AddActivity(activity);
+                ActivityService activityService = new ActivityService();
+                List<Activity> activityList = activityService.GetActivities();
 
                 ListViewItem activityItem = new ListViewItem(activityDescriptionTextbox.Text);
                 activityItem.SubItems.Add(activityStartTextbox.Text);
                 activityItem.SubItems.Add(activityEndTextbox.Text);
+
                 listViewActivity.Items.Add(activityItem);
+
+                Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
+
+                activityService.AddActivity(activity);
 
                 MessageBox.Show($"Succesfully added: {activity.ActivityDescription}");
             }
@@ -511,11 +519,7 @@ namespace SomerenUI
             }
             finally
             {
-                activityDescriptionTextbox.Clear();
-                activityStartTextbox.Clear();
-                activityEndTextbox.Clear();
-
-                listViewActivity.Refresh();
+                ActivityClear();
             }
         }
 
@@ -523,6 +527,7 @@ namespace SomerenUI
         {
             showPanel("Activities");
         }
+        
 
         private void updateActivityButton_Click(object sender, EventArgs e)
         {
@@ -570,9 +575,7 @@ namespace SomerenUI
             }
             finally
             {
-                activityDescriptionTextbox.Clear();
-                activityStartTextbox.Clear();
-                activityEndTextbox.Clear();
+                ActivityClear();
             }
         }
 

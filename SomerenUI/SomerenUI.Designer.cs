@@ -789,7 +789,7 @@
             this.activityDescriptionTextbox.Location = new System.Drawing.Point(692, 105);
             this.activityDescriptionTextbox.Name = "activityDescriptionTextbox";
             this.activityDescriptionTextbox.Size = new System.Drawing.Size(216, 21);
-            this.activityDescriptionTextbox.TabIndex = 17;
+            this.activityDescriptionTextbox.TabIndex = 9;
             // 
             // lnlActivityDescription
             // 
@@ -857,7 +857,7 @@
             this.deleteActivityButton.Location = new System.Drawing.Point(812, 320);
             this.deleteActivityButton.Name = "deleteActivityButton";
             this.deleteActivityButton.Size = new System.Drawing.Size(96, 23);
-            this.deleteActivityButton.TabIndex = 3;
+            this.deleteActivityButton.TabIndex = 14;
             this.deleteActivityButton.Text = "Delete";
             this.deleteActivityButton.UseVisualStyleBackColor = true;
             this.deleteActivityButton.Click += new System.EventHandler(this.deleteActivityButton_Click);
@@ -867,7 +867,7 @@
             this.updateActivityButton.Location = new System.Drawing.Point(692, 320);
             this.updateActivityButton.Name = "updateActivityButton";
             this.updateActivityButton.Size = new System.Drawing.Size(95, 23);
-            this.updateActivityButton.TabIndex = 2;
+            this.updateActivityButton.TabIndex = 13;
             this.updateActivityButton.Text = "Update";
             this.updateActivityButton.UseVisualStyleBackColor = true;
             this.updateActivityButton.Click += new System.EventHandler(this.updateActivityButton_Click);
@@ -877,7 +877,7 @@
             this.activityAddButton.Location = new System.Drawing.Point(569, 320);
             this.activityAddButton.Name = "activityAddButton";
             this.activityAddButton.Size = new System.Drawing.Size(96, 23);
-            this.activityAddButton.TabIndex = 1;
+            this.activityAddButton.TabIndex = 12;
             this.activityAddButton.Text = "Add ";
             this.activityAddButton.UseVisualStyleBackColor = true;
             this.activityAddButton.Click += new System.EventHandler(this.activityAddButton_Click);
