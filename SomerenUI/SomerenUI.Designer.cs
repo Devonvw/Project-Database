@@ -38,6 +38,7 @@
             this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activitySupervisorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drinksSuppliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,6 +121,19 @@
             this.amountDrinksLabel = new System.Windows.Forms.Label();
             this.drinkLabel = new System.Windows.Forms.Label();
             this.studentLabel = new System.Windows.Forms.Label();
+            this.pnlActivitySupervisors = new System.Windows.Forms.Panel();
+            this.showSupervisorBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.activitySupervisorInput = new System.Windows.Forms.TextBox();
+            this.DeleteSupervisorFromActivityBtn = new System.Windows.Forms.Button();
+            this.addSupervisorToActivityBtn = new System.Windows.Forms.Button();
+            this.supervisorListFromActivity = new System.Windows.Forms.ListView();
+            this.activitySupervisorId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activitySupervisorName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityListForSupervisors = new System.Windows.Forms.ListView();
+            this.activityIdSupervisors = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityDescriptionSupervisors = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblActivitySupervisors = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -131,6 +145,7 @@
             this.pnlRevenue.SuspendLayout();
             this.pnlDrinksSupplies.SuspendLayout();
             this.pnlCashRegister.SuspendLayout();
+            this.pnlActivitySupervisors.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgDashboard
@@ -205,9 +220,18 @@
             // 
             // activitiesToolStripMenuItem
             // 
+            this.activitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.activitySupervisorsToolStripMenuItem});
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
+            // 
+            // activitySupervisorsToolStripMenuItem
+            // 
+            this.activitySupervisorsToolStripMenuItem.Name = "activitySupervisorsToolStripMenuItem";
+            this.activitySupervisorsToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.activitySupervisorsToolStripMenuItem.Text = "Activity Supervisors";
+            this.activitySupervisorsToolStripMenuItem.Click += new System.EventHandler(this.activitySupervisorsToolStripMenuItem_Click);
             // 
             // roomsToolStripMenuItem
             // 
@@ -800,7 +824,7 @@
             this.orderPriceHeader,
             this.amountHeader});
             this.yourOrderListView.HideSelection = false;
-            this.yourOrderListView.Location = new System.Drawing.Point(136, 258);
+            this.yourOrderListView.Location = new System.Drawing.Point(137, 258);
             this.yourOrderListView.Name = "yourOrderListView";
             this.yourOrderListView.Size = new System.Drawing.Size(281, 190);
             this.yourOrderListView.TabIndex = 7;
@@ -837,7 +861,7 @@
             this.vatTypeHeader});
             this.drinkListView.FullRowSelect = true;
             this.drinkListView.HideSelection = false;
-            this.drinkListView.Location = new System.Drawing.Point(341, 66);
+            this.drinkListView.Location = new System.Drawing.Point(342, 66);
             this.drinkListView.Name = "drinkListView";
             this.drinkListView.Size = new System.Drawing.Size(313, 174);
             this.drinkListView.TabIndex = 5;
@@ -870,7 +894,7 @@
             this.bdayStudentHeader});
             this.studentListView.FullRowSelect = true;
             this.studentListView.HideSelection = false;
-            this.studentListView.Location = new System.Drawing.Point(16, 66);
+            this.studentListView.Location = new System.Drawing.Point(17, 66);
             this.studentListView.Name = "studentListView";
             this.studentListView.Size = new System.Drawing.Size(307, 174);
             this.studentListView.TabIndex = 4;
@@ -930,11 +954,137 @@
             this.studentLabel.TabIndex = 0;
             this.studentLabel.Text = "Students";
             // 
+            // pnlActivitySupervisors
+            // 
+            this.pnlActivitySupervisors.Controls.Add(this.showSupervisorBtn);
+            this.pnlActivitySupervisors.Controls.Add(this.label2);
+            this.pnlActivitySupervisors.Controls.Add(this.activitySupervisorInput);
+            this.pnlActivitySupervisors.Controls.Add(this.DeleteSupervisorFromActivityBtn);
+            this.pnlActivitySupervisors.Controls.Add(this.addSupervisorToActivityBtn);
+            this.pnlActivitySupervisors.Controls.Add(this.supervisorListFromActivity);
+            this.pnlActivitySupervisors.Controls.Add(this.activityListForSupervisors);
+            this.pnlActivitySupervisors.Controls.Add(this.lblActivitySupervisors);
+            this.pnlActivitySupervisors.Location = new System.Drawing.Point(7, 32);
+            this.pnlActivitySupervisors.Name = "pnlActivitySupervisors";
+            this.pnlActivitySupervisors.Size = new System.Drawing.Size(942, 460);
+            this.pnlActivitySupervisors.TabIndex = 10;
+            // 
+            // showSupervisorBtn
+            // 
+            this.showSupervisorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.showSupervisorBtn.Location = new System.Drawing.Point(583, 59);
+            this.showSupervisorBtn.Name = "showSupervisorBtn";
+            this.showSupervisorBtn.Size = new System.Drawing.Size(162, 41);
+            this.showSupervisorBtn.TabIndex = 7;
+            this.showSupervisorBtn.Text = "Show Supervisor(s)";
+            this.showSupervisorBtn.UseVisualStyleBackColor = true;
+            this.showSupervisorBtn.Click += new System.EventHandler(this.showSupervisorBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(580, 222);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 18);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Name of Lecturer:";
+            // 
+            // activitySupervisorInput
+            // 
+            this.activitySupervisorInput.Location = new System.Drawing.Point(583, 247);
+            this.activitySupervisorInput.Name = "activitySupervisorInput";
+            this.activitySupervisorInput.Size = new System.Drawing.Size(162, 20);
+            this.activitySupervisorInput.TabIndex = 5;
+            // 
+            // DeleteSupervisorFromActivityBtn
+            // 
+            this.DeleteSupervisorFromActivityBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteSupervisorFromActivityBtn.Location = new System.Drawing.Point(583, 328);
+            this.DeleteSupervisorFromActivityBtn.Name = "DeleteSupervisorFromActivityBtn";
+            this.DeleteSupervisorFromActivityBtn.Size = new System.Drawing.Size(162, 41);
+            this.DeleteSupervisorFromActivityBtn.TabIndex = 4;
+            this.DeleteSupervisorFromActivityBtn.Text = "Delete Supervisor";
+            this.DeleteSupervisorFromActivityBtn.UseVisualStyleBackColor = true;
+            this.DeleteSupervisorFromActivityBtn.Click += new System.EventHandler(this.DeleteSupervisorFromActivityBtn_Click);
+            // 
+            // addSupervisorToActivityBtn
+            // 
+            this.addSupervisorToActivityBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSupervisorToActivityBtn.Location = new System.Drawing.Point(583, 277);
+            this.addSupervisorToActivityBtn.Name = "addSupervisorToActivityBtn";
+            this.addSupervisorToActivityBtn.Size = new System.Drawing.Size(162, 41);
+            this.addSupervisorToActivityBtn.TabIndex = 3;
+            this.addSupervisorToActivityBtn.Text = "Add as Supervisor";
+            this.addSupervisorToActivityBtn.UseVisualStyleBackColor = true;
+            this.addSupervisorToActivityBtn.Click += new System.EventHandler(this.AddSupervisorToActivityBtn_Click);
+            // 
+            // supervisorListFromActivity
+            // 
+            this.supervisorListFromActivity.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.activitySupervisorId,
+            this.activitySupervisorName});
+            this.supervisorListFromActivity.FullRowSelect = true;
+            this.supervisorListFromActivity.GridLines = true;
+            this.supervisorListFromActivity.HideSelection = false;
+            this.supervisorListFromActivity.Location = new System.Drawing.Point(299, 59);
+            this.supervisorListFromActivity.Name = "supervisorListFromActivity";
+            this.supervisorListFromActivity.Size = new System.Drawing.Size(254, 309);
+            this.supervisorListFromActivity.TabIndex = 2;
+            this.supervisorListFromActivity.UseCompatibleStateImageBehavior = false;
+            this.supervisorListFromActivity.View = System.Windows.Forms.View.Details;
+            // 
+            // activitySupervisorId
+            // 
+            this.activitySupervisorId.Text = "ID";
+            this.activitySupervisorId.Width = 26;
+            // 
+            // activitySupervisorName
+            // 
+            this.activitySupervisorName.Text = "Name of Supervisor";
+            this.activitySupervisorName.Width = 223;
+            // 
+            // activityListForSupervisors
+            // 
+            this.activityListForSupervisors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.activityIdSupervisors,
+            this.activityDescriptionSupervisors});
+            this.activityListForSupervisors.FullRowSelect = true;
+            this.activityListForSupervisors.GridLines = true;
+            this.activityListForSupervisors.HideSelection = false;
+            this.activityListForSupervisors.Location = new System.Drawing.Point(22, 59);
+            this.activityListForSupervisors.Name = "activityListForSupervisors";
+            this.activityListForSupervisors.Size = new System.Drawing.Size(239, 309);
+            this.activityListForSupervisors.TabIndex = 1;
+            this.activityListForSupervisors.UseCompatibleStateImageBehavior = false;
+            this.activityListForSupervisors.View = System.Windows.Forms.View.Details;
+            // 
+            // activityIdSupervisors
+            // 
+            this.activityIdSupervisors.Text = "ID";
+            this.activityIdSupervisors.Width = 30;
+            // 
+            // activityDescriptionSupervisors
+            // 
+            this.activityDescriptionSupervisors.Text = "Description";
+            this.activityDescriptionSupervisors.Width = 205;
+            // 
+            // lblActivitySupervisors
+            // 
+            this.lblActivitySupervisors.AutoSize = true;
+            this.lblActivitySupervisors.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivitySupervisors.Location = new System.Drawing.Point(16, 26);
+            this.lblActivitySupervisors.Name = "lblActivitySupervisors";
+            this.lblActivitySupervisors.Size = new System.Drawing.Size(220, 29);
+            this.lblActivitySupervisors.TabIndex = 0;
+            this.lblActivitySupervisors.Text = "Activity Supervisors";
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.pnlActivitySupervisors);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlCashRegister);
             this.Controls.Add(this.pnlDrinksSupplies);
@@ -968,6 +1118,8 @@
             this.pnlDrinksSupplies.PerformLayout();
             this.pnlCashRegister.ResumeLayout(false);
             this.pnlCashRegister.PerformLayout();
+            this.pnlActivitySupervisors.ResumeLayout(false);
+            this.pnlActivitySupervisors.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1066,6 +1218,20 @@
         private System.Windows.Forms.ToolStripMenuItem drinksSuppliesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cashRegisterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revenueReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activitySupervisorsToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlActivitySupervisors;
+        private System.Windows.Forms.ListView supervisorListFromActivity;
+        private System.Windows.Forms.ListView activityListForSupervisors;
+        private System.Windows.Forms.Label lblActivitySupervisors;
+        private System.Windows.Forms.ColumnHeader activityIdSupervisors;
+        private System.Windows.Forms.ColumnHeader activityDescriptionSupervisors;
+        private System.Windows.Forms.ColumnHeader activitySupervisorId;
+        private System.Windows.Forms.ColumnHeader activitySupervisorName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox activitySupervisorInput;
+        private System.Windows.Forms.Button DeleteSupervisorFromActivityBtn;
+        private System.Windows.Forms.Button addSupervisorToActivityBtn;
+        private System.Windows.Forms.Button showSupervisorBtn;
     }
 }
 

@@ -18,12 +18,15 @@ namespace SomerenUI
         private OrderService orderService;
         private bool drinkIsAlcohol;
         private List<OrderLine> orderLines;
-
+        private ActivityService activityService;
+        private TeacherService teacherService;
         public SomerenUI()
         {
             revenueService = new RevenueService();
             orderService = new OrderService();
             orderLines = new List<OrderLine>();
+            activityService = new ActivityService();
+            teacherService = new TeacherService();
 
             InitializeComponent();
         }
@@ -41,6 +44,7 @@ namespace SomerenUI
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
                 pnlCashRegister.Hide();
+                pnlActivitySupervisors.Hide();
 
                 pnlDashboard.Show();
                 imgDashboard.Show();
@@ -53,6 +57,7 @@ namespace SomerenUI
                 pnlTeacher.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivitySupervisors.Hide();
 
                 pnlStudents.Show();
 
@@ -88,6 +93,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivitySupervisors.Hide();
 
                 // show students
                 pnlTeacher.Show();
@@ -132,6 +138,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivitySupervisors.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -169,6 +176,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlRevenue.Hide();
                 pnlCashRegister.Hide();
+                pnlActivitySupervisors.Hide();
 
                 //show Drink Supplies
                 pnlDrinksSupplies.Show();
@@ -215,6 +223,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivitySupervisors.Hide();
 
                 //show cash register
                 pnlCashRegister.Show();
@@ -269,9 +278,35 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlDrinksSupplies.Hide();
                 pnlCashRegister.Hide();
+                pnlActivitySupervisors.Hide();
 
                 // show students
                 pnlRevenue.Show();
+            }
+            else if (panelName == "Activity Supervisors")
+            {
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlDrinksSupplies.Hide();
+                pnlCashRegister.Hide();
+
+                pnlActivitySupervisors.Show();
+
+                ActivityService activityService = new ActivityService();
+                List<Activity> activities = activityService.GetActivities();
+
+                activityListForSupervisors.Items.Clear();
+                supervisorListFromActivity.Items.Clear();
+
+                foreach (Activity a in activities)
+                {
+                    ListViewItem item2 = new ListViewItem(a.ActivityId.ToString());
+                    item2.SubItems.Add(a.Description);
+                    activityListForSupervisors.Items.Add(item2);
+                }
             }
         }
         //Confirm Alcohol
@@ -414,7 +449,6 @@ namespace SomerenUI
                 drinkSupplyTextBox.Clear();
             }
         }
-
         //Delete Drinks from ListView AND Database (DONE)
         private void drinkDeleteButton_Click(object sender, EventArgs e)
         {
@@ -440,8 +474,7 @@ namespace SomerenUI
             {
                 MessageBox.Show("Cannot delete drink Supply when it has sales: " + delete.Message);
             }
-        }
-  
+        } 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //
@@ -495,13 +528,10 @@ namespace SomerenUI
         {
             revenueStartDate.MaxDate = e.Start;
         }
-
-
         private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Cash Register");
         }
-
         private void checkOutButton_Click_1(object sender, EventArgs e)
         {
             try
@@ -517,7 +547,6 @@ namespace SomerenUI
                 MessageBox.Show("Your transaction has NOT been succeeded! " + ex.Message);
             }
         }
-
         private void addDrinkButton_Click_1(object sender, EventArgs e)
         {
             try
@@ -538,6 +567,102 @@ namespace SomerenUI
             catch (Exception ex)
             {
                 MessageBox.Show("Order not successful: " + ex.Message);
+            }
+        }
+        private void activitySupervisorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activity Supervisors");
+        }
+        private void showSupervisorBtn_Click(object sender, EventArgs e)
+        {
+            supervisorListFromActivity.Items.Clear();
+
+            List<Supervisor> supervisor = activityService.GetSupervisors();
+            List<Teacher> teachers = teacherService.GetTeachers();
+
+            try
+            {
+                foreach (Supervisor s in supervisor)
+                {
+                    foreach (Teacher t in teachers)
+                    {
+                        if (s.ActivityId == int.Parse(activityListForSupervisors.SelectedItems[0].SubItems[0].Text) && s.TeacherId == t.TeacherId)
+                        {
+                            ListViewItem item = new ListViewItem(t.TeacherId.ToString());
+                            item.SubItems.Add(t.FullName);
+                            supervisorListFromActivity.Items.Add(item);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please select a Activity");
+            }
+        }
+        private void AddSupervisorToActivityBtn_Click(object sender, EventArgs e)
+        {
+            List<Teacher> teachers = teacherService.GetTeachers();
+
+            int count = supervisorListFromActivity.Items.Count;
+            int newCount = count;
+            try
+            {
+                foreach (Teacher t in teachers)
+                {
+                    if (t.FullName == activitySupervisorInput.Text)
+                    {
+
+                        Supervisor supervisor = new Supervisor(t.TeacherId, int.Parse(activityListForSupervisors.SelectedItems[0].SubItems[0].Text));
+                        activityService.AddSupervisors(supervisor);
+                        ListViewItem item = new ListViewItem(t.TeacherId.ToString());
+                        item.SubItems.Add(t.FullName);
+                        supervisorListFromActivity.Items.Add(item);
+                        newCount += 1;
+                    }
+                }
+                if(count == newCount)
+                {
+                    MessageBox.Show("This teacher does not exist");
+                }
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Please select a Activity for this new Supervisor");
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Please choose a NEW Supervisor");
+            }
+
+            activitySupervisorInput.Clear();
+        }
+        private void DeleteSupervisorFromActivityBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you wish to remove this supervisor?", "Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                List<Supervisor> supervisors = activityService.GetSupervisors();
+
+                try
+                {
+                    foreach (Supervisor s in supervisors)
+                    {
+                        if (s.TeacherId == int.Parse(supervisorListFromActivity.SelectedItems[0].SubItems[0].Text))
+                        {
+                            activityService.DeleteSupervisor(s);
+                        }
+                    }
+                    supervisorListFromActivity.Items.Remove(supervisorListFromActivity.SelectedItems[0]);
+                }
+                catch
+                {
+                    MessageBox.Show("Please select a Supervisor to delete");
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
             }
         }
     }
