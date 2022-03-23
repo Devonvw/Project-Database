@@ -191,7 +191,6 @@ namespace SomerenUI
                     foreach (Drink supply in drinksSupplies)
                     {
                         ListViewItem supplyList = new ListViewItem(supply.Name.ToString());
-                        //supplyList.SubItems.Add(supply.Name.ToString());
                         supplyList.SubItems.Add(supply.Stock.ToString());
                         supplyList.SubItems.Add($"{supply.Price} token(s)");
                         supplyList.SubItems.Add(supply.AmountSold.ToString());
@@ -341,8 +340,7 @@ namespace SomerenUI
 
                     DrinkSupplyService service = new DrinkSupplyService();
 
-                    ListViewItem supplyList = new ListViewItem("X");
-                    supplyList.SubItems.Add(drinkNameTextBox.Text);
+                    ListViewItem supplyList = new ListViewItem(drinkNameTextBox.Text);
                     supplyList.SubItems.Add(drinkSupplyTextBox.Text);
                     supplyList.SubItems.Add($"{drinkPriceTextBox.Text} token(s)");
                     supplyList.SubItems.Add(0.ToString());
@@ -366,7 +364,7 @@ namespace SomerenUI
                     }
                     else vatId = 1;
 
-                    Drink drink = new Drink(0, drinkNameTextBox.Text, int.Parse(drinkSupplyTextBox.Text), int.Parse(drinkPriceTextBox.Text), vatId, 0);
+                    Drink drink = new Drink(0, drinkNameTextBox.Text, int.Parse(drinkSupplyTextBox.Text), double.Parse(drinkPriceTextBox.Text), vatId, 0);
 
                     service.AddDrinkSupply(drink);
 
@@ -395,7 +393,7 @@ namespace SomerenUI
 
                 foreach (Drink supply in drinksSupplies)
                 {
-                    if (supply.Id == int.Parse(listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text))
+                    if (supply.Name == listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text)
                     {
                         drink = supply;
                     }
@@ -411,12 +409,12 @@ namespace SomerenUI
                         drinkSupplyTextBox.Clear();
                         return;
                     }
-                    listViewDrinksSupplies.SelectedItems[0].SubItems[1].Text = drinkNameTextBox.Text;
+                    listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text = drinkNameTextBox.Text;
                     drink.Name = drinkNameTextBox.Text;
                 }
                 if (!string.IsNullOrEmpty(drinkSupplyTextBox.Text))
                 {
-                    listViewDrinksSupplies.SelectedItems[0].SubItems[2].Text = drinkSupplyTextBox.Text;
+                    listViewDrinksSupplies.SelectedItems[0].SubItems[1].Text = drinkSupplyTextBox.Text;
                     drink.Stock = int.Parse(drinkSupplyTextBox.Text);
 
                     string warning;
@@ -427,12 +425,12 @@ namespace SomerenUI
                     }
                     else warning = "Stock sufficient";
 
-                    listViewDrinksSupplies.SelectedItems[0].SubItems[5].Text = warning;
+                    listViewDrinksSupplies.SelectedItems[0].SubItems[4].Text = warning;
 
                 }
                 if (!string.IsNullOrEmpty(drinkPriceTextBox.Text))
                 {
-                    listViewDrinksSupplies.SelectedItems[0].SubItems[3].Text = $"{drinkPriceTextBox.Text} token(s)";
+                    listViewDrinksSupplies.SelectedItems[0].SubItems[2].Text = $"{drinkPriceTextBox.Text} token(s)";
                     drink.Price = int.Parse(drinkPriceTextBox.Text);
                 }
 
@@ -451,7 +449,7 @@ namespace SomerenUI
         }
         //Delete Drinks from ListView AND Database (DONE)
         private void drinkDeleteButton_Click(object sender, EventArgs e)
-        {
+        {         
             try
             {
                 if (listViewDrinksSupplies.Items.Count > 0)
@@ -461,19 +459,22 @@ namespace SomerenUI
 
                     foreach (Drink supply in drinksSupplies)
                     {
-                        if (supply.Name == listViewDrinksSupplies.SelectedItems[0].SubItems[1].Text)
+                        if (listViewDrinksSupplies.SelectedItems[0].SubItems[0].Text == supply.Name)
                         {
                             supplyService.DeleteDrinkSupply(supply);
+                            
                         }
                     }
+
                     listViewDrinksSupplies.Items.Remove(listViewDrinksSupplies.SelectedItems[0]);
                 }
                 else return;
             }
-            catch (Exception delete)
+            catch (Exception)
             {
-                MessageBox.Show("Cannot delete drink Supply when it has sales: " + delete.Message);
+                MessageBox.Show("Cannot delete drink Supply when it has sales");
             }
+            
         } 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
