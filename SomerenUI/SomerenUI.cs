@@ -120,8 +120,8 @@ namespace SomerenUI
                         item.SubItems.Add(teacher.FirstName.ToString());
                         item.SubItems.Add(teacher.LastName.ToString());
                         item.SubItems.Add(teacher.RoomId.ToString());
-
                         listViewTeacher.Items.Add(item);
+
                     }
                 }
                 catch (Exception e)
@@ -294,8 +294,12 @@ namespace SomerenUI
 
                 pnlActivitySupervisors.Show();
 
+                addSupervisorToActivityBtn.Enabled = false;
+                DeleteSupervisorFromActivityBtn.Enabled = false;
+
                 ActivityService activityService = new ActivityService();
                 List<Activity> activities = activityService.GetActivities();
+                List<Teacher> teachers = teacherService.GetTeachers();
 
                 activityListForSupervisors.Items.Clear();
                 supervisorListFromActivity.Items.Clear();
@@ -304,21 +308,23 @@ namespace SomerenUI
                 {
                     ListViewItem item2 = new ListViewItem(a.ActivityId.ToString());
                     item2.SubItems.Add(a.Description);
+                    item2.SubItems.Add($"{a.Start:HH:mm} - {a.End:HH:mm}");
                     activityListForSupervisors.Items.Add(item2);
+                }
+                foreach(Teacher t in teachers)
+                {
+                    comboBoxLecturesForActivities.Items.Add($"{t.FullName}");
                 }
             }
         }
-        //Confirm Alcohol
         private void alcoholButton_Click(object sender, EventArgs e)
         {
             drinkIsAlcohol = true; 
         }
-        //Confirm Alcohol-Free
         private void nonAlcoholButton_Click(object sender, EventArgs e)
         {
             drinkIsAlcohol = false;
         }
-        //ADD drinks to List AND Database (DONE)
         private void drinkAddButton_Click(object sender, EventArgs e)
         {
             try
@@ -382,7 +388,6 @@ namespace SomerenUI
                 drinkSupplyTextBox.Clear();
             }
         }
-        //Update Drinks from ListView to Database (DONE)
         private void drinkUpdateButton_Click(object sender, EventArgs e)
         {
             try
@@ -447,7 +452,6 @@ namespace SomerenUI
                 drinkSupplyTextBox.Clear();
             }
         }
-        //Delete Drinks from ListView AND Database (DONE)
         private void drinkDeleteButton_Click(object sender, EventArgs e)
         {         
             try
@@ -574,97 +578,102 @@ namespace SomerenUI
         {
             showPanel("Activity Supervisors");
         }
-        private void showSupervisorBtn_Click(object sender, EventArgs e)
+        private void EnableAddButton(object sender, EventArgs e)
         {
-            supervisorListFromActivity.Items.Clear();
-
-            List<Supervisor> supervisor = activityService.GetSupervisors();
-            List<Teacher> teachers = teacherService.GetTeachers();
-
-            try
+            if (comboBoxLecturesForActivities.SelectedIndex > -1)
             {
-                foreach (Supervisor s in supervisor)
-                {
-                    foreach (Teacher t in teachers)
-                    {
-                        if (s.ActivityId == int.Parse(activityListForSupervisors.SelectedItems[0].SubItems[0].Text) && s.TeacherId == t.TeacherId)
-                        {
-                            ListViewItem item = new ListViewItem(t.TeacherId.ToString());
-                            item.SubItems.Add(t.FullName);
-                            supervisorListFromActivity.Items.Add(item);
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Please select a Activity");
-            }
+                addSupervisorToActivityBtn.Enabled = true;
+            } else addSupervisorToActivityBtn.Enabled = false;
         }
         private void AddSupervisorToActivityBtn_Click(object sender, EventArgs e)
         {
-            List<Teacher> teachers = teacherService.GetTeachers();
-
-            int count = supervisorListFromActivity.Items.Count;
-            int newCount = count;
             try
             {
+                List<Teacher> teachers = teacherService.GetTeachers();
+
                 foreach (Teacher t in teachers)
                 {
-                    if (t.FullName == activitySupervisorInput.Text)
+                    if (t.FullName == comboBoxLecturesForActivities.SelectedItem.ToString())
                     {
-
-                        Supervisor supervisor = new Supervisor(t.TeacherId, int.Parse(activityListForSupervisors.SelectedItems[0].SubItems[0].Text));
-                        activityService.AddSupervisors(supervisor);
+                        activityService.AddSuperVisor(int.Parse(activityListForSupervisors.SelectedItems[0].SubItems[0].Text), t.TeacherId);
                         ListViewItem item = new ListViewItem(t.TeacherId.ToString());
                         item.SubItems.Add(t.FullName);
                         supervisorListFromActivity.Items.Add(item);
-                        newCount += 1;
                     }
-                }
-                if(count == newCount)
-                {
-                    MessageBox.Show("This teacher does not exist");
                 }
             }
             catch (System.ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Please select a Activity for this new Supervisor");
+                MessageBox.Show("Please select a Activity for this new Supervisor!!");
             }
-            catch (System.Data.SqlClient.SqlException)
+            catch (System.InvalidOperationException)
             {
-                MessageBox.Show("Please choose a NEW Supervisor");
+                MessageBox.Show("Please select a different Supervisor for this new Activity!!");
             }
-
-            activitySupervisorInput.Clear();
+            catch(InvalidProgramException)
+            {
+                MessageBox.Show("Supervisor is available on this TIME!!");
+            }
         }
         private void DeleteSupervisorFromActivityBtn_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you wish to remove this supervisor?", "Warning", MessageBoxButtons.YesNo);
+
             if (dialogResult == DialogResult.Yes)
             {
-                List<Supervisor> supervisors = activityService.GetSupervisors();
+                List<Teacher> activitySupervisors = activityService.GetSupervisorsOfActivity(int.Parse(activityListForSupervisors.SelectedItems[0].SubItems[0].Text));
 
                 try
                 {
-                    foreach (Supervisor s in supervisors)
+                    foreach(Teacher t in activitySupervisors)
                     {
-                        if (s.TeacherId == int.Parse(supervisorListFromActivity.SelectedItems[0].SubItems[0].Text))
+                        if (t.TeacherId == int.Parse(supervisorListFromActivity.SelectedItems[0].SubItems[0].Text))
                         {
-                            activityService.DeleteSupervisor(s);
+                            activityService.DeleteSupervisor(t.TeacherId, int.Parse(activityListForSupervisors.SelectedItems[0].SubItems[0].Text));
+                            supervisorListFromActivity.Items.Remove(supervisorListFromActivity.SelectedItems[0]);
                         }
                     }
-                    supervisorListFromActivity.Items.Remove(supervisorListFromActivity.SelectedItems[0]);
                 }
                 catch
                 {
-                    MessageBox.Show("Please select a Supervisor to delete");
+
                 }
             }
-            else if (dialogResult == DialogResult.No)
+            else return;
+        } 
+        private void supervisorListFromActivity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(supervisorListFromActivity.SelectedItems.Count > 0)
             {
-                return;
+                DeleteSupervisorFromActivityBtn.Enabled = true;
             }
+            else
+            {
+                DeleteSupervisorFromActivityBtn.Enabled = false;
+            }
+        }
+        private void activityListForSupervisors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            supervisorListFromActivity.Items.Clear();
+            DeleteSupervisorFromActivityBtn.Enabled = false;
+
+            ListView.SelectedIndexCollection indexes = this.activityListForSupervisors.SelectedIndices;
+
+            foreach (int index in indexes)
+            {
+                List<Teacher> activitySupervisors = activityService.GetSupervisorsOfActivity(int.Parse(activityListForSupervisors.SelectedItems[0].SubItems[0].Text));
+
+                foreach (Teacher t in activitySupervisors)
+                {
+                    ListViewItem item = new ListViewItem(t.TeacherId.ToString());
+                    item.SubItems.Add(t.FullName);
+                    supervisorListFromActivity.Items.Add(item);
+                }
+            }
+        } 
+        private void comboBoxLecturesForActivities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addSupervisorToActivityBtn.Enabled = true;
         }
     }
 }

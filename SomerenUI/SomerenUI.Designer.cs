@@ -122,17 +122,18 @@
             this.drinkLabel = new System.Windows.Forms.Label();
             this.studentLabel = new System.Windows.Forms.Label();
             this.pnlActivitySupervisors = new System.Windows.Forms.Panel();
-            this.showSupervisorBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.activitySupervisorInput = new System.Windows.Forms.TextBox();
+            this.testLabel = new System.Windows.Forms.Label();
+            this.comboBoxLecturesForActivities = new System.Windows.Forms.ComboBox();
+            this.informationLabelActivities = new System.Windows.Forms.Label();
             this.DeleteSupervisorFromActivityBtn = new System.Windows.Forms.Button();
             this.addSupervisorToActivityBtn = new System.Windows.Forms.Button();
             this.supervisorListFromActivity = new System.Windows.Forms.ListView();
-            this.activitySupervisorId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.activitySupervisorName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.supervisorIdForActivity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.supervisorNameForActivity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activityListForSupervisors = new System.Windows.Forms.ListView();
             this.activityIdSupervisors = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activityDescriptionSupervisors = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityTimeSupervisors = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblActivitySupervisors = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -365,7 +366,7 @@
             this.listViewStudents.GridLines = true;
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Location = new System.Drawing.Point(12, 34);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(576, 250);
             this.listViewStudents.TabIndex = 5;
@@ -406,7 +407,7 @@
             this.pnlTeacher.Controls.Add(this.pictureBox2);
             this.pnlTeacher.Controls.Add(this.teacherLabel);
             this.pnlTeacher.Location = new System.Drawing.Point(9, 20);
-            this.pnlTeacher.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlTeacher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTeacher.Name = "pnlTeacher";
             this.pnlTeacher.Size = new System.Drawing.Size(704, 379);
             this.pnlTeacher.TabIndex = 6;
@@ -420,7 +421,7 @@
             this.listViewTeacher.GridLines = true;
             this.listViewTeacher.HideSelection = false;
             this.listViewTeacher.Location = new System.Drawing.Point(12, 34);
-            this.listViewTeacher.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewTeacher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewTeacher.Name = "listViewTeacher";
             this.listViewTeacher.Size = new System.Drawing.Size(576, 250);
             this.listViewTeacher.TabIndex = 5;
@@ -443,7 +444,7 @@
             this.pictureBox2.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
             this.pictureBox2.Location = new System.Drawing.Point(604, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(98, 100);
             this.pictureBox2.TabIndex = 0;
@@ -475,7 +476,7 @@
             this.pnlRevenue.Controls.Add(this.revenueStartDate);
             this.pnlRevenue.Controls.Add(this.label1);
             this.pnlRevenue.Location = new System.Drawing.Point(9, 22);
-            this.pnlRevenue.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlRevenue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlRevenue.Name = "pnlRevenue";
             this.pnlRevenue.Size = new System.Drawing.Size(712, 388);
             this.pnlRevenue.TabIndex = 7;
@@ -543,7 +544,7 @@
             // btnGenerateReport
             // 
             this.btnGenerateReport.Location = new System.Drawing.Point(140, 265);
-            this.btnGenerateReport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGenerateReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGenerateReport.Name = "btnGenerateReport";
             this.btnGenerateReport.Size = new System.Drawing.Size(77, 20);
             this.btnGenerateReport.TabIndex = 5;
@@ -574,7 +575,7 @@
             // revenueEndDate
             // 
             this.revenueEndDate.Location = new System.Drawing.Point(183, 57);
-            this.revenueEndDate.Margin = new System.Windows.Forms.Padding(6);
+            this.revenueEndDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.revenueEndDate.MaxDate = new System.DateTime(2022, 3, 16, 0, 0, 0, 0);
             this.revenueEndDate.Name = "revenueEndDate";
             this.revenueEndDate.TabIndex = 2;
@@ -583,7 +584,7 @@
             // revenueStartDate
             // 
             this.revenueStartDate.Location = new System.Drawing.Point(14, 57);
-            this.revenueStartDate.Margin = new System.Windows.Forms.Padding(6);
+            this.revenueStartDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.revenueStartDate.MaxDate = new System.DateTime(2022, 3, 16, 0, 0, 0, 0);
             this.revenueStartDate.Name = "revenueStartDate";
             this.revenueStartDate.TabIndex = 1;
@@ -956,9 +957,9 @@
             // 
             // pnlActivitySupervisors
             // 
-            this.pnlActivitySupervisors.Controls.Add(this.showSupervisorBtn);
-            this.pnlActivitySupervisors.Controls.Add(this.label2);
-            this.pnlActivitySupervisors.Controls.Add(this.activitySupervisorInput);
+            this.pnlActivitySupervisors.Controls.Add(this.testLabel);
+            this.pnlActivitySupervisors.Controls.Add(this.comboBoxLecturesForActivities);
+            this.pnlActivitySupervisors.Controls.Add(this.informationLabelActivities);
             this.pnlActivitySupervisors.Controls.Add(this.DeleteSupervisorFromActivityBtn);
             this.pnlActivitySupervisors.Controls.Add(this.addSupervisorToActivityBtn);
             this.pnlActivitySupervisors.Controls.Add(this.supervisorListFromActivity);
@@ -969,105 +970,115 @@
             this.pnlActivitySupervisors.Size = new System.Drawing.Size(942, 460);
             this.pnlActivitySupervisors.TabIndex = 10;
             // 
-            // showSupervisorBtn
+            // testLabel
             // 
-            this.showSupervisorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.showSupervisorBtn.Location = new System.Drawing.Point(583, 59);
-            this.showSupervisorBtn.Name = "showSupervisorBtn";
-            this.showSupervisorBtn.Size = new System.Drawing.Size(162, 41);
-            this.showSupervisorBtn.TabIndex = 7;
-            this.showSupervisorBtn.Text = "Show Supervisor(s)";
-            this.showSupervisorBtn.UseVisualStyleBackColor = true;
-            this.showSupervisorBtn.Click += new System.EventHandler(this.showSupervisorBtn_Click);
+            this.testLabel.AutoSize = true;
+            this.testLabel.Location = new System.Drawing.Point(709, 380);
+            this.testLabel.Name = "testLabel";
+            this.testLabel.Size = new System.Drawing.Size(0, 13);
+            this.testLabel.TabIndex = 9;
             // 
-            // label2
+            // comboBoxLecturesForActivities
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(580, 222);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 18);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Name of Lecturer:";
+            this.comboBoxLecturesForActivities.FormattingEnabled = true;
+            this.comboBoxLecturesForActivities.Location = new System.Drawing.Point(581, 75);
+            this.comboBoxLecturesForActivities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxLecturesForActivities.Name = "comboBoxLecturesForActivities";
+            this.comboBoxLecturesForActivities.Size = new System.Drawing.Size(281, 21);
+            this.comboBoxLecturesForActivities.TabIndex = 8;
+            this.comboBoxLecturesForActivities.SelectedIndexChanged += new System.EventHandler(this.comboBoxLecturesForActivities_SelectedIndexChanged);
             // 
-            // activitySupervisorInput
+            // informationLabelActivities
             // 
-            this.activitySupervisorInput.Location = new System.Drawing.Point(583, 247);
-            this.activitySupervisorInput.Name = "activitySupervisorInput";
-            this.activitySupervisorInput.Size = new System.Drawing.Size(162, 20);
-            this.activitySupervisorInput.TabIndex = 5;
+            this.informationLabelActivities.AutoSize = true;
+            this.informationLabelActivities.Location = new System.Drawing.Point(579, 103);
+            this.informationLabelActivities.Name = "informationLabelActivities";
+            this.informationLabelActivities.Size = new System.Drawing.Size(140, 13);
+            this.informationLabelActivities.TabIndex = 7;
+            this.informationLabelActivities.Text = "Choose Lecturer for Activity:";
             // 
             // DeleteSupervisorFromActivityBtn
             // 
-            this.DeleteSupervisorFromActivityBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteSupervisorFromActivityBtn.Location = new System.Drawing.Point(583, 328);
+            this.DeleteSupervisorFromActivityBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteSupervisorFromActivityBtn.Location = new System.Drawing.Point(580, 255);
             this.DeleteSupervisorFromActivityBtn.Name = "DeleteSupervisorFromActivityBtn";
-            this.DeleteSupervisorFromActivityBtn.Size = new System.Drawing.Size(162, 41);
+            this.DeleteSupervisorFromActivityBtn.Size = new System.Drawing.Size(281, 71);
             this.DeleteSupervisorFromActivityBtn.TabIndex = 4;
-            this.DeleteSupervisorFromActivityBtn.Text = "Delete Supervisor";
+            this.DeleteSupervisorFromActivityBtn.Text = "Delete lecturer as supervisor";
             this.DeleteSupervisorFromActivityBtn.UseVisualStyleBackColor = true;
             this.DeleteSupervisorFromActivityBtn.Click += new System.EventHandler(this.DeleteSupervisorFromActivityBtn_Click);
             // 
             // addSupervisorToActivityBtn
             // 
-            this.addSupervisorToActivityBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSupervisorToActivityBtn.Location = new System.Drawing.Point(583, 277);
+            this.addSupervisorToActivityBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.addSupervisorToActivityBtn.FlatAppearance.BorderSize = 2;
+            this.addSupervisorToActivityBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.addSupervisorToActivityBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSupervisorToActivityBtn.Location = new System.Drawing.Point(580, 172);
             this.addSupervisorToActivityBtn.Name = "addSupervisorToActivityBtn";
-            this.addSupervisorToActivityBtn.Size = new System.Drawing.Size(162, 41);
+            this.addSupervisorToActivityBtn.Size = new System.Drawing.Size(281, 66);
             this.addSupervisorToActivityBtn.TabIndex = 3;
-            this.addSupervisorToActivityBtn.Text = "Add as Supervisor";
+            this.addSupervisorToActivityBtn.Text = "Add lecturer as supervisor";
             this.addSupervisorToActivityBtn.UseVisualStyleBackColor = true;
             this.addSupervisorToActivityBtn.Click += new System.EventHandler(this.AddSupervisorToActivityBtn_Click);
             // 
             // supervisorListFromActivity
             // 
             this.supervisorListFromActivity.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.activitySupervisorId,
-            this.activitySupervisorName});
+            this.supervisorIdForActivity,
+            this.supervisorNameForActivity});
             this.supervisorListFromActivity.FullRowSelect = true;
             this.supervisorListFromActivity.GridLines = true;
             this.supervisorListFromActivity.HideSelection = false;
-            this.supervisorListFromActivity.Location = new System.Drawing.Point(299, 59);
+            this.supervisorListFromActivity.Location = new System.Drawing.Point(320, 60);
             this.supervisorListFromActivity.Name = "supervisorListFromActivity";
-            this.supervisorListFromActivity.Size = new System.Drawing.Size(254, 309);
-            this.supervisorListFromActivity.TabIndex = 2;
+            this.supervisorListFromActivity.Size = new System.Drawing.Size(232, 335);
+            this.supervisorListFromActivity.TabIndex = 0;
             this.supervisorListFromActivity.UseCompatibleStateImageBehavior = false;
             this.supervisorListFromActivity.View = System.Windows.Forms.View.Details;
+            this.supervisorListFromActivity.SelectedIndexChanged += new System.EventHandler(this.supervisorListFromActivity_SelectedIndexChanged);
             // 
-            // activitySupervisorId
+            // supervisorIdForActivity
             // 
-            this.activitySupervisorId.Text = "ID";
-            this.activitySupervisorId.Width = 26;
+            this.supervisorIdForActivity.Text = "ID";
+            this.supervisorIdForActivity.Width = 0;
             // 
-            // activitySupervisorName
+            // supervisorNameForActivity
             // 
-            this.activitySupervisorName.Text = "Name of Supervisor";
-            this.activitySupervisorName.Width = 223;
+            this.supervisorNameForActivity.Text = "Supervisor";
+            this.supervisorNameForActivity.Width = 228;
             // 
             // activityListForSupervisors
             // 
             this.activityListForSupervisors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.activityIdSupervisors,
-            this.activityDescriptionSupervisors});
+            this.activityDescriptionSupervisors,
+            this.activityTimeSupervisors});
             this.activityListForSupervisors.FullRowSelect = true;
             this.activityListForSupervisors.GridLines = true;
             this.activityListForSupervisors.HideSelection = false;
-            this.activityListForSupervisors.Location = new System.Drawing.Point(22, 59);
+            this.activityListForSupervisors.Location = new System.Drawing.Point(20, 60);
             this.activityListForSupervisors.Name = "activityListForSupervisors";
-            this.activityListForSupervisors.Size = new System.Drawing.Size(239, 309);
+            this.activityListForSupervisors.Size = new System.Drawing.Size(271, 335);
             this.activityListForSupervisors.TabIndex = 1;
             this.activityListForSupervisors.UseCompatibleStateImageBehavior = false;
             this.activityListForSupervisors.View = System.Windows.Forms.View.Details;
+            this.activityListForSupervisors.SelectedIndexChanged += new System.EventHandler(this.activityListForSupervisors_SelectedIndexChanged);
             // 
             // activityIdSupervisors
             // 
             this.activityIdSupervisors.Text = "ID";
-            this.activityIdSupervisors.Width = 30;
+            this.activityIdSupervisors.Width = 0;
             // 
             // activityDescriptionSupervisors
             // 
             this.activityDescriptionSupervisors.Text = "Description";
-            this.activityDescriptionSupervisors.Width = 205;
+            this.activityDescriptionSupervisors.Width = 130;
+            // 
+            // activityTimeSupervisors
+            // 
+            this.activityTimeSupervisors.Text = "Time Block";
+            this.activityTimeSupervisors.Width = 137;
             // 
             // lblActivitySupervisors
             // 
@@ -1223,15 +1234,16 @@
         private System.Windows.Forms.ListView supervisorListFromActivity;
         private System.Windows.Forms.ListView activityListForSupervisors;
         private System.Windows.Forms.Label lblActivitySupervisors;
-        private System.Windows.Forms.ColumnHeader activityIdSupervisors;
-        private System.Windows.Forms.ColumnHeader activityDescriptionSupervisors;
-        private System.Windows.Forms.ColumnHeader activitySupervisorId;
-        private System.Windows.Forms.ColumnHeader activitySupervisorName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox activitySupervisorInput;
         private System.Windows.Forms.Button DeleteSupervisorFromActivityBtn;
         private System.Windows.Forms.Button addSupervisorToActivityBtn;
-        private System.Windows.Forms.Button showSupervisorBtn;
+        private System.Windows.Forms.Label informationLabelActivities;
+        private System.Windows.Forms.ComboBox comboBoxLecturesForActivities;
+        private System.Windows.Forms.ColumnHeader activityIdSupervisors;
+        private System.Windows.Forms.ColumnHeader activityDescriptionSupervisors;
+        private System.Windows.Forms.ColumnHeader activityTimeSupervisors;
+        private System.Windows.Forms.ColumnHeader supervisorIdForActivity;
+        private System.Windows.Forms.ColumnHeader supervisorNameForActivity;
+        private System.Windows.Forms.Label testLabel;
     }
 }
 

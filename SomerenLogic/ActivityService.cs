@@ -18,21 +18,21 @@ namespace SomerenLogic
         }
         public List<Activity> GetActivities()
         {
-            List<Activity> activities = activitydb.GetActivities();
+            List<Activity> activities = activitydb.GetActivity();
             return activities;
         }
-        public List<Supervisor> GetSupervisors()
+        public void DeleteSupervisor(int teacherId, int activityId)
         {
-            List<Supervisor> supervisors = activitydb.GetSupervisors();
-            return supervisors;
+            activitydb.DeleteSupervisor(teacherId, activityId);
         }
-        public void AddSupervisors(Supervisor supervisor)
+        public List<Teacher> GetSupervisorsOfActivity(int activityId)
         {
-            activitydb.AddSupervisor(supervisor);
+            List<Teacher> activitySupervisors = activitydb.GetSupervisorsOfActivity(activityId);
+            return activitySupervisors;
         }
-        public void DeleteSupervisor(Supervisor supervisor)
+        public void AddSuperVisor(int activityId, int teacherId)
         {
-            activitydb.DeleteSupervisor(supervisor);
+            activitydb.AddSuperVisor(activityId, teacherId);
         }
     }
 }
