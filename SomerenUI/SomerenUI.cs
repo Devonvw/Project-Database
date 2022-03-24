@@ -441,11 +441,6 @@ namespace SomerenUI
                 MessageBox.Show("Cannot delete drink Supply when it has sales: " + delete.Message);
             }
         }
-  
-        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //
-        }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
