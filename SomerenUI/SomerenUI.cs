@@ -590,7 +590,7 @@ namespace SomerenUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Updating activity failed: " + ex.Message);
             }
             finally
             {
@@ -605,8 +605,6 @@ namespace SomerenUI
             {
                 try
                 {
-                    Debug.WriteLine(listViewActivity.SelectedItems[0].SubItems[0].Text);
-
                     ActivityService activityService = new ActivityService();
                     activityService.DeleteActivity(int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text));
                     List<Activity> activities = activityService.GetActivity();
