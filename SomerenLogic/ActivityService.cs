@@ -28,9 +28,9 @@ namespace SomerenLogic
         {
             activitydb.UpdateActivity(activity);
         }
-        public void DeleteActivity(Activity activity)
+        public void DeleteActivity(int activityId)
         {
-            activitydb.DeleteActivity(activity);
+            activitydb.DeleteActivity(activityId);
         }
     }
 }

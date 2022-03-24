@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -238,22 +239,16 @@ namespace SomerenUI
 
                     listViewActivity.Items.Clear();
 
-                    if (listViewActivity.SelectedItems.Count > 0)
-                    {
-                        ListViewItem listViewItem = listViewActivity.SelectedItems[0];
-                        activityDescriptionTextbox.Text = listViewItem.SubItems[0].Text;
-                        activityDescriptionTextbox.Text = listViewItem.SubItems[1].Text;
-                    }
-
                     foreach (Activity activity in activities)
                     {
-                        ListViewItem listViewItem = new ListViewItem(activity.ActivityDescription);
+                        ListViewItem listViewItem = new ListViewItem(activity.ActivityId.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityDescription);
                         listViewItem.SubItems.Add(activity.ActivityStartDateTime.ToString());
                         listViewItem.SubItems.Add(activity.ActivityEndDateTime.ToString());
 
                         listViewActivity.Items.Add(listViewItem);
                     }
-                    
+
                 }
                 catch (Exception e)
                 {
@@ -516,29 +511,32 @@ namespace SomerenUI
                 {
                     throw new Exception("End date time must be after start date time!");
                 }
-                else if (dateTimeNow <= startDateTime)
+                else if (dateTimeNow >= startDateTime)
                 {
                     throw new Exception("You can not make an activity in the past.");
                 }
+                else
+                {
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activityList = activityService.GetActivity();
 
-                ActivityService activityService = new ActivityService();
-                List<Activity> activityList = activityService.GetActivity();
+                    ListViewItem activityItem = new ListViewItem(activityDescriptionTextbox.Text);
+                    activityItem.SubItems.Add(activityStartTextbox.Text);
+                    activityItem.SubItems.Add(activityEndTextbox.Text);
 
-                ListViewItem activityItem = new ListViewItem(activityDescriptionTextbox.Text);
-                activityItem.SubItems.Add(activityStartTextbox.Text);
-                activityItem.SubItems.Add(activityEndTextbox.Text);
+                    listViewActivity.Items.Add(activityItem);
 
-                listViewActivity.Items.Add(activityItem);
+                    Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
 
-                Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
+                    activityService.AddActivity(activity);
 
-                activityService.AddActivity(activity);
-
-                MessageBox.Show($"Succesfully added: {activity.ActivityDescription}");
+                    MessageBox.Show($"Succesfully added: {activity.ActivityDescription}");
+                }
+                
             }
             catch (Exception Add)
             {
-                MessageBox.Show(Add.Message);
+                MessageBox.Show("Something went wrong during add an activity" + Add.Message);
             }
             finally
             {
@@ -572,10 +570,7 @@ namespace SomerenUI
                 {
                     if (listViewActivity.FindItemWithText(activityDescriptionTextbox.Text) != null)
                     {
-                        MessageBox.Show($"{activityDescriptionTextbox.Text} already exist");
-                        activityDescriptionTextbox.Clear();
-                        activityStartTextbox.Clear();
-                        activityEndTextbox.Clear();
+                        ActivityClear();
                         return;
                     }
                     listViewActivity.SelectedItems[0].SubItems[1].Text = activityDescriptionTextbox.Text;
@@ -610,26 +605,40 @@ namespace SomerenUI
             {
                 try
                 {
+                    Debug.WriteLine(listViewActivity.SelectedItems[0].SubItems[0].Text);
+
                     ActivityService activityService = new ActivityService();
+                    activityService.DeleteActivity(int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text));
                     List<Activity> activities = activityService.GetActivity();
-                    Activity activity = null;
 
-                    foreach (Activity alterActivity in activities)
+                    listViewActivity.Items.Clear();
+
+                    foreach (Activity activity in activities)
                     {
-                        if (alterActivity.ActivityDescription == listViewActivity.SelectedItems[0].SubItems[1].Text)
-                        {
-                            activityService.DeleteActivity(alterActivity);
-                        }
-                    }
-                    listViewActivity.Items.Remove(listViewActivity.SelectedItems[0]);
+                        ListViewItem listViewItem = new ListViewItem(activity.ActivityId.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityDescription);
+                        listViewItem.SubItems.Add(activity.ActivityStartDateTime.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityEndDateTime.ToString());
 
-                    MessageBox.Show($"Succesfully deleted: {activity.ActivityDescription}");
+                        listViewActivity.Items.Add(listViewItem);
+                    }
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Cannot delete activity: " + ex.Message);
                 }
             }
+            
+        }
+
+        private void listViewActivity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+             ListViewItem listViewItem = listViewActivity.SelectedItems[0];
+             activityDescriptionTextbox.Text = listViewItem.SubItems[1].Text;
+            activityStartTextbox.Text = listViewItem.SubItems[2].Text;
+            activityEndTextbox.Text = listViewItem.SubItems[3].Text;
             
         }
     }

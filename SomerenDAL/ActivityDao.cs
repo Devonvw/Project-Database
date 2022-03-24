@@ -76,14 +76,17 @@ namespace SomerenDAL
             command.ExecuteNonQuery();
             conn.Close();
         }
-        public void DeleteActivity(Activity activity)
+        public void DeleteActivity(int activityId)
         {
-            conn.Open();
-            SqlCommand command = new SqlCommand("DELETE FROM Activity WHERE activityId=@activityId");
-            command.Parameters.AddWithValue("@activityId", activity.ActivityId);
-            command.ExecuteNonQuery();
-            conn.Close();
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+            new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
+            };
+
+            string query = $"DELETE FROM Activity WHERE activityId=@activityId";
+            ExecuteEditQuery(query, sqlParameters);
         }
+
         private List<Activity> ReadTables(DataTable dataTable)
         {
             List<Activity> activities = new List<Activity>();

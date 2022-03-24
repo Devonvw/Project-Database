@@ -111,10 +111,10 @@
             this.updateActivityButton = new System.Windows.Forms.Button();
             this.activityAddButton = new System.Windows.Forms.Button();
             this.listViewActivity = new System.Windows.Forms.ListView();
-            this.activityIdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.activityEndDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.activityStartDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activityDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityStartDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityEndDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityIdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -862,10 +862,10 @@
             // listViewActivity
             // 
             this.listViewActivity.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.activityIdHeader,
             this.activityDescription,
             this.activityStartDateTime,
-            this.activityEndDateTime,
-            this.activityIdHeader});
+            this.activityEndDateTime});
             this.listViewActivity.FullRowSelect = true;
             this.listViewActivity.GridLines = true;
             this.listViewActivity.HideSelection = false;
@@ -876,26 +876,26 @@
             this.listViewActivity.TabIndex = 0;
             this.listViewActivity.UseCompatibleStateImageBehavior = false;
             this.listViewActivity.View = System.Windows.Forms.View.Details;
+            this.listViewActivity.SelectedIndexChanged += new System.EventHandler(this.listViewActivity_SelectedIndexChanged);
             // 
-            // activityIdHeader
+            // activityDescription
             // 
-            this.activityIdHeader.DisplayIndex = 0;
-            this.activityIdHeader.Width = 0;
-            // 
-            // activityEndDateTime
-            // 
-            this.activityEndDateTime.Text = "End Time";
-            this.activityEndDateTime.Width = 140;
+            this.activityDescription.Text = "Description";
+            this.activityDescription.Width = 120;
             // 
             // activityStartDateTime
             // 
             this.activityStartDateTime.Text = "Start Time";
             this.activityStartDateTime.Width = 140;
             // 
-            // activityDescription
+            // activityEndDateTime
             // 
-            this.activityDescription.Text = "Description";
-            this.activityDescription.Width = 120;
+            this.activityEndDateTime.Text = "End Time";
+            this.activityEndDateTime.Width = 140;
+            // 
+            // activityIdHeader
+            // 
+            this.activityIdHeader.Width = 0;
             // 
             // SomerenUI
             // 
