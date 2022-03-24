@@ -33,9 +33,47 @@ namespace SomerenDAL
         }
         public void AddStudent(int activityId, int studentId)
         {
-            string query = "INSERT INTO ActivityStudent (activityId, studentId) VALUES(@activityId, @studentId)";
+            DateTime start = new DateTime();
+            DateTime end = new DateTime(); 
+            string query = "SELECT A.* from Activity as A WHERE A.activityId = @activityId";
 
-            SqlParameter[] sqlParameters = new SqlParameter[]
+            try
+            {
+                SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+            new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
+            };
+
+            DataTable dataTable = new DataTable();
+
+                dataTable = ExecuteSelectQuery(query, sqlParameters);
+                start = (DateTime)dataTable.Rows[0]["startDateTime"];
+                end = (DateTime)dataTable.Rows[0]["endDateTime"];
+                query = "SELECT A.* from Activity as A LEFT JOIN ActivityStudent as ASTU ON A.activityId = ASTU.activityId LEFT JOIN Student as S ON S.studentId = ASTU.studentId WHERE S.studentId = @studentId and (A.startDateTime BETWEEN @startDateTime and @endDateTime or A.endDateTime BETWEEN @startDateTime and @endDateTime)";
+                SqlParameter[] sqlParametersAvailable = new SqlParameter[]
+            {
+            new SqlParameter("@studentId", SqlDbType.DateTime) { Value = studentId },
+            new SqlParameter("@startDateTime", SqlDbType.DateTime) { Value = start },
+            new SqlParameter("@endDateTime", SqlDbType.DateTime) { Value = end },
+            };
+                dataTable = ExecuteSelectQuery(query, sqlParametersAvailable);
+                if (dataTable != null)
+                {
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        throw new InvalidOperationException($"This student already has an activity in this timespan");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException($"No data found");
+            }
+
+
+            query = "INSERT INTO ActivityStudent (activityId, studentId) VALUES(@activityId, @studentId)";
+
+            SqlParameter[] sqlParametersAdd = new SqlParameter[]
             {
             new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
             new SqlParameter("@studentId", SqlDbType.DateTime) { Value = studentId }
@@ -43,7 +81,7 @@ namespace SomerenDAL
            
             try
             {
-                ExecuteEditQuery(query, sqlParameters);
+                ExecuteEditQuery(query, sqlParametersAdd);
             }
             catch (Exception)
             {

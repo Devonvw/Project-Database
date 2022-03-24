@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace SomerenUI
 {
@@ -16,12 +17,14 @@ namespace SomerenUI
     {
         private RevenueService revenueService;
         private OrderService orderService;
+        private ActivityService activityService;
         private bool drinkIsAlcohol;
         private List<OrderLine> orderLines;
 
         public SomerenUI()
         {
             revenueService = new RevenueService();
+            activityService = new ActivityService();
             orderService = new OrderService();
             orderLines = new List<OrderLine>();
 
@@ -41,6 +44,7 @@ namespace SomerenUI
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
                 pnlCashRegister.Hide();
+                pnlActivityParticipants.Hide();
 
                 pnlDashboard.Show();
                 imgDashboard.Show();
@@ -53,6 +57,7 @@ namespace SomerenUI
                 pnlTeacher.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivityParticipants.Hide();
 
                 pnlStudents.Show();
 
@@ -88,7 +93,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
-
+                pnlActivityParticipants.Hide();
                 // show students
                 pnlTeacher.Show();
 
@@ -132,6 +137,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -169,6 +175,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlRevenue.Hide();
                 pnlCashRegister.Hide();
+                pnlActivityParticipants.Hide();
 
                 //show Drink Supplies
                 pnlDrinksSupplies.Show();
@@ -215,6 +222,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivityParticipants.Hide();
 
                 //show cash register
                 pnlCashRegister.Show();
@@ -269,9 +277,48 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlDrinksSupplies.Hide();
                 pnlCashRegister.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show students
                 pnlRevenue.Show();
+            }
+            else if (panelName == "Activity Participants")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlDrinksSupplies.Hide();
+                pnlCashRegister.Hide();
+                pnlRevenue.Hide();
+
+                // show students
+                pnlActivityParticipants.Show();
+
+                try
+                {
+                    // fill the students listview within the students panel with a list of students
+                    StudentService studService = new StudentService(); ;
+                    List<Student> studentList = studService.GetStudents();
+
+                    // clear the listview before filling it again
+                    cbxAvailableParticipants.Items.Clear();
+
+                    foreach (Student student in studentList)
+                    {
+                        //ComboBoxItem li = new ComboBoxItem(student.FullName.ToString());
+                        //li.SubItems.Add(student.FullName.ToString());
+                        //li.SubItems.Add(student.BirthDate.ToString("dd/MM/yyyy"));
+                        //li.SubItems.Add(student.RoomId.ToString());
+                        cbxAvailableParticipants.Items.Add($"{student.Id} - {student.FullName}"); ;
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
+                }
             }
         }
         //Confirm Alcohol
@@ -540,6 +587,38 @@ namespace SomerenUI
             {
                 MessageBox.Show("Order not successful: " + ex.Message);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void activityParticipantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activity Participants");
+        }
+
+        private void lblAvailableStudents_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+            //activityService.AddStudent((int)listViewActivitiesParticipants.SelectedItems[0].SubItems[0].Text, (int)cbxAvailableParticipants.SelectedItem.ToString().Split('-')[0].Trim())
+            Debug.WriteLine(cbxAvailableParticipants.SelectedItem.ToString().Split('-')[0].Trim());
+        }
+
+        private void btnDeleteStudent_Click(object sender, EventArgs e)
+        {
+            //activityService.DeleteStudent((int)listViewActivitiesParticipants.SelectedItems[0].SubItems[0].Text, (int)listViewParticipants.SelectedItems[0].SubItems[0].Text)
+
         }
     }
 }
