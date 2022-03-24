@@ -34,6 +34,7 @@ namespace SomerenUI
                 pnlTeacher.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivity.Hide();
 
                 pnlDashboard.Show();
                 imgDashboard.Show();
@@ -46,6 +47,8 @@ namespace SomerenUI
                 pnlTeacher.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
+                pnlActivity.Hide();
+
 
                 pnlStudents.Show();
 
@@ -79,6 +82,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlRooms.Hide();
                 pnlStudents.Hide();
+                pnlActivity.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
 
@@ -122,6 +126,7 @@ namespace SomerenUI
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
                 pnlTeacher.Hide();
+                pnlActivity.Hide();
                 pnlStudents.Hide();
                 pnlRevenue.Hide();
                 pnlDrinksSupplies.Hide();
@@ -157,6 +162,7 @@ namespace SomerenUI
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
                 pnlStudents.Hide();
+                pnlActivity.Hide();
                 pnlTeacher.Hide();
                 pnlRooms.Hide();
                 pnlRevenue.Hide();
@@ -203,6 +209,7 @@ namespace SomerenUI
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
                 pnlTeacher.Hide();
+                pnlActivity.Hide();
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlDrinksSupplies.Hide();
@@ -219,23 +226,34 @@ namespace SomerenUI
                 pnlTeacher.Hide();
                 pnlRooms.Hide();
                 pnlRevenue.Hide();
+                pnlDrinksSupplies.Hide();
 
                 //show Drink Supplies
-                pnlDrinksSupplies.Show();
+                pnlActivity.Show();
+
                 try
                 {
                     ActivityService activityService = new ActivityService();
-                    List<Activity> activities = activityService.GetActivities();
+                    List<Activity> activities = activityService.GetActivity();
 
                     listViewActivity.Items.Clear();
 
+                    if (listViewActivity.SelectedItems.Count > 0)
+                    {
+                        ListViewItem listViewItem = listViewActivity.SelectedItems[0];
+                        activityDescriptionTextbox.Text = listViewItem.SubItems[0].Text;
+                        activityDescriptionTextbox.Text = listViewItem.SubItems[1].Text;
+                    }
+
                     foreach (Activity activity in activities)
                     {
-                        ListViewItem listViewItem = new ListViewItem(activity.ActivityId.ToString());
-                        listViewItem.SubItems.Add(activity.ActivityDescription);
+                        ListViewItem listViewItem = new ListViewItem(activity.ActivityDescription);
                         listViewItem.SubItems.Add(activity.ActivityStartDateTime.ToString());
                         listViewItem.SubItems.Add(activity.ActivityEndDateTime.ToString());
+
+                        listViewActivity.Items.Add(listViewItem);
                     }
+                    
                 }
                 catch (Exception e)
                 {
@@ -490,6 +508,7 @@ namespace SomerenUI
                     }
                 }
 
+                DateTime dateTimeNow = DateTime.Now;
                 DateTime startDateTime = DateTime.Parse(activityStartTextbox.Text);
                 DateTime endDateTime = DateTime.Parse(activityEndTextbox.Text);
 
@@ -497,9 +516,13 @@ namespace SomerenUI
                 {
                     throw new Exception("End date time must be after start date time!");
                 }
+                else if (dateTimeNow <= startDateTime)
+                {
+                    throw new Exception("You can not make an activity in the past.");
+                }
 
                 ActivityService activityService = new ActivityService();
-                List<Activity> activityList = activityService.GetActivities();
+                List<Activity> activityList = activityService.GetActivity();
 
                 ListViewItem activityItem = new ListViewItem(activityDescriptionTextbox.Text);
                 activityItem.SubItems.Add(activityStartTextbox.Text);
@@ -534,7 +557,7 @@ namespace SomerenUI
             try
             {
                 ActivityService activityService = new ActivityService();
-                List<Activity> activities = activityService.GetActivities();
+                List<Activity> activities = activityService.GetActivity();
                 Activity activity = null;
 
                 foreach (Activity alterActivity in activities)
@@ -568,6 +591,7 @@ namespace SomerenUI
                     listViewActivity.SelectedItems[0].SubItems[3].Text = activityEndTextbox.Text;
                     activity.ActivityEndDateTime = DateTime.Parse(activityEndTextbox.Text);
                 }
+                MessageBox.Show($"Succesfully updated: {activity.ActivityDescription}");
             }
             catch (Exception ex)
             {
@@ -587,16 +611,19 @@ namespace SomerenUI
                 try
                 {
                     ActivityService activityService = new ActivityService();
-                    List<Activity> activities = activityService.GetActivities();
+                    List<Activity> activities = activityService.GetActivity();
+                    Activity activity = null;
 
-                    foreach (Activity activity in activities)
+                    foreach (Activity alterActivity in activities)
                     {
-                        if (activity.ActivityDescription == listViewActivity.SelectedItems[0].SubItems[1].Text)
+                        if (alterActivity.ActivityDescription == listViewActivity.SelectedItems[0].SubItems[1].Text)
                         {
-                            activityService.DeleteActivity(activity);
+                            activityService.DeleteActivity(alterActivity);
                         }
                     }
                     listViewActivity.Items.Remove(listViewActivity.SelectedItems[0]);
+
+                    MessageBox.Show($"Succesfully deleted: {activity.ActivityDescription}");
                 }
                 catch (Exception ex)
                 {

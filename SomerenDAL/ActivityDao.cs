@@ -52,7 +52,7 @@ namespace SomerenDAL
         }
         public List<Activity> GetActivity()
         {
-            string query = "SELECT activityId, startDateTime, description, endDateTime FROM Activity";
+            string query = "SELECT description, startDateTime, endDateTime, activityId FROM Activity";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -60,7 +60,6 @@ namespace SomerenDAL
         {
             conn.Open();
             SqlCommand command = new SqlCommand("UPDATE Activity SET startDateTime=@startDatetime, description=@description endDateTime=@endDateTime WHERE activityId=@activityId;", conn);
-            command.Parameters.AddWithValue("@activityId", activity.ActivityId);
             command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
             command.Parameters.AddWithValue("@description", activity.ActivityDescription);
             command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
@@ -70,8 +69,7 @@ namespace SomerenDAL
         public void AddActivity(Activity activity)
         {
             conn.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO Activity(activityId, description, startDateTime, endDateTime) VALUES(@activityId, @description, @startDateTime, @endDateTime);", conn);
-            command.Parameters.AddWithValue("@activityId", activity.ActivityId);
+            SqlCommand command = new SqlCommand("INSERT INTO Activity(description, startDateTime, endDateTime) VALUES(@description, @startDateTime, @endDateTime);", conn);
             command.Parameters.AddWithValue("@description", activity.ActivityDescription);
             command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
             command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
@@ -96,7 +94,6 @@ namespace SomerenDAL
                 DateTime startDateTime = (DateTime)dr["startDateTime"];
                 string description = (string)(dr["description"]);
                 DateTime endDateTime = (DateTime)dr["endDateTime"];
-                string activityName = (string)(dr["activityName"]);
 
                 Activity activity = new Activity(activityId, description, startDateTime, endDateTime);
                 activities.Add(activity);

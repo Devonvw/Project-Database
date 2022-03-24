@@ -4,6 +4,6 @@
     "\\SomerenDAL",
     "\\SomerenUI"
   ],
-  "SelectedNode": "\\SomerenDAL\\packages.config",
+  "SelectedNode": "\\SomerenDAL\\ActivityDao.cs",
   "PreviewInSolutionExplorer": false
 }
