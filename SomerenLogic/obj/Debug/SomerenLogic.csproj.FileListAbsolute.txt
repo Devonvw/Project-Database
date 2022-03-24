@@ -20,6 +20,7 @@ C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\Some
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.pdb
+<<<<<<< HEAD
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.AssemblyReference.cache
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll
@@ -31,14 +32,37 @@ C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\Some
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.pdb
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenModel.pdb
 C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
+=======
+C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll.config
+C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll.config
+>>>>>>> HelinaKim
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\bin\Debug\SomerenLogic.dll
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\bin\Debug\SomerenLogic.pdb
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\bin\Debug\SomerenModel.dll
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.pdb
+<<<<<<< HEAD
+=======
+C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll.config
+>>>>>>> HelinaKim
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\bin\Debug\SomerenModel.pdb
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.AssemblyReference.cache
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.pdb
+<<<<<<< HEAD
+=======
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenLogic.dll
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenLogic.pdb
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenModel.dll
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.pdb
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll.config
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\bin\Debug\SomerenModel.pdb
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.AssemblyReference.cache
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll
+C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.pdb
+>>>>>>> HelinaKim
