@@ -40,23 +40,26 @@ namespace SomerenDAL
             try
             {
                 SqlParameter[] sqlParameters = new SqlParameter[]
-            {
-            new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
-            };
+                {
+                    new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
+                };
 
-            DataTable dataTable = new DataTable();
+                DataTable dataTable = new DataTable();
 
                 dataTable = ExecuteSelectQuery(query, sqlParameters);
                 start = (DateTime)dataTable.Rows[0]["startDateTime"];
                 end = (DateTime)dataTable.Rows[0]["endDateTime"];
+                    
                 query = "SELECT A.* from Activity as A LEFT JOIN ActivityStudent as ASTU ON A.activityId = ASTU.activityId LEFT JOIN Student as S ON S.studentId = ASTU.studentId WHERE S.studentId = @studentId and (A.startDateTime BETWEEN @startDateTime and @endDateTime or A.endDateTime BETWEEN @startDateTime and @endDateTime)";
                 SqlParameter[] sqlParametersAvailable = new SqlParameter[]
-            {
-            new SqlParameter("@studentId", SqlDbType.DateTime) { Value = studentId },
-            new SqlParameter("@startDateTime", SqlDbType.DateTime) { Value = start },
-            new SqlParameter("@endDateTime", SqlDbType.DateTime) { Value = end },
-            };
+                {
+                    new SqlParameter("@studentId", SqlDbType.Int) { Value = studentId },
+                    new SqlParameter("@startDateTime", SqlDbType.DateTime) { Value = start },
+                    new SqlParameter("@endDateTime", SqlDbType.DateTime) { Value = end },
+                };
+                    
                 dataTable = ExecuteSelectQuery(query, sqlParametersAvailable);
+                    
                 if (dataTable != null)
                 {
                     if (dataTable.Rows.Count > 0)
