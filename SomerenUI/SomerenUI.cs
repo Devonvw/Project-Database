@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -48,11 +49,33 @@ namespace SomerenUI
 
             if (panelName == Panel.Dashboard)
             {
+<<<<<<< HEAD
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlTeacher.Hide();
+                pnlRevenue.Hide();
+                pnlDrinksSupplies.Hide();
+                pnlActivity.Hide();
+
+=======
+>>>>>>> Devon
                 pnlDashboard.Show();
                 imgDashboard.Show();
             }
             else if (panelName == Panel.Students)
             {
+<<<<<<< HEAD
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlRooms.Hide();
+                pnlTeacher.Hide();
+                pnlRevenue.Hide();
+                pnlDrinksSupplies.Hide();
+                pnlActivity.Hide();
+
+
+=======
+>>>>>>> Devon
                 pnlStudents.Show();
 
                 try
@@ -80,7 +103,20 @@ namespace SomerenUI
             }
             else if (panelName == Panel.Teachers)
             {
+<<<<<<< HEAD
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlRooms.Hide();
+                pnlStudents.Hide();
+                pnlActivity.Hide();
+                pnlRevenue.Hide();
+                pnlDrinksSupplies.Hide();
+
+                // show students
+=======
                 // show teachers
+>>>>>>> Devon
                 pnlTeacher.Show();
 
                 try
@@ -116,6 +152,18 @@ namespace SomerenUI
             }
             else if (panelName == Panel.Rooms)
             {
+<<<<<<< HEAD
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlActivity.Hide();
+                pnlStudents.Hide();
+                pnlRevenue.Hide();
+                pnlDrinksSupplies.Hide();
+
+=======
+>>>>>>> Devon
                 // show students
                 pnlRooms.Show();
 
@@ -144,7 +192,18 @@ namespace SomerenUI
             }
             else if (panelName == Panel.DrinksSupplies)
             {
+<<<<<<< HEAD
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlActivity.Hide();
+                pnlTeacher.Hide();
+                pnlRooms.Hide();
+                pnlRevenue.Hide();
+
+=======
                 //show Drink Supplies
+>>>>>>> Devon
                 pnlDrinksSupplies.Show();
 
                 try
@@ -182,8 +241,19 @@ namespace SomerenUI
             }
             else if (panelName == Panel.CashRegister)
             {
+<<<<<<< HEAD
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlTeacher.Hide();
+                pnlActivity.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlDrinksSupplies.Hide();
+=======
                 //show cash register
                 pnlCashRegister.Show();
+>>>>>>> Devon
 
                 // 
                 try
@@ -230,6 +300,28 @@ namespace SomerenUI
                 // show report
                 pnlRevenue.Show();
             }
+<<<<<<< HEAD
+            else if (panelName == "Activities")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeacher.Hide();
+                pnlRooms.Hide();
+                pnlRevenue.Hide();
+                pnlDrinksSupplies.Hide();
+
+                //show Drink Supplies
+                pnlActivity.Show();
+
+                try
+                {
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activities = activityService.GetActivity();
+
+                    listViewActivity.Items.Clear();
+=======
             else if (panelName == Panel.ActivityParticipants)
             {
                 // show students
@@ -240,6 +332,7 @@ namespace SomerenUI
                     List<Activity> activities = activityService.GetActivity();
 
                     listViewActivitiesParticipants.Items.Clear();
+>>>>>>> Devon
 
                     foreach (Activity activity in activities)
                     {
@@ -248,6 +341,11 @@ namespace SomerenUI
                         listViewItem.SubItems.Add(activity.ActivityStartDateTime.ToString());
                         listViewItem.SubItems.Add(activity.ActivityEndDateTime.ToString());
 
+<<<<<<< HEAD
+                        listViewActivity.Items.Add(listViewItem);
+                    }
+
+=======
                         listViewActivitiesParticipants.Items.Add(listViewItem);
                     }
                     StudentService studService = new StudentService(); ;
@@ -260,6 +358,7 @@ namespace SomerenUI
                     {
                         cbxAvailableParticipants.Items.Add($"{student.FullName} - {student.Id}"); ;
                     }
+>>>>>>> Devon
                 }
                 catch (Exception e)
                 {
@@ -489,6 +588,166 @@ namespace SomerenUI
         {
             revenueStartDate.MaxDate = e.Start;
         }
+<<<<<<< HEAD
+        private void ActivityClear()
+        {
+            activityDescriptionTextbox.Clear();
+            activityStartTextbox.Clear();
+            activityEndTextbox.Clear();
+        }
+        private void activityAddButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+            ActivityService activityService = new ActivityService();
+                List<Activity> list = activityService.GetActivity();
+
+            if (string.IsNullOrEmpty(activityDescriptionTextbox.Text) || string.IsNullOrEmpty(activityStartTextbox.Text) || string.IsNullOrEmpty(activityEndTextbox.Text))
+            {
+                return;
+            }
+            else
+            {
+                if (listViewActivity.FindItemWithText(activityDescriptionTextbox.Text) != null)
+                {
+                    MessageBox.Show($"{activityDescriptionTextbox.Text} already exist");
+                    ActivityClear();
+                    return;
+                }
+                foreach (Activity a in list)
+                {
+                    DateTime dateTimeNow = DateTime.Now;
+                    DateTime startDateTime = DateTime.Parse(activityStartTextbox.Text);
+                    DateTime endDateTime = DateTime.Parse(activityEndTextbox.Text);
+
+                    if (startDateTime >= endDateTime)
+                    {
+                        throw new Exception("End date time must be after start date time!");
+                    }
+                    else if (dateTimeNow >= startDateTime)
+                    {
+                        throw new Exception("You can not make an activity in the past.");
+                    }
+                }
+
+                ListViewItem listViewItem = new ListViewItem(0.ToString());
+                listViewItem.SubItems.Add(activityDescriptionTextbox.Text);
+                listViewItem.SubItems.Add(activityStartTextbox.Text);
+                listViewItem.SubItems.Add(activityEndTextbox.Text);
+
+                listViewActivity.Items.Add(listViewItem);
+
+                Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
+
+                activityService.AddActivity(activity);
+
+                MessageBox.Show($"Succesfully added: {activity.ActivityDescription}");
+            }
+        }
+            catch (Exception Add)
+            {
+                MessageBox.Show("Something went wrong during add an activity" + Add.Message);
+            }
+            finally
+            {
+                ActivityClear();
+}
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
+        }
+        
+
+        private void updateActivityButton_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine(e.ToString());
+            try
+            {
+                if (listViewActivity.SelectedItems[0] == null)
+                {
+                    return;
+                }
+                if (string.IsNullOrEmpty(activityDescriptionTextbox.Text))
+                {
+                    MessageBox.Show("Please enter an activity name");
+                }
+                else
+                {
+                    Activity activity = new Activity(int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text), activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
+
+
+                    activity.ActivityId = int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text);
+                    activity.ActivityDescription = activityDescriptionTextbox.Text;
+                    activity.ActivityStartDateTime = DateTime.Parse(activityStartTextbox.Text);
+                    activity.ActivityEndDateTime = DateTime.Parse(activityEndTextbox.Text);
+
+                    ActivityService activityService = new ActivityService();
+                    activityService.UpdateActivity(activity);
+
+                    ActivityClear();
+                    showPanel("Activities");
+
+                    MessageBox.Show($"Succesfully updated: {activity.ActivityDescription}");
+                }
+
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Updating activity failed: " + ex.Message);
+            }
+            finally
+            {
+                ActivityClear();
+}
+        }
+
+        private void deleteActivityButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you wish to remove this activity?", "Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    ActivityService activityService = new ActivityService();
+                    activityService.DeleteActivity(int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text));
+                    List<Activity> activities = activityService.GetActivity();
+
+                    listViewActivity.Items.Clear();
+
+                    foreach (Activity activity in activities)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(activity.ActivityId.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityDescription);
+                        listViewItem.SubItems.Add(activity.ActivityStartDateTime.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityEndDateTime.ToString());
+
+                        listViewActivity.Items.Add(listViewItem);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot delete activity: " + ex.Message);
+                }
+            }
+            
+        }
+
+        private void listViewActivity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView.SelectedIndexCollection indexes = this.listViewActivity.SelectedIndices;
+
+            foreach (int index in indexes)
+            {
+                ListViewItem listViewItem = listViewActivity.SelectedItems[0];
+                activityDescriptionTextbox.Text = listViewItem.SubItems[1].Text;
+                activityStartTextbox.Text = listViewItem.SubItems[2].Text;
+                activityEndTextbox.Text = listViewItem.SubItems[3].Text;
+=======
 
 
         private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -622,7 +881,9 @@ namespace SomerenUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+>>>>>>> Devon
             }
         }
     }
 }
+

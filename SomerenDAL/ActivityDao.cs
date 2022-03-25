@@ -19,7 +19,11 @@ namespace SomerenDAL
 
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
+<<<<<<< HEAD
+            new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
+=======
             new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
+>>>>>>> Devon
             };
 
             try
@@ -68,9 +72,15 @@ namespace SomerenDAL
                     }
                 }
             }
+<<<<<<< HEAD
+            catch (Exception)
+            {
+                throw new InvalidOperationException($"No data found");
+=======
             catch (Exception ex)
             {
                 throw new InvalidOperationException($"{ex.Message}");
+>>>>>>> Devon
             }
 
 
@@ -78,17 +88,28 @@ namespace SomerenDAL
 
             SqlParameter[] sqlParametersAdd = new SqlParameter[]
             {
+<<<<<<< HEAD
+            new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
+            new SqlParameter("@studentId", SqlDbType.DateTime) { Value = studentId }
+=======
             new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
             new SqlParameter("@studentId", SqlDbType.Int) { Value = studentId }
+>>>>>>> Devon
             };
 
             try
             {
                 ExecuteEditQuery(query, sqlParametersAdd);
             }
+<<<<<<< HEAD
+            catch (Exception)
+            {
+                throw new InvalidOperationException($"Not able to add student.");
+=======
             catch (Exception ex)
             {
                 throw new InvalidOperationException($"Not able to add student. {activityId} {studentId} {ex.Message}");
+>>>>>>> Devon
             }
         }
 
@@ -98,8 +119,13 @@ namespace SomerenDAL
 
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
+<<<<<<< HEAD
+            new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
+            new SqlParameter("@studentId", SqlDbType.DateTime) { Value = studentId }
+=======
             new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
             new SqlParameter("@studentId", SqlDbType.Int) { Value = studentId }
+>>>>>>> Devon
             };
 
             try
@@ -120,7 +146,11 @@ namespace SomerenDAL
             {
                 //for each row, each column value as a parameter for the object 
                 int id = (int)dr["studentId"];
+<<<<<<< HEAD
+                string firstName = (string)(dr["firstName"]).ToString();
+=======
                 string firstName = (string)(dr["firstName"]);
+>>>>>>> Devon
                 string lastName = (string)(dr["lastName"]);
                 int roomId = (int)dr["roomId"];
                 DateTime birthDate = Convert.ToDateTime(dr["dateOfBirth"]); //NULL not allowed in this case 
@@ -140,15 +170,49 @@ namespace SomerenDAL
         public void UpdateActivity(Activity activity)
         {
             conn.Open();
+<<<<<<< HEAD
+            SqlCommand command = new SqlCommand("UPDATE Activity SET startDateTime=@startDatetime, description=@description, endDateTime=@endDateTime WHERE activityId=@activityId;", conn);
+            command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
+            command.Parameters.AddWithValue("@description", activity.ActivityDescription);
+            command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
+
+            command.Parameters.AddWithValue("@activityId", activity.ActivityId);
+
+=======
             SqlCommand command = new SqlCommand("UPDATE Activity SET startDateTime=@startDatetime, description=@description endDateTime=@endDateTime WHERE activityId=@activityId;", conn);
             command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
             command.Parameters.AddWithValue("@description", activity.ActivityDescription);
             command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
+>>>>>>> Devon
             command.ExecuteNonQuery();
             conn.Close();
         }
         public void AddActivity(Activity activity)
         {
+<<<<<<< HEAD
+            string query = "INSERT INTO Activity(activityId, description, startDateTime, endDateTime) VALUES(@activityId, @description, @startDateTime, @endDateTime) SELECT SCOPE_IDENTITY();";
+            
+            List<Activity> activityList = GetActivity();
+
+            //activity.ActivityId = 1;
+            foreach (Activity dr in activityList)
+            {
+                while (activity.ActivityId == dr.ActivityId)
+                {
+                    activity.ActivityId++;
+                }
+            }
+
+                SqlParameter[] sqlParameters = new SqlParameter[]
+                {
+                    new SqlParameter("@activityId", activity.ActivityId),
+                    new SqlParameter("@description", activity.ActivityDescription),
+                    new SqlParameter("@startDateTime", activity.ActivityStartDateTime),
+                    new SqlParameter("@endDateTime", activity.ActivityEndDateTime)
+                };
+                ExecuteEditQuery(query, sqlParameters);
+            
+=======
             conn.Open();
             SqlCommand command = new SqlCommand("INSERT INTO Activity(description, startDateTime, endDateTime) VALUES(@description, @startDateTime, @endDateTime);", conn);
             command.Parameters.AddWithValue("@description", activity.ActivityDescription);
@@ -156,6 +220,7 @@ namespace SomerenDAL
             command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
             command.ExecuteNonQuery();
             conn.Close();
+>>>>>>> Devon
         }
         public void DeleteActivity(int activityId)
         {
@@ -184,9 +249,15 @@ namespace SomerenDAL
             }
             return activities;
         }
+<<<<<<< HEAD
+       
+
+        
+=======
 
 
 
+>>>>>>> Devon
     }
 
 }

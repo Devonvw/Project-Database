@@ -12,6 +12,18 @@ Devon van Wichen
 2.B = Helina
 2.C = Devon
  
+<<<<<<< HEAD
+Week 2 
+A = Alan
+B = Helina
+C = Devon
+
+Week 3
+A = Alan
+B = Helina
+C = Devon
+=======
 3.A = Alan
 3.B = Helina
 3.C = Devon
+>>>>>>> Devon

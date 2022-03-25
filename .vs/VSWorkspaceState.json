@@ -2,8 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\SomerenDAL",
+<<<<<<< HEAD
+    "\\SomerenUI"
+  ],
+  "SelectedNode": "\\SomerenDAL\\ActivityDao.cs",
+=======
     "\\SomerenModel"
   ],
   "SelectedNode": "\\Someren.sln",
+>>>>>>> Devon
   "PreviewInSolutionExplorer": false
 }

@@ -45,4 +45,8 @@ namespace SomerenLogic
             activitydb.DeleteActivity(activityId);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Devon

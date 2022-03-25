@@ -100,6 +100,25 @@
             this.drinkamountclm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.drinkwarningclm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblDRINKSUPPLIES = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+            this.pnlActivity = new System.Windows.Forms.Panel();
+            this.activityDescriptionTextbox = new System.Windows.Forms.TextBox();
+            this.lnlActivityDescription = new System.Windows.Forms.Label();
+            this.lblAlterActivity = new System.Windows.Forms.Label();
+            this.lblactivityEnd = new System.Windows.Forms.Label();
+            this.lblactivityStart = new System.Windows.Forms.Label();
+            this.activityStartTextbox = new System.Windows.Forms.TextBox();
+            this.activityEndTextbox = new System.Windows.Forms.TextBox();
+            this.lblActivity = new System.Windows.Forms.Label();
+            this.deleteActivityButton = new System.Windows.Forms.Button();
+            this.updateActivityButton = new System.Windows.Forms.Button();
+            this.activityAddButton = new System.Windows.Forms.Button();
+            this.listViewActivity = new System.Windows.Forms.ListView();
+            this.activityIdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityStartDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.activityEndDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+=======
             this.pnlCashRegister = new System.Windows.Forms.Panel();
             this.addDrinkButton = new System.Windows.Forms.Button();
             this.checkOutButton = new System.Windows.Forms.Button();
@@ -137,6 +156,7 @@
             this.listViewParticipants = new System.Windows.Forms.ListView();
             this.StudId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.studNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+>>>>>>> Devon
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -147,8 +167,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlRevenue.SuspendLayout();
             this.pnlDrinksSupplies.SuspendLayout();
+<<<<<<< HEAD
+            this.pnlActivity.SuspendLayout();
+=======
             this.pnlCashRegister.SuspendLayout();
             this.pnlActivityParticipants.SuspendLayout();
+>>>>>>> Devon
             this.SuspendLayout();
             // 
             // imgDashboard
@@ -174,8 +198,13 @@
             this.activityParticipantsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+<<<<<<< HEAD
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(962, 24);
+=======
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
+>>>>>>> Devon
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -193,19 +222,31 @@
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
+<<<<<<< HEAD
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
+=======
             this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(165, 26);
+>>>>>>> Devon
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+<<<<<<< HEAD
+            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
+=======
             this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
+>>>>>>> Devon
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+<<<<<<< HEAD
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+=======
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+>>>>>>> Devon
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -228,6 +269,7 @@
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.activitiesToolStripMenuItem.Text = "Activities";
+            this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click);
             // 
             // roomsToolStripMenuItem
             // 
@@ -350,7 +392,11 @@
             this.pictureBox1.Location = new System.Drawing.Point(1073, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
+<<<<<<< HEAD
+            this.pictureBox1.Size = new System.Drawing.Size(130, 124);
+=======
             this.pictureBox1.Size = new System.Drawing.Size(173, 153);
+>>>>>>> Devon
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -657,8 +703,12 @@
             // lblDRINKPRICEINSERT
             // 
             this.lblDRINKPRICEINSERT.AutoSize = true;
+<<<<<<< HEAD
+            this.lblDRINKPRICEINSERT.Location = new System.Drawing.Point(561, 150);
+=======
             this.lblDRINKPRICEINSERT.Location = new System.Drawing.Point(748, 185);
             this.lblDRINKPRICEINSERT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+>>>>>>> Devon
             this.lblDRINKPRICEINSERT.Name = "lblDRINKPRICEINSERT";
             this.lblDRINKPRICEINSERT.Size = new System.Drawing.Size(41, 16);
             this.lblDRINKPRICEINSERT.TabIndex = 14;
@@ -796,6 +846,162 @@
             this.lblDRINKSUPPLIES.TabIndex = 3;
             this.lblDRINKSUPPLIES.Text = "Drinks Supplies";
             // 
+<<<<<<< HEAD
+            // pnlActivity
+            // 
+            this.pnlActivity.Controls.Add(this.activityDescriptionTextbox);
+            this.pnlActivity.Controls.Add(this.lnlActivityDescription);
+            this.pnlActivity.Controls.Add(this.lblAlterActivity);
+            this.pnlActivity.Controls.Add(this.lblactivityEnd);
+            this.pnlActivity.Controls.Add(this.lblactivityStart);
+            this.pnlActivity.Controls.Add(this.activityStartTextbox);
+            this.pnlActivity.Controls.Add(this.activityEndTextbox);
+            this.pnlActivity.Controls.Add(this.lblActivity);
+            this.pnlActivity.Controls.Add(this.deleteActivityButton);
+            this.pnlActivity.Controls.Add(this.updateActivityButton);
+            this.pnlActivity.Controls.Add(this.activityAddButton);
+            this.pnlActivity.Controls.Add(this.listViewActivity);
+            this.pnlActivity.Location = new System.Drawing.Point(7, 29);
+            this.pnlActivity.Name = "pnlActivity";
+            this.pnlActivity.Size = new System.Drawing.Size(943, 468);
+            this.pnlActivity.TabIndex = 8;
+            // 
+            // activityDescriptionTextbox
+            // 
+            this.activityDescriptionTextbox.Location = new System.Drawing.Point(593, 114);
+            this.activityDescriptionTextbox.Name = "activityDescriptionTextbox";
+            this.activityDescriptionTextbox.Size = new System.Drawing.Size(186, 20);
+            this.activityDescriptionTextbox.TabIndex = 9;
+            // 
+            // lnlActivityDescription
+            // 
+            this.lnlActivityDescription.AutoSize = true;
+            this.lnlActivityDescription.Location = new System.Drawing.Point(486, 124);
+            this.lnlActivityDescription.Name = "lnlActivityDescription";
+            this.lnlActivityDescription.Size = new System.Drawing.Size(60, 13);
+            this.lnlActivityDescription.TabIndex = 16;
+            this.lnlActivityDescription.Text = "Description";
+            // 
+            // lblAlterActivity
+            // 
+            this.lblAlterActivity.AutoSize = true;
+            this.lblAlterActivity.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlterActivity.Location = new System.Drawing.Point(636, 60);
+            this.lblAlterActivity.Name = "lblAlterActivity";
+            this.lblAlterActivity.Size = new System.Drawing.Size(102, 19);
+            this.lblAlterActivity.TabIndex = 15;
+            this.lblAlterActivity.Text = "Alter Activity";
+            // 
+            // lblactivityEnd
+            // 
+            this.lblactivityEnd.AutoSize = true;
+            this.lblactivityEnd.Location = new System.Drawing.Point(489, 219);
+            this.lblactivityEnd.Name = "lblactivityEnd";
+            this.lblactivityEnd.Size = new System.Drawing.Size(78, 39);
+            this.lblactivityEnd.TabIndex = 14;
+            this.lblactivityEnd.Text = "End Date Time\r\nyyyy-MM-dd\r\nHH:mm";
+            // 
+            // lblactivityStart
+            // 
+            this.lblactivityStart.AutoSize = true;
+            this.lblactivityStart.Location = new System.Drawing.Point(486, 160);
+            this.lblactivityStart.Name = "lblactivityStart";
+            this.lblactivityStart.Size = new System.Drawing.Size(82, 39);
+            this.lblactivityStart.TabIndex = 13;
+            this.lblactivityStart.Text = "Start Date TIme\r\nyyyy-MM-dd\r\nHH:mm";
+            // 
+            // activityStartTextbox
+            // 
+            this.activityStartTextbox.Location = new System.Drawing.Point(593, 162);
+            this.activityStartTextbox.Name = "activityStartTextbox";
+            this.activityStartTextbox.Size = new System.Drawing.Size(186, 20);
+            this.activityStartTextbox.TabIndex = 10;
+            // 
+            // activityEndTextbox
+            // 
+            this.activityEndTextbox.Location = new System.Drawing.Point(596, 216);
+            this.activityEndTextbox.Name = "activityEndTextbox";
+            this.activityEndTextbox.Size = new System.Drawing.Size(186, 20);
+            this.activityEndTextbox.TabIndex = 11;
+            // 
+            // lblActivity
+            // 
+            this.lblActivity.AutoSize = true;
+            this.lblActivity.Font = new System.Drawing.Font("MS Reference Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivity.Location = new System.Drawing.Point(18, 50);
+            this.lblActivity.Name = "lblActivity";
+            this.lblActivity.Size = new System.Drawing.Size(98, 28);
+            this.lblActivity.TabIndex = 4;
+            this.lblActivity.Text = "Activity";
+            // 
+            // deleteActivityButton
+            // 
+            this.deleteActivityButton.Location = new System.Drawing.Point(696, 347);
+            this.deleteActivityButton.Name = "deleteActivityButton";
+            this.deleteActivityButton.Size = new System.Drawing.Size(82, 25);
+            this.deleteActivityButton.TabIndex = 14;
+            this.deleteActivityButton.Text = "Delete";
+            this.deleteActivityButton.UseVisualStyleBackColor = true;
+            this.deleteActivityButton.Click += new System.EventHandler(this.deleteActivityButton_Click);
+            // 
+            // updateActivityButton
+            // 
+            this.updateActivityButton.Location = new System.Drawing.Point(593, 347);
+            this.updateActivityButton.Name = "updateActivityButton";
+            this.updateActivityButton.Size = new System.Drawing.Size(81, 25);
+            this.updateActivityButton.TabIndex = 13;
+            this.updateActivityButton.Text = "Update";
+            this.updateActivityButton.UseVisualStyleBackColor = true;
+            this.updateActivityButton.Click += new System.EventHandler(this.updateActivityButton_Click);
+            // 
+            // activityAddButton
+            // 
+            this.activityAddButton.Location = new System.Drawing.Point(488, 347);
+            this.activityAddButton.Name = "activityAddButton";
+            this.activityAddButton.Size = new System.Drawing.Size(82, 25);
+            this.activityAddButton.TabIndex = 12;
+            this.activityAddButton.Text = "Add ";
+            this.activityAddButton.UseVisualStyleBackColor = true;
+            this.activityAddButton.Click += new System.EventHandler(this.activityAddButton_Click);
+            // 
+            // listViewActivity
+            // 
+            this.listViewActivity.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.activityIdHeader,
+            this.activityDescription,
+            this.activityStartDateTime,
+            this.activityEndDateTime});
+            this.listViewActivity.FullRowSelect = true;
+            this.listViewActivity.GridLines = true;
+            this.listViewActivity.HideSelection = false;
+            this.listViewActivity.Location = new System.Drawing.Point(18, 99);
+            this.listViewActivity.Name = "listViewActivity";
+            this.listViewActivity.ShowItemToolTips = true;
+            this.listViewActivity.Size = new System.Drawing.Size(437, 282);
+            this.listViewActivity.TabIndex = 0;
+            this.listViewActivity.UseCompatibleStateImageBehavior = false;
+            this.listViewActivity.View = System.Windows.Forms.View.Details;
+            this.listViewActivity.SelectedIndexChanged += new System.EventHandler(this.listViewActivity_SelectedIndexChanged);
+            // 
+            // activityIdHeader
+            // 
+            this.activityIdHeader.Width = 0;
+            // 
+            // activityDescription
+            // 
+            this.activityDescription.Text = "Description";
+            this.activityDescription.Width = 120;
+            // 
+            // activityStartDateTime
+            // 
+            this.activityStartDateTime.Text = "Start Time";
+            this.activityStartDateTime.Width = 140;
+            // 
+            // activityEndDateTime
+            // 
+            this.activityEndDateTime.Text = "End Time";
+            this.activityEndDateTime.Width = 140;
+=======
             // pnlCashRegister
             // 
             this.pnlCashRegister.Controls.Add(this.addDrinkButton);
@@ -1125,13 +1331,20 @@
             // 
             this.studNameHeader.Text = "Name";
             this.studNameHeader.Width = 150;
+>>>>>>> Devon
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.pnlActivity);
+            this.Controls.Add(this.pnlDrinksSupplies);
+=======
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.pnlActivityParticipants);
+>>>>>>> Devon
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlCashRegister);
             this.Controls.Add(this.pnlDrinksSupplies);
@@ -1164,10 +1377,15 @@
             this.pnlRevenue.PerformLayout();
             this.pnlDrinksSupplies.ResumeLayout(false);
             this.pnlDrinksSupplies.PerformLayout();
+<<<<<<< HEAD
+            this.pnlActivity.ResumeLayout(false);
+            this.pnlActivity.PerformLayout();
+=======
             this.pnlCashRegister.ResumeLayout(false);
             this.pnlCashRegister.PerformLayout();
             this.pnlActivityParticipants.ResumeLayout(false);
             this.pnlActivityParticipants.PerformLayout();
+>>>>>>> Devon
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1241,6 +1459,27 @@
         private System.Windows.Forms.Button nonAlcoholButton;
         private System.Windows.Forms.Button alcoholButton;
         private System.Windows.Forms.Label lblALTERDRINKSUPPLIES;
+<<<<<<< HEAD
+        private System.Windows.Forms.ColumnHeader drinkidclm;
+        private System.Windows.Forms.ToolStripMenuItem drinksSuppliesStripMenuItem;
+        private System.Windows.Forms.Panel pnlActivity;
+        private System.Windows.Forms.Label lblactivityEnd;
+        private System.Windows.Forms.Label lblactivityStart;
+        private System.Windows.Forms.TextBox activityStartTextbox;
+        private System.Windows.Forms.TextBox activityEndTextbox;
+        private System.Windows.Forms.Label lblActivity;
+        private System.Windows.Forms.Button deleteActivityButton;
+        private System.Windows.Forms.Button updateActivityButton;
+        private System.Windows.Forms.Button activityAddButton;
+        private System.Windows.Forms.ListView listViewActivity;
+        private System.Windows.Forms.Label lblAlterActivity;
+        private System.Windows.Forms.TextBox activityDescriptionTextbox;
+        private System.Windows.Forms.Label lnlActivityDescription;
+        private System.Windows.Forms.ColumnHeader activityDescription;
+        private System.Windows.Forms.ColumnHeader activityStartDateTime;
+        private System.Windows.Forms.ColumnHeader activityEndDateTime;
+        private System.Windows.Forms.ColumnHeader activityIdHeader;
+=======
         private System.Windows.Forms.Panel pnlCashRegister;
         private System.Windows.Forms.Button addDrinkButton;
         private System.Windows.Forms.Button checkOutButton;
@@ -1283,6 +1522,7 @@
         private System.Windows.Forms.ColumnHeader End;
         private System.Windows.Forms.ColumnHeader StudId;
         private System.Windows.Forms.ColumnHeader studNameHeader;
+>>>>>>> Devon
     }
 }
 

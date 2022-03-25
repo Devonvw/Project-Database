@@ -44,8 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityService.cs" />
+<<<<<<< HEAD
+=======
     <Compile Include="DrinkService.cs" />
     <Compile Include="OrderService.cs" />
+>>>>>>> Devon
     <Compile Include="RevenueService.cs" />
     <Compile Include="RoomService.cs" />
     <Compile Include="DrinkSupplyService.cs" />
