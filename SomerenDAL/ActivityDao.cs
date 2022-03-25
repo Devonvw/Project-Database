@@ -140,22 +140,40 @@ namespace SomerenDAL
         public void UpdateActivity(Activity activity)
         {
             conn.Open();
-            SqlCommand command = new SqlCommand("UPDATE Activity SET startDateTime=@startDatetime, description=@description endDateTime=@endDateTime WHERE activityId=@activityId;", conn);
+            SqlCommand command = new SqlCommand("UPDATE Activity SET startDateTime=@startDatetime, description=@description, endDateTime=@endDateTime WHERE activityId=@activityId;", conn);
             command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
             command.Parameters.AddWithValue("@description", activity.ActivityDescription);
             command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
+
+            command.Parameters.AddWithValue("@activityId", activity.ActivityId);
+
             command.ExecuteNonQuery();
             conn.Close();
         }
         public void AddActivity(Activity activity)
         {
-            conn.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO Activity(description, startDateTime, endDateTime) VALUES(@description, @startDateTime, @endDateTime);", conn);
-            command.Parameters.AddWithValue("@description", activity.ActivityDescription);
-            command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
-            command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
-            command.ExecuteNonQuery();
-            conn.Close();
+            string query = "INSERT INTO Activity(activityId, description, startDateTime, endDateTime) VALUES(@activityId, @description, @startDateTime, @endDateTime) SELECT SCOPE_IDENTITY();";
+
+            List<Activity> activityList = GetActivity();
+
+            //activity.ActivityId = 1;
+            foreach (Activity dr in activityList)
+            {
+                while (activity.ActivityId == dr.ActivityId)
+                {
+                    activity.ActivityId++;
+                }
+            }
+
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                    new SqlParameter("@activityId", activity.ActivityId),
+                    new SqlParameter("@description", activity.ActivityDescription),
+                    new SqlParameter("@startDateTime", activity.ActivityStartDateTime),
+                    new SqlParameter("@endDateTime", activity.ActivityEndDateTime)
+            };
+            ExecuteEditQuery(query, sqlParameters);
+
         }
         public void DeleteActivity(int activityId)
         {
@@ -184,9 +202,6 @@ namespace SomerenDAL
             }
             return activities;
         }
-
-
-
     }
 
 }
