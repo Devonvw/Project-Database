@@ -44,6 +44,7 @@ namespace SomerenUI
             pnlRevenue.Hide();
             pnlDrinksSupplies.Hide();
             pnlActivityParticipants.Hide();
+            pnlActivity.Hide();
             pnlCashRegister.Hide();
 
             if (panelName == Panel.Dashboard)
@@ -229,6 +230,34 @@ namespace SomerenUI
             {
                 // show report
                 pnlRevenue.Show();
+            }
+            else if (panelName == Panel.Activity)
+            {
+                //show Drink Supplies
+                pnlActivity.Show();
+
+                try
+                {
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activities = activityService.GetActivity();
+
+                    listViewActivity.Items.Clear();
+
+                    foreach (Activity activity in activities)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(activity.ActivityId.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityDescription);
+                        listViewItem.SubItems.Add(activity.ActivityStartDateTime.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityEndDateTime.ToString());
+
+                        listViewActivity.Items.Add(listViewItem);
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading activity: " + e.Message);
+                }
             }
             else if (panelName == Panel.ActivityParticipants)
             {
@@ -623,6 +652,163 @@ namespace SomerenUI
             {
                 listViewParticipants.Items.Clear();
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel(Panel.Activity);
+        }
+
+        private void listViewActivity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView.SelectedIndexCollection indexes = this.listViewActivity.SelectedIndices;
+
+            foreach (int index in indexes)
+            {
+                ListViewItem listViewItem = listViewActivity.SelectedItems[0];
+                activityDescriptionTextbox.Text = listViewItem.SubItems[1].Text;
+                activityStartTextbox.Text = listViewItem.SubItems[2].Text;
+                activityEndTextbox.Text = listViewItem.SubItems[3].Text;
+            }
+        }
+        private void ActivityClear()
+        {
+            activityDescriptionTextbox.Clear();
+            activityStartTextbox.Clear();
+            activityEndTextbox.Clear();
+        }
+        private void addActivityButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActivityService activityService = new ActivityService();
+                List<Activity> list = activityService.GetActivity();
+
+                if (string.IsNullOrEmpty(activityDescriptionTextbox.Text) || string.IsNullOrEmpty(activityStartTextbox.Text) || string.IsNullOrEmpty(activityEndTextbox.Text))
+                {
+                    return;
+                }
+                else
+                {
+                    if (listViewActivity.FindItemWithText(activityDescriptionTextbox.Text) != null)
+                    {
+                        MessageBox.Show($"{activityDescriptionTextbox.Text} already exist");
+                        ActivityClear();
+                        return;
+                    }
+                    foreach (Activity a in list)
+                    {
+                        DateTime dateTimeNow = DateTime.Now;
+                        DateTime startDateTime = DateTime.Parse(activityStartTextbox.Text);
+                        DateTime endDateTime = DateTime.Parse(activityEndTextbox.Text);
+
+                        if (startDateTime >= endDateTime)
+                        {
+                            throw new Exception("End date time must be after start date time!");
+                        }
+                        else if (dateTimeNow >= startDateTime)
+                        {
+                            throw new Exception("You can not make an activity in the past.");
+                        }
+                    }
+
+                    ListViewItem listViewItem = new ListViewItem(0.ToString());
+                    listViewItem.SubItems.Add(activityDescriptionTextbox.Text);
+                    listViewItem.SubItems.Add(activityStartTextbox.Text);
+                    listViewItem.SubItems.Add(activityEndTextbox.Text);
+
+                    listViewActivity.Items.Add(listViewItem);
+
+                    Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
+
+                    activityService.AddActivity(activity);
+
+                    MessageBox.Show($"Succesfully added: {activity.ActivityDescription}");
+                }
+            }
+            catch (Exception Add)
+            {
+                MessageBox.Show("Something went wrong during add an activity" + Add.Message);
+            }
+            finally
+            {
+                ActivityClear();
+            }
+        }
+
+        private void updateActivityButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listViewActivity.SelectedItems[0] == null)
+                {
+                    return;
+                }
+                if (string.IsNullOrEmpty(activityDescriptionTextbox.Text))
+                {
+                    MessageBox.Show("Please enter an activity name");
+                }
+                else
+                {
+                    Activity activity = new Activity(int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text), activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
+
+
+                    activity.ActivityId = int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text);
+                    activity.ActivityDescription = activityDescriptionTextbox.Text;
+                    activity.ActivityStartDateTime = DateTime.Parse(activityStartTextbox.Text);
+                    activity.ActivityEndDateTime = DateTime.Parse(activityEndTextbox.Text);
+
+                    ActivityService activityService = new ActivityService();
+                    activityService.UpdateActivity(activity);
+
+                    ActivityClear();
+                    showPanel(Panel.Activity);
+
+                    MessageBox.Show($"Succesfully updated: {activity.ActivityDescription}");
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Updating activity failed: " + ex.Message);
+            }
+            finally
+            {
+                ActivityClear();
+            }
+        }
+
+        private void deleteActivityButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you wish to remove this activity?", "Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    ActivityService activityService = new ActivityService();
+                    activityService.DeleteActivity(int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text));
+                    List<Activity> activities = activityService.GetActivity();
+
+                    listViewActivity.Items.Clear();
+
+                    foreach (Activity activity in activities)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(activity.ActivityId.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityDescription);
+                        listViewItem.SubItems.Add(activity.ActivityStartDateTime.ToString());
+                        listViewItem.SubItems.Add(activity.ActivityEndDateTime.ToString());
+
+                        listViewActivity.Items.Add(listViewItem);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot delete activity: " + ex.Message);
+                }
             }
         }
     }

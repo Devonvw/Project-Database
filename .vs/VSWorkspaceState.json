@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SomerenDAL",
-    "\\SomerenModel"
+    "\\SomerenUI"
   ],
-  "SelectedNode": "\\Someren.sln",
+  "SelectedNode": "\\SomerenUI\\SomerenUI.cs",
   "PreviewInSolutionExplorer": false
 }
