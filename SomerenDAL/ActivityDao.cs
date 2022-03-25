@@ -19,7 +19,7 @@ namespace SomerenDAL
 
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-            new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
+            new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
             };
 
             try
@@ -34,7 +34,7 @@ namespace SomerenDAL
         public void AddStudent(int activityId, int studentId)
         {
             DateTime start = new DateTime();
-            DateTime end = new DateTime(); 
+            DateTime end = new DateTime();
             string query = "SELECT A.* from Activity as A WHERE A.activityId = @activityId";
 
             try
@@ -49,7 +49,7 @@ namespace SomerenDAL
                 dataTable = ExecuteSelectQuery(query, sqlParameters);
                 start = (DateTime)dataTable.Rows[0]["startDateTime"];
                 end = (DateTime)dataTable.Rows[0]["endDateTime"];
-                    
+
                 query = "SELECT A.* from Activity as A LEFT JOIN ActivityStudent as ASTU ON A.activityId = ASTU.activityId LEFT JOIN Student as S ON S.studentId = ASTU.studentId WHERE S.studentId = @studentId and (A.startDateTime BETWEEN @startDateTime and @endDateTime or A.endDateTime BETWEEN @startDateTime and @endDateTime)";
                 SqlParameter[] sqlParametersAvailable = new SqlParameter[]
                 {
@@ -57,9 +57,9 @@ namespace SomerenDAL
                     new SqlParameter("@startDateTime", SqlDbType.DateTime) { Value = start },
                     new SqlParameter("@endDateTime", SqlDbType.DateTime) { Value = end },
                 };
-                    
+
                 dataTable = ExecuteSelectQuery(query, sqlParametersAvailable);
-                    
+
                 if (dataTable != null)
                 {
                     if (dataTable.Rows.Count > 0)
@@ -68,9 +68,9 @@ namespace SomerenDAL
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new InvalidOperationException($"No data found");
+                throw new InvalidOperationException($"{ex.Message}");
             }
 
 
@@ -78,17 +78,17 @@ namespace SomerenDAL
 
             SqlParameter[] sqlParametersAdd = new SqlParameter[]
             {
-            new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
-            new SqlParameter("@studentId", SqlDbType.DateTime) { Value = studentId }
+            new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
+            new SqlParameter("@studentId", SqlDbType.Int) { Value = studentId }
             };
-           
+
             try
             {
                 ExecuteEditQuery(query, sqlParametersAdd);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new InvalidOperationException($"Not able to add student.");
+                throw new InvalidOperationException($"Not able to add student. {activityId} {studentId} {ex.Message}");
             }
         }
 
@@ -98,8 +98,8 @@ namespace SomerenDAL
 
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-            new SqlParameter("@activityId", SqlDbType.DateTime) { Value = activityId },
-            new SqlParameter("@studentId", SqlDbType.DateTime) { Value = studentId }
+            new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
+            new SqlParameter("@studentId", SqlDbType.Int) { Value = studentId }
             };
 
             try
@@ -120,7 +120,7 @@ namespace SomerenDAL
             {
                 //for each row, each column value as a parameter for the object 
                 int id = (int)dr["studentId"];
-                string firstName = (string)(dr["firstName"]).ToString();
+                string firstName = (string)(dr["firstName"]);
                 string lastName = (string)(dr["lastName"]);
                 int roomId = (int)dr["roomId"];
                 DateTime birthDate = Convert.ToDateTime(dr["dateOfBirth"]); //NULL not allowed in this case 
@@ -131,6 +131,62 @@ namespace SomerenDAL
 
             return students;
         }
+        public List<Activity> GetActivity()
+        {
+            string query = "SELECT description, startDateTime, endDateTime, activityId FROM Activity";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public void UpdateActivity(Activity activity)
+        {
+            conn.Open();
+            SqlCommand command = new SqlCommand("UPDATE Activity SET startDateTime=@startDatetime, description=@description endDateTime=@endDateTime WHERE activityId=@activityId;", conn);
+            command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
+            command.Parameters.AddWithValue("@description", activity.ActivityDescription);
+            command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
+            command.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void AddActivity(Activity activity)
+        {
+            conn.Open();
+            SqlCommand command = new SqlCommand("INSERT INTO Activity(description, startDateTime, endDateTime) VALUES(@description, @startDateTime, @endDateTime);", conn);
+            command.Parameters.AddWithValue("@description", activity.ActivityDescription);
+            command.Parameters.AddWithValue("@startDateTime", activity.ActivityStartDateTime);
+            command.Parameters.AddWithValue("@endDateTime", activity.ActivityEndDateTime);
+            command.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void DeleteActivity(int activityId)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+            new SqlParameter("@activityId", SqlDbType.Int) { Value = activityId },
+            };
+
+            string query = $"DELETE FROM Activity WHERE activityId=@activityId";
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        private List<Activity> ReadTables(DataTable dataTable)
+        {
+            List<Activity> activities = new List<Activity>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                int activityId = (int)dr["activityId"];
+                DateTime startDateTime = (DateTime)dr["startDateTime"];
+                string description = (string)(dr["description"]);
+                DateTime endDateTime = (DateTime)dr["endDateTime"];
+
+                Activity activity = new Activity(activityId, description, startDateTime, endDateTime);
+                activities.Add(activity);
+            }
+            return activities;
+        }
+
+
+
     }
 
 }

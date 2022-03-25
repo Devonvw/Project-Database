@@ -1023,43 +1023,50 @@
             this.Description,
             this.Start,
             this.End});
+            this.listViewActivitiesParticipants.FullRowSelect = true;
+            this.listViewActivitiesParticipants.GridLines = true;
             this.listViewActivitiesParticipants.HideSelection = false;
             this.listViewActivitiesParticipants.Location = new System.Drawing.Point(42, 90);
             this.listViewActivitiesParticipants.Name = "listViewActivitiesParticipants";
-            this.listViewActivitiesParticipants.Size = new System.Drawing.Size(406, 306);
+            this.listViewActivitiesParticipants.Size = new System.Drawing.Size(512, 306);
             this.listViewActivitiesParticipants.TabIndex = 8;
             this.listViewActivitiesParticipants.UseCompatibleStateImageBehavior = false;
+            this.listViewActivitiesParticipants.View = System.Windows.Forms.View.Details;
+            this.listViewActivitiesParticipants.SelectedIndexChanged += new System.EventHandler(this.listViewActivitiesParticipants_SelectedIndexChanged);
             // 
             // Id
             // 
             this.Id.Text = "Id";
+            this.Id.Width = 40;
             // 
             // Description
             // 
             this.Description.Text = "Description";
+            this.Description.Width = 80;
             // 
             // Start
             // 
             this.Start.Text = "Start";
+            this.Start.Width = 120;
             // 
             // End
             // 
             this.End.Text = "End";
+            this.End.Width = 120;
             // 
             // cbxAvailableParticipants
             // 
             this.cbxAvailableParticipants.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbxAvailableParticipants.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxAvailableParticipants.FormattingEnabled = true;
-            this.cbxAvailableParticipants.Location = new System.Drawing.Point(771, 92);
+            this.cbxAvailableParticipants.Location = new System.Drawing.Point(927, 84);
             this.cbxAvailableParticipants.Name = "cbxAvailableParticipants";
             this.cbxAvailableParticipants.Size = new System.Drawing.Size(275, 24);
             this.cbxAvailableParticipants.TabIndex = 7;
-            this.cbxAvailableParticipants.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnAddStudent
             // 
-            this.btnAddStudent.Location = new System.Drawing.Point(771, 121);
+            this.btnAddStudent.Location = new System.Drawing.Point(927, 113);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(275, 34);
             this.btnAddStudent.TabIndex = 6;
@@ -1069,9 +1076,9 @@
             // 
             // btnDeleteStudent
             // 
-            this.btnDeleteStudent.Location = new System.Drawing.Point(493, 408);
+            this.btnDeleteStudent.Location = new System.Drawing.Point(615, 400);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(235, 34);
+            this.btnDeleteStudent.Size = new System.Drawing.Size(269, 34);
             this.btnDeleteStudent.TabIndex = 5;
             this.btnDeleteStudent.Text = "Delete selected student";
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
@@ -1080,17 +1087,16 @@
             // lblAddStudent
             // 
             this.lblAddStudent.AutoSize = true;
-            this.lblAddStudent.Location = new System.Drawing.Point(772, 69);
+            this.lblAddStudent.Location = new System.Drawing.Point(928, 61);
             this.lblAddStudent.Name = "lblAddStudent";
             this.lblAddStudent.Size = new System.Drawing.Size(78, 16);
             this.lblAddStudent.TabIndex = 4;
             this.lblAddStudent.Text = "Add student";
-            this.lblAddStudent.Click += new System.EventHandler(this.lblAvailableStudents_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(498, 69);
+            this.label2.Location = new System.Drawing.Point(654, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 16);
             this.label2.TabIndex = 3;
@@ -1101,13 +1107,15 @@
             this.listViewParticipants.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.StudId,
             this.studNameHeader});
+            this.listViewParticipants.FullRowSelect = true;
+            this.listViewParticipants.GridLines = true;
             this.listViewParticipants.HideSelection = false;
-            this.listViewParticipants.Location = new System.Drawing.Point(493, 90);
+            this.listViewParticipants.Location = new System.Drawing.Point(615, 82);
             this.listViewParticipants.Name = "listViewParticipants";
-            this.listViewParticipants.Size = new System.Drawing.Size(236, 307);
+            this.listViewParticipants.Size = new System.Drawing.Size(270, 307);
             this.listViewParticipants.TabIndex = 2;
             this.listViewParticipants.UseCompatibleStateImageBehavior = false;
-            this.listViewParticipants.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            this.listViewParticipants.View = System.Windows.Forms.View.Details;
             // 
             // StudId
             // 
@@ -1116,6 +1124,7 @@
             // studNameHeader
             // 
             this.studNameHeader.Text = "Name";
+            this.studNameHeader.Width = 150;
             // 
             // SomerenUI
             // 
