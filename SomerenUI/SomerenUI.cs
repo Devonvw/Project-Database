@@ -487,53 +487,51 @@ namespace SomerenUI
         {
             try
             {
-                if (string.IsNullOrEmpty(activityDescriptionTextbox.Text) || string.IsNullOrEmpty(activityStartTextbox.Text) || string.IsNullOrEmpty(activityEndTextbox.Text))
+            ActivityService activityService = new ActivityService();
+                List<Activity> list = activityService.GetActivity();
+
+            if (string.IsNullOrEmpty(activityDescriptionTextbox.Text) || string.IsNullOrEmpty(activityStartTextbox.Text) || string.IsNullOrEmpty(activityEndTextbox.Text))
+            {
+                return;
+            }
+            else
+            {
+                if (listViewActivity.FindItemWithText(activityDescriptionTextbox.Text) != null)
                 {
+                    MessageBox.Show($"{activityDescriptionTextbox.Text} already exist");
+                    ActivityClear();
                     return;
                 }
-                else
+                foreach (Activity a in list)
                 {
-                    if (listViewActivity.FindItemWithText(activityDescriptionTextbox.Text) != null)
+                    DateTime dateTimeNow = DateTime.Now;
+                    DateTime startDateTime = DateTime.Parse(activityStartTextbox.Text);
+                    DateTime endDateTime = DateTime.Parse(activityEndTextbox.Text);
+
+                    if (startDateTime >= endDateTime)
                     {
-                        MessageBox.Show($"{activityDescriptionTextbox.Text} already exist");
-                        activityStartTextbox.Clear();
-                        activityEndTextbox.Clear();
-                        activityDescriptionTextbox.Clear();
-                        return;
+                        throw new Exception("End date time must be after start date time!");
+                    }
+                    else if (dateTimeNow >= startDateTime)
+                    {
+                        throw new Exception("You can not make an activity in the past.");
                     }
                 }
 
-                DateTime dateTimeNow = DateTime.Now;
-                DateTime startDateTime = DateTime.Parse(activityStartTextbox.Text);
-                DateTime endDateTime = DateTime.Parse(activityEndTextbox.Text);
+                ListViewItem listViewItem = new ListViewItem(0.ToString());
+                listViewItem.SubItems.Add(activityDescriptionTextbox.Text);
+                listViewItem.SubItems.Add(activityStartTextbox.Text);
+                listViewItem.SubItems.Add(activityEndTextbox.Text);
 
-                if (startDateTime >= endDateTime)
-                {
-                    throw new Exception("End date time must be after start date time!");
-                }
-                else if (dateTimeNow >= startDateTime)
-                {
-                    throw new Exception("You can not make an activity in the past.");
-                }
-                else
-                {
-                    ActivityService activityService = new ActivityService();
-                    List<Activity> activityList = activityService.GetActivity();
+                listViewActivity.Items.Add(listViewItem);
 
-                    ListViewItem activityItem = new ListViewItem(activityDescriptionTextbox.Text);
-                    activityItem.SubItems.Add(activityStartTextbox.Text);
-                    activityItem.SubItems.Add(activityEndTextbox.Text);
+                Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
 
-                    listViewActivity.Items.Add(activityItem);
+                activityService.AddActivity(activity);
 
-                    Activity activity = new Activity(0, activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
-
-                    activityService.AddActivity(activity);
-
-                    MessageBox.Show($"Succesfully added: {activity.ActivityDescription}");
-                }
-                
+                MessageBox.Show($"Succesfully added: {activity.ActivityDescription}");
             }
+        }
             catch (Exception Add)
             {
                 MessageBox.Show("Something went wrong during add an activity" + Add.Message);
@@ -541,7 +539,7 @@ namespace SomerenUI
             finally
             {
                 ActivityClear();
-            }
+}
         }
 
         private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -552,41 +550,38 @@ namespace SomerenUI
 
         private void updateActivityButton_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine(e.ToString());
             try
             {
-                ActivityService activityService = new ActivityService();
-                List<Activity> activities = activityService.GetActivity();
-                Activity activity = null;
-
-                foreach (Activity alterActivity in activities)
+                if (listViewActivity.SelectedItems[0] == null)
                 {
-                    if (alterActivity.ActivityId == int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text))
-                    {
-                        activity = alterActivity;
-                    }
+                    return;
                 }
-
-                if (!string.IsNullOrEmpty(activityDescriptionTextbox.Text))
+                if (string.IsNullOrEmpty(activityDescriptionTextbox.Text))
                 {
-                    if (listViewActivity.FindItemWithText(activityDescriptionTextbox.Text) != null)
-                    {
-                        ActivityClear();
-                        return;
-                    }
-                    listViewActivity.SelectedItems[0].SubItems[1].Text = activityDescriptionTextbox.Text;
+                    MessageBox.Show("Please enter an activity name");
+                }
+                else
+                {
+                    Activity activity = new Activity(int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text), activityDescriptionTextbox.Text, DateTime.Parse(activityStartTextbox.Text), DateTime.Parse(activityEndTextbox.Text));
+
+
+                    activity.ActivityId = int.Parse(listViewActivity.SelectedItems[0].SubItems[0].Text);
                     activity.ActivityDescription = activityDescriptionTextbox.Text;
-                }
-                if (!string.IsNullOrEmpty(activityStartTextbox.Text))
-                {
-                    listViewActivity.SelectedItems[0].SubItems[2].Text = activityStartTextbox.Text;
                     activity.ActivityStartDateTime = DateTime.Parse(activityStartTextbox.Text);
-                }
-                if (!string.IsNullOrEmpty(activityEndTextbox.Text))
-                {
-                    listViewActivity.SelectedItems[0].SubItems[3].Text = activityEndTextbox.Text;
                     activity.ActivityEndDateTime = DateTime.Parse(activityEndTextbox.Text);
+
+                    ActivityService activityService = new ActivityService();
+                    activityService.UpdateActivity(activity);
+
+                    ActivityClear();
+                    showPanel("Activities");
+
+                    MessageBox.Show($"Succesfully updated: {activity.ActivityDescription}");
                 }
-                MessageBox.Show($"Succesfully updated: {activity.ActivityDescription}");
+
+
+                
             }
             catch (Exception ex)
             {
@@ -595,7 +590,7 @@ namespace SomerenUI
             finally
             {
                 ActivityClear();
-            }
+}
         }
 
         private void deleteActivityButton_Click(object sender, EventArgs e)
@@ -632,12 +627,16 @@ namespace SomerenUI
 
         private void listViewActivity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-             ListViewItem listViewItem = listViewActivity.SelectedItems[0];
-             activityDescriptionTextbox.Text = listViewItem.SubItems[1].Text;
-            activityStartTextbox.Text = listViewItem.SubItems[2].Text;
-            activityEndTextbox.Text = listViewItem.SubItems[3].Text;
-            
+            ListView.SelectedIndexCollection indexes = this.listViewActivity.SelectedIndices;
+
+            foreach (int index in indexes)
+            {
+                ListViewItem listViewItem = listViewActivity.SelectedItems[0];
+                activityDescriptionTextbox.Text = listViewItem.SubItems[1].Text;
+                activityStartTextbox.Text = listViewItem.SubItems[2].Text;
+                activityEndTextbox.Text = listViewItem.SubItems[3].Text;
+            }
         }
     }
 }
+

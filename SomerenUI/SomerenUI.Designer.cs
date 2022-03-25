@@ -111,10 +111,10 @@
             this.updateActivityButton = new System.Windows.Forms.Button();
             this.activityAddButton = new System.Windows.Forms.Button();
             this.listViewActivity = new System.Windows.Forms.ListView();
+            this.activityIdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activityDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activityStartDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activityEndDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.activityIdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -878,6 +878,10 @@
             this.listViewActivity.View = System.Windows.Forms.View.Details;
             this.listViewActivity.SelectedIndexChanged += new System.EventHandler(this.listViewActivity_SelectedIndexChanged);
             // 
+            // activityIdHeader
+            // 
+            this.activityIdHeader.Width = 0;
+            // 
             // activityDescription
             // 
             this.activityDescription.Text = "Description";
@@ -892,10 +896,6 @@
             // 
             this.activityEndDateTime.Text = "End Time";
             this.activityEndDateTime.Width = 140;
-            // 
-            // activityIdHeader
-            // 
-            this.activityIdHeader.Width = 0;
             // 
             // SomerenUI
             // 

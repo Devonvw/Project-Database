@@ -17,3 +17,22 @@ C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\Someren
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.AssemblyReference.cache
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe.config
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenUI.exe
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenUI.pdb
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenLogic.dll
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenModel.dll
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenLogic.pdb
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenModel.pdb
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenDAL.pdb
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\bin\Debug\SomerenDAL.dll.config
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.AssemblyReference.cache
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.SomerenUI.resources
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.Properties.Resources.resources
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.GenerateResource.cache
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
+C:\Users\kimhy\source\repos\Devonvw - Copy\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
