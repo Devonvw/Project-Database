@@ -1,24 +1,36 @@
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
-C:\Users\devon\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
+<<<<<<< HEAD
+=======
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
+C:\Users\kimhy\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
+>>>>>>> Devon
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\kimhy\source\repos\Devonvw - 복사본\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
+<<<<<<< HEAD
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\kimhy\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
+=======
+C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
+C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
+C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache
+C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
+C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
+C:\Users\devon\source\repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
+>>>>>>> Devon
