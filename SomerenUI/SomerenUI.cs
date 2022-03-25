@@ -621,6 +621,7 @@ namespace SomerenUI
             }
             catch (Exception ex)
             {
+                listViewParticipants.Items.Clear();
                 MessageBox.Show(ex.Message);
             }
         }
