@@ -636,8 +636,9 @@ namespace SomerenUI
             try
             {
                 if (listViewActivitiesParticipants.SelectedItems.Count > 0) {
-                    List<Student> students = activityService.GetStudents(int.Parse(listViewActivitiesParticipants.SelectedItems[0].SubItems[0].Text));
                     listViewParticipants.Items.Clear();
+
+                    List<Student> students = activityService.GetStudents(int.Parse(listViewActivitiesParticipants.SelectedItems[0].SubItems[0].Text));
 
                     foreach (Student student in students)
                     {
@@ -650,7 +651,6 @@ namespace SomerenUI
             }
             catch (Exception ex)
             {
-                listViewParticipants.Items.Clear();
                 MessageBox.Show(ex.Message);
             }
         }
