@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SomerenLogic;
+using SomerenModel;
 
 namespace SomerenUI
 {
@@ -37,6 +38,48 @@ namespace SomerenUI
                 }
             }
             else MessageBox.Show("Please fill in all requirements");
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            pnlRegister.Show();
+
+            
+            
+        }
+
+        private void registernewUserButton_Click(object sender, EventArgs e)
+        {
+            userService = new UserService();
+            User newUser = new User();
+            HashAndSalt hashPassword = new HashAndSalt();
+            string salt = hashPassword.CreateSalt(64);
+            string hashedPasword = hashPassword.GenerateHash(registerPasswordTextbox.Text, salt);
+
+            newUser.UserName = usernameTextbox.Text;
+            newUser.PassWord = hashedPasword;
+            newUser.Salt = salt;
+
+
+            string licenseKey = "XsZAb - tgz3PsD - qYh69un - WQCEx";
+            try
+            {
+                if (licenseKeyTextbox.Text == licenseKey)
+                {
+                    userService.AddUser(newUser);
+                    this.Hide();
+                    SomerenUILogin somerenUILogin = new SomerenUILogin();
+                    somerenUILogin.Show();
+                }
+                else
+                {
+                    throw new Exception("Invalid license key...");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong while register new user: " + ex.Message);
+            }
         }
     }
 }

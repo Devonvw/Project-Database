@@ -8,6 +8,6 @@ namespace SomerenUI
 {
     public enum Panel
     {
-        Dashboard, Teachers, Students, Rooms, Revenue, DrinksSupplies, CashRegister, ActivityParticipants, Activity, ActivitySupervisors
+        Dashboard, Teachers, Students, Rooms, Revenue, DrinksSupplies, CashRegister, ActivityParticipants, Activity, ActivitySupervisors, Register
     }
 }

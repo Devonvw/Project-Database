@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using SomerenModel;
+using System.Collections.Generic;
 
 namespace SomerenDAL
 {
@@ -37,6 +38,36 @@ namespace SomerenDAL
             string validUser = (string)dataTable.Rows[0]["adminStatus"];
 
             return validUser;
+        }
+        public List<User> GetAllUsers()
+        {
+            string query = "SELECT userID, userName, passWord, salt, adminStatus FROM Users";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public void AddUser(User user)
+        {
+            string query = $"INSERT INTO Users ( userID, userName, passWord, salt, adminstatus ) VALUES ( '{user.UserId}', '{user.UserName}', '{user.PassWord}', '{user.PassWord}', '{user.Salt}', '{user.AdminStatus}')";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            OpenConnection();
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public List<User> ReadTables(DataTable dataTable)
+        {
+            List<User> users = new List<User>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                int userID = (int)dr["userID"];
+                string userName = (String)dr["userName"];
+                string password = (String)dr["passWord"];
+                string salt = (String)dr["salt"];
+                string adminStatus = (String)dr["adminStatus"];
+
+                User user = new User(userID, userName, password, salt, adminStatus);
+                users.Add(user);
+            }
+            return users;
         }
     }
 }
