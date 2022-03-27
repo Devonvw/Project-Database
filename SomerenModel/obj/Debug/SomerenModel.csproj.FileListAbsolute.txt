@@ -3,3 +3,4 @@ C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenModel\bin\Debug\Some
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
+C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.AssemblyReference.cache

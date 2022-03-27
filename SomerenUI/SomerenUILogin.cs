@@ -7,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SomerenLogic;
 
 namespace SomerenUI
 {
     public partial class SomerenUILogin : Form
     {
-        const string userName = "Alan";
-        const string password = "123456abc";
+        UserService userService;
+
         public SomerenUILogin()
         {
+            userService = new UserService();
             InitializeComponent();
         }
 
@@ -23,18 +25,18 @@ namespace SomerenUI
         {
             if (!String.IsNullOrEmpty(usernameTextbox.Text) || !String.IsNullOrEmpty(passwordTextbox.Text))
             {
-                if (usernameTextbox.Text != userName || passwordTextbox.Text != password)
+                if (!userService.ValidUser(usernameTextbox.Text, passwordTextbox.Text))
                 {
-                    MessageBox.Show("Please enter correct Username and Password");
+                    MessageBox.Show("Incorrect username or password");
                 }
                 else
                 {
                     this.Hide();
-                    SomerenUI form = new SomerenUI();
+                    SomerenUI form = new SomerenUI(userService.GetStatus(usernameTextbox.Text));
                     form.ShowDialog();
                 }
             }
-            else MessageBox.Show("Please enter correct Username and Password");
+            else MessageBox.Show("Please fill in all requirements");
         }
     }
 }

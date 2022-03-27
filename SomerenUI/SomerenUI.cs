@@ -21,8 +21,10 @@ namespace SomerenUI
         private bool drinkIsAlcohol;
         private List<OrderLine> orderLines;
         private TeacherService teacherService;
-        public SomerenUI()
+        public string Status { get; set; }
+        public SomerenUI(string status)
         {
+            Status = status;
             revenueService = new RevenueService();
             activityService = new ActivityService();
             orderService = new OrderService();
@@ -30,6 +32,8 @@ namespace SomerenUI
             teacherService = new TeacherService();
 
             InitializeComponent();
+            if (Status == "user")
+                DisablePrivilege();
         }
         private void SomerenUI_Load(object sender, EventArgs e)
         {
@@ -814,14 +818,6 @@ namespace SomerenUI
                 }
             }
         }
-        private void EnableAddButton(object sender, EventArgs e)
-        {
-            if (comboBoxLecturesForActivities.SelectedIndex > -1)
-            {
-                addSupervisorToActivityBtn.Enabled = true;
-            }
-            else addSupervisorToActivityBtn.Enabled = false;
-        }
         private void AddSupervisorToActivityBtn_Click(object sender, EventArgs e)
         {
             try
@@ -885,13 +881,20 @@ namespace SomerenUI
         }
         private void supervisorListFromActivity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (supervisorListFromActivity.SelectedItems.Count > 0)
+            if (Status == "user")
             {
-                DeleteSupervisorFromActivityBtn.Enabled = true;
+                return;
             }
             else
             {
-                DeleteSupervisorFromActivityBtn.Enabled = false;
+                if (supervisorListFromActivity.SelectedItems.Count > 0)
+                {
+                    DeleteSupervisorFromActivityBtn.Enabled = true;
+                }
+                else
+                {
+                    DeleteSupervisorFromActivityBtn.Enabled = false;
+                }
             }
         }
         private void activityListForSupervisors_SelectedIndexChanged(object sender, EventArgs e)
@@ -915,7 +918,34 @@ namespace SomerenUI
         }
         private void comboBoxLecturesForActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            addSupervisorToActivityBtn.Enabled = true;
+            if (Status == "user")
+            {
+                return;
+            }
+            else
+            {
+                addSupervisorToActivityBtn.Enabled = true;
+            }
+        }
+        private void DisablePrivilege()
+        {
+            addActivityButton.Enabled = false;
+            deleteActivityButton.Enabled = false;
+            updateActivityButton.Enabled = false;
+
+            btnDeleteStudent.Enabled = false;
+            btnAddStudent.Enabled = false;
+
+            drinkAddButton.Enabled = false;
+            drinkDeleteButton.Enabled = false;
+            drinkUpdateButton.Enabled = false;
+            alcoholButton.Enabled = false;
+            nonAlcoholButton.Enabled = false;
+
+            checkOutButton.Enabled = false;
+            addDrinkButton.Enabled = false;
+
+            btnGenerateReport.Enabled = false;
         }
     }
 }

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SomerenDAL"
   ],
-  "SelectedNode": "\\Someren.sln",
+  "SelectedNode": "\\SomerenDAL\\UserDao.cs",
   "PreviewInSolutionExplorer": false
 }
