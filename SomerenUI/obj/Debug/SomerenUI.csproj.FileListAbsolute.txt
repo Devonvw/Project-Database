@@ -16,3 +16,4 @@ C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\Someren
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.exe
 C:\Users\aland\source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.pdb
+C:\Users\aland\Source\Repos\Devonvw\Project-Database\SomerenUI\obj\Debug\SomerenUI.SomerenUILogin.resources

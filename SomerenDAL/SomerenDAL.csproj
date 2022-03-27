@@ -65,7 +65,7 @@
   <ItemGroup>
     <Compile Include="ActivityDao.cs" />
     <Compile Include="BaseDao.cs" />
-    <Compile Include="ActivityDao.cs" />
+    <Compile Include="UserDao.cs" />
     <Compile Include="DrinkDao.cs" />
     <Compile Include="OrderDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

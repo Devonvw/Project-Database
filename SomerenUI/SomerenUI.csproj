@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SomerenUILogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SomerenUILogin.Designer.cs">
+      <DependentUpon>SomerenUILogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panel.cs" />
     <Compile Include="SomerenUI.cs">
       <SubType>Form</SubType>
@@ -69,6 +75,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SomerenUILogin.resx">
+      <DependentUpon>SomerenUILogin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
