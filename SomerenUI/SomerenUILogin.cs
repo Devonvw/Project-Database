@@ -21,6 +21,16 @@ namespace SomerenUI
             InitializeComponent();
         }
 
+        private void showPanel(Panel panel)
+        {
+            if (panel == Panel.forgotPassword)
+            {
+                pnlForgotPassword.Show();
+
+
+            }
+        }
+
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(usernameTextbox.Text) || !String.IsNullOrEmpty(passwordTextbox.Text))
@@ -37,6 +47,22 @@ namespace SomerenUI
                 }
             }
             else MessageBox.Show("Please fill in all requirements");
+        }
+
+        private void forgotPasswordLabel_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(usernameTextbox.Text)) pnlForgotPassword.Show();
+            else MessageBox.Show("Please fill in your username");
+        }
+
+        private void SomerenUILogin_Load(object sender, EventArgs e)
+        {
+            pnlForgotPassword.Hide();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlForgotPassword.Hide();
         }
     }
 }
