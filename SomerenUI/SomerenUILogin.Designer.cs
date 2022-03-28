@@ -44,6 +44,10 @@
             this.registerPasswordTextbox = new System.Windows.Forms.TextBox();
             this.licenseKeyTextbox = new System.Windows.Forms.TextBox();
             this.registernewUserButton = new System.Windows.Forms.Button();
+            this.secretAnswerRegisterTextbox = new System.Windows.Forms.TextBox();
+            this.lblsecretAnswer = new System.Windows.Forms.Label();
+            this.secretQuestionRegisterTextbox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlRegister.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +122,10 @@
             // 
             // pnlRegister
             // 
+            this.pnlRegister.Controls.Add(this.label1);
+            this.pnlRegister.Controls.Add(this.secretQuestionRegisterTextbox);
+            this.pnlRegister.Controls.Add(this.lblsecretAnswer);
+            this.pnlRegister.Controls.Add(this.secretAnswerRegisterTextbox);
             this.pnlRegister.Controls.Add(this.licenseKeyTextbox);
             this.pnlRegister.Controls.Add(this.registernewUserButton);
             this.pnlRegister.Controls.Add(this.registerPasswordTextbox);
@@ -135,7 +143,7 @@
             // 
             this.lblregisterwithLicensKey.AutoSize = true;
             this.lblregisterwithLicensKey.Font = new System.Drawing.Font("Gulim", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblregisterwithLicensKey.Location = new System.Drawing.Point(28, 21);
+            this.lblregisterwithLicensKey.Location = new System.Drawing.Point(56, 0);
             this.lblregisterwithLicensKey.Name = "lblregisterwithLicensKey";
             this.lblregisterwithLicensKey.Size = new System.Drawing.Size(264, 19);
             this.lblregisterwithLicensKey.TabIndex = 0;
@@ -144,7 +152,7 @@
             // lblRegisterUsername
             // 
             this.lblRegisterUsername.AutoSize = true;
-            this.lblRegisterUsername.Location = new System.Drawing.Point(30, 64);
+            this.lblRegisterUsername.Location = new System.Drawing.Point(43, 33);
             this.lblRegisterUsername.Name = "lblRegisterUsername";
             this.lblRegisterUsername.Size = new System.Drawing.Size(67, 12);
             this.lblRegisterUsername.TabIndex = 1;
@@ -153,7 +161,7 @@
             // lblRegisterPassword
             // 
             this.lblRegisterPassword.AutoSize = true;
-            this.lblRegisterPassword.Location = new System.Drawing.Point(30, 98);
+            this.lblRegisterPassword.Location = new System.Drawing.Point(44, 94);
             this.lblRegisterPassword.Name = "lblRegisterPassword";
             this.lblRegisterPassword.Size = new System.Drawing.Size(66, 12);
             this.lblRegisterPassword.TabIndex = 2;
@@ -162,7 +170,7 @@
             // lblLicenseKey
             // 
             this.lblLicenseKey.AutoSize = true;
-            this.lblLicenseKey.Location = new System.Drawing.Point(30, 137);
+            this.lblLicenseKey.Location = new System.Drawing.Point(30, 159);
             this.lblLicenseKey.Name = "lblLicenseKey";
             this.lblLicenseKey.Size = new System.Drawing.Size(80, 12);
             this.lblLicenseKey.TabIndex = 3;
@@ -170,28 +178,28 @@
             // 
             // registerUsernameTextbox
             // 
-            this.registerUsernameTextbox.Location = new System.Drawing.Point(143, 55);
+            this.registerUsernameTextbox.Location = new System.Drawing.Point(24, 48);
             this.registerUsernameTextbox.Name = "registerUsernameTextbox";
-            this.registerUsernameTextbox.Size = new System.Drawing.Size(184, 21);
+            this.registerUsernameTextbox.Size = new System.Drawing.Size(117, 21);
             this.registerUsernameTextbox.TabIndex = 4;
             // 
             // registerPasswordTextbox
             // 
-            this.registerPasswordTextbox.Location = new System.Drawing.Point(143, 89);
+            this.registerPasswordTextbox.Location = new System.Drawing.Point(24, 109);
             this.registerPasswordTextbox.Name = "registerPasswordTextbox";
-            this.registerPasswordTextbox.Size = new System.Drawing.Size(184, 21);
+            this.registerPasswordTextbox.Size = new System.Drawing.Size(117, 21);
             this.registerPasswordTextbox.TabIndex = 5;
             // 
             // licenseKeyTextbox
             // 
-            this.licenseKeyTextbox.Location = new System.Drawing.Point(143, 128);
+            this.licenseKeyTextbox.Location = new System.Drawing.Point(143, 150);
             this.licenseKeyTextbox.Name = "licenseKeyTextbox";
             this.licenseKeyTextbox.Size = new System.Drawing.Size(184, 21);
             this.licenseKeyTextbox.TabIndex = 6;
             // 
             // registernewUserButton
             // 
-            this.registernewUserButton.Location = new System.Drawing.Point(32, 171);
+            this.registernewUserButton.Location = new System.Drawing.Point(32, 186);
             this.registernewUserButton.Name = "registernewUserButton";
             this.registernewUserButton.Size = new System.Drawing.Size(295, 30);
             this.registernewUserButton.TabIndex = 7;
@@ -199,11 +207,44 @@
             this.registernewUserButton.UseVisualStyleBackColor = true;
             this.registernewUserButton.Click += new System.EventHandler(this.registernewUserButton_Click);
             // 
+            // secretAnswerRegisterTextbox
+            // 
+            this.secretAnswerRegisterTextbox.Location = new System.Drawing.Point(198, 109);
+            this.secretAnswerRegisterTextbox.Name = "secretAnswerRegisterTextbox";
+            this.secretAnswerRegisterTextbox.Size = new System.Drawing.Size(129, 21);
+            this.secretAnswerRegisterTextbox.TabIndex = 8;
+            // 
+            // lblsecretAnswer
+            // 
+            this.lblsecretAnswer.AutoSize = true;
+            this.lblsecretAnswer.Location = new System.Drawing.Point(241, 94);
+            this.lblsecretAnswer.Name = "lblsecretAnswer";
+            this.lblsecretAnswer.Size = new System.Drawing.Size(52, 12);
+            this.lblsecretAnswer.TabIndex = 9;
+            this.lblsecretAnswer.Text = "Answer:";
+            // 
+            // secretQuestionRegisterTextbox
+            // 
+            this.secretQuestionRegisterTextbox.Location = new System.Drawing.Point(198, 51);
+            this.secretQuestionRegisterTextbox.Name = "secretQuestionRegisterTextbox";
+            this.secretQuestionRegisterTextbox.Size = new System.Drawing.Size(129, 21);
+            this.secretQuestionRegisterTextbox.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(225, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Secret Question";
+            // 
             // SomerenUILogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 244);
+            this.Controls.Add(this.pnlRegister);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.forgotPasswordLabel);
             this.Controls.Add(this.loginButton);
@@ -211,10 +252,10 @@
             this.Controls.Add(this.usernameTextbox);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
-            this.Controls.Add(this.pnlRegister);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "SomerenUILogin";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.SomerenUILogin_Load);
             this.pnlRegister.ResumeLayout(false);
             this.pnlRegister.PerformLayout();
             this.ResumeLayout(false);
@@ -240,5 +281,9 @@
         private System.Windows.Forms.Label lblRegisterPassword;
         private System.Windows.Forms.Label lblRegisterUsername;
         private System.Windows.Forms.Label lblregisterwithLicensKey;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox secretQuestionRegisterTextbox;
+        private System.Windows.Forms.Label lblsecretAnswer;
+        private System.Windows.Forms.TextBox secretAnswerRegisterTextbox;
     }
 }

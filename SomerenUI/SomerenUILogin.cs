@@ -43,43 +43,50 @@ namespace SomerenUI
         private void registerButton_Click(object sender, EventArgs e)
         {
             pnlRegister.Show();
-
-            
-            
         }
 
         private void registernewUserButton_Click(object sender, EventArgs e)
         {
             userService = new UserService();
             User newUser = new User();
-            HashAndSalt hashPassword = new HashAndSalt();
-            string salt = hashPassword.CreateSalt(64);
-            string hashedPasword = hashPassword.GenerateHash(registerPasswordTextbox.Text, salt);
 
-            newUser.UserName = usernameTextbox.Text;
-            newUser.PassWord = hashedPasword;
-            newUser.Salt = salt;
+            newUser.UserName = registerUsernameTextbox.Text;
+            newUser.PassWord = registerPasswordTextbox.Text;
+            newUser.AdminStatus = "user";
+            newUser.SecretQuestion = secretQuestionRegisterTextbox.Text;
+            newUser.SecretAnswer = secretAnswerRegisterTextbox.Text;
 
 
-            string licenseKey = "XsZAb - tgz3PsD - qYh69un - WQCEx";
+            string licenseKey = "XsZAb-tgz3PsD-qYh69un-WQCEx";
             try
             {
-                if (licenseKeyTextbox.Text == licenseKey)
+                if (!String.IsNullOrEmpty(registerUsernameTextbox.Text) && (!String.IsNullOrEmpty(registerPasswordTextbox.Text)) && (!String.IsNullOrEmpty(secretQuestionRegisterTextbox.Text)) && (!String.IsNullOrEmpty(secretAnswerRegisterTextbox.Text)) && (!String.IsNullOrEmpty(licenseKeyTextbox.Text)))
                 {
-                    userService.AddUser(newUser);
-                    this.Hide();
-                    SomerenUILogin somerenUILogin = new SomerenUILogin();
-                    somerenUILogin.Show();
+                    if (licenseKeyTextbox.Text == licenseKey)
+                    {
+                        userService.AddUser(newUser);
+                        this.Hide();
+                        SomerenUILogin somerenUILogin = new SomerenUILogin();
+                        somerenUILogin.Show();
+
+                        MessageBox.Show("Succesfully registered!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid license key");
+                    }
                 }
-                else
-                {
-                    throw new Exception("Invalid license key...");
-                }
+                else MessageBox.Show("Please fill in all requirements");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong while register new user: " + ex.Message);
+                MessageBox.Show("Something went wrong while registering new user. " + ex.Message);
             }
+        }
+
+        private void SomerenUILogin_Load(object sender, EventArgs e)
+        {
+            pnlRegister.Hide();
         }
     }
 }

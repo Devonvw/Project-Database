@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using SomerenModel;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace SomerenDAL
 {
@@ -47,8 +48,21 @@ namespace SomerenDAL
         }
         public void AddUser(User user)
         {
-            string query = $"INSERT INTO Users ( userID, userName, passWord, salt, adminstatus ) VALUES ( '{user.UserId}', '{user.UserName}', '{user.PassWord}', '{user.PassWord}', '{user.Salt}', '{user.AdminStatus}')";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            Debug.WriteLine(user.UserName);
+            Debug.WriteLine(user.PassWord);
+            Debug.WriteLine(user.AdminStatus);
+            Debug.WriteLine(user.SecretQuestion);
+            Debug.WriteLine(user.SecretAnswer);
+
+            string query = $"exec dbo.usp_createUser @userName = @userName, @passWord = @passWord, @adminStatus = @adminStatus, @secretQuestion = @secretQuestion, @secretAnswer = @secretAnswer;";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@userName", SqlDbType.VarChar) {Value = user.UserName},
+                new SqlParameter("@passWord", SqlDbType.VarChar) {Value = user.PassWord},
+                new SqlParameter("@adminStatus", SqlDbType.VarChar) {Value = user.AdminStatus},
+                new SqlParameter("@secretQuestion", SqlDbType.VarChar) {Value = user.SecretQuestion},
+                new SqlParameter("@secretAnswer", SqlDbType.VarChar) {Value = user.SecretAnswer},
+            };
             OpenConnection();
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -61,10 +75,11 @@ namespace SomerenDAL
                 int userID = (int)dr["userID"];
                 string userName = (String)dr["userName"];
                 string password = (String)dr["passWord"];
-                string salt = (String)dr["salt"];
                 string adminStatus = (String)dr["adminStatus"];
+                string secretQuestion = (String)dr["secretQuestion"];
+                string secretAnswer = (String)dr["secretAnswer"];
 
-                User user = new User(userID, userName, password, salt, adminStatus);
+                User user = new User(userID, userName, password, adminStatus, secretQuestion, secretAnswer);
                 users.Add(user);
             }
             return users;

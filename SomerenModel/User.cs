@@ -11,19 +11,21 @@ namespace SomerenModel
         public int UserId;
         public string UserName;
         public string PassWord;
-        public string Salt;
         public string AdminStatus;
+        public string SecretQuestion;
+        public string SecretAnswer;
         public User()
         {
         }
 
-        public User(int userId, string userName, string passWord, string salt, string adminStatus)
+        public User(int userId, string userName, string passWord, string adminStatus, string secretQuestion, string secretAnswer)
         {
             UserId = userId;
             UserName = userName;
             PassWord = passWord;
-            Salt = salt;
             AdminStatus = adminStatus;
+            SecretQuestion = secretQuestion;
+            SecretAnswer = secretAnswer;
         }
     }
 }
