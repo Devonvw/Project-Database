@@ -22,6 +22,27 @@ namespace SomerenUI
             InitializeComponent();
         }
 
+        private void showPanel(Panel panel)
+        {
+            if (panel == Panel.Login)
+            {
+                pnlForgotPassword.Hide();
+            }
+            if (panel == Panel.ForgotPassword)
+            {
+                try
+                {
+                    lblSecretQuestion.Text = userService.GetSecretQuestion(usernameTextbox.Text);
+
+                    pnlForgotPassword.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(usernameTextbox.Text) || !String.IsNullOrEmpty(passwordTextbox.Text))
@@ -40,6 +61,7 @@ namespace SomerenUI
             else MessageBox.Show("Please fill in all requirements");
         }
 
+<<<<<<< HEAD
         private void registerButton_Click(object sender, EventArgs e)
         {
             pnlRegister.Show();
@@ -75,11 +97,38 @@ namespace SomerenUI
                     {
                         MessageBox.Show("Invalid license key");
                     }
+=======
+        private void forgotPasswordLabel_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(usernameTextbox.Text)) showPanel(Panel.ForgotPassword);
+            else MessageBox.Show("Please fill in your username");
+        }
+
+        private void SomerenUILogin_Load(object sender, EventArgs e)
+        {
+            pnlForgotPassword.Hide();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlForgotPassword.Hide();
+        }
+
+        private void btnNewPassword_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(tbxNewPassword.Text) || !String.IsNullOrEmpty(secretAnswerTextbox.Text))
+                {
+                    userService.ChangeForgotPassword(usernameTextbox.Text, secretAnswerTextbox.Text, tbxNewPassword.Text);
+                    showPanel(Panel.Login);
+>>>>>>> 17d58020577860b952d86b38e34d41bc414a866c
                 }
                 else MessageBox.Show("Please fill in all requirements");
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MessageBox.Show("Something went wrong while registering new user. " + ex.Message);
             }
         }
@@ -87,6 +136,11 @@ namespace SomerenUI
         private void SomerenUILogin_Load(object sender, EventArgs e)
         {
             pnlRegister.Hide();
+=======
+                MessageBox.Show(ex.Message);
+            }
+        
+>>>>>>> 17d58020577860b952d86b38e34d41bc414a866c
         }
     }
 }

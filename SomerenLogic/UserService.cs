@@ -24,6 +24,7 @@ namespace SomerenLogic
         {
             return userdb.GetStatus(status);
         }
+<<<<<<< HEAD
         public List<User> GetUsers()
         {
             try
@@ -47,5 +48,22 @@ namespace SomerenLogic
         {
             userdb.AddUser(user);
         }
+=======
+        public string GetSecretQuestion(string userName)
+        {
+            return userdb.GetSecretQuestion(userName);
+        }
+        public void ChangeForgotPassword(string userName, string secretAnswer, string newPassword)
+        {
+            if (userdb.ValidateSecretAnswer(userName, secretAnswer))
+            {
+                userdb.ChangePassword(userName, newPassword);
+            }
+            else
+            {
+                throw new Exception("This is not the correct answer!");
+            }
+        }
+>>>>>>> 17d58020577860b952d86b38e34d41bc414a866c
     }
 }
