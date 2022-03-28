@@ -36,13 +36,13 @@
             this.forgotPasswordLabel = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
             this.pnlForgotPassword = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.lblNewPassword = new System.Windows.Forms.Label();
             this.tbxNewPassword = new System.Windows.Forms.TextBox();
             this.lblSecretQuestion = new System.Windows.Forms.Label();
             this.forgotPasswordTitleLabel = new System.Windows.Forms.Label();
             this.secretAnswerTextbox = new System.Windows.Forms.TextBox();
             this.btnNewPassword = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.pnlForgotPassword.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,10 +129,21 @@
             this.pnlForgotPassword.Size = new System.Drawing.Size(446, 324);
             this.pnlForgotPassword.TabIndex = 7;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(84, 247);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(273, 37);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // lblNewPassword
             // 
             this.lblNewPassword.AutoSize = true;
-            this.lblNewPassword.Location = new System.Drawing.Point(85, 141);
+            this.lblNewPassword.Location = new System.Drawing.Point(81, 129);
             this.lblNewPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewPassword.Name = "lblNewPassword";
             this.lblNewPassword.Size = new System.Drawing.Size(97, 16);
@@ -141,7 +152,7 @@
             // 
             // tbxNewPassword
             // 
-            this.tbxNewPassword.Location = new System.Drawing.Point(88, 161);
+            this.tbxNewPassword.Location = new System.Drawing.Point(84, 149);
             this.tbxNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxNewPassword.Name = "tbxNewPassword";
             this.tbxNewPassword.Size = new System.Drawing.Size(273, 22);
@@ -150,7 +161,7 @@
             // lblSecretQuestion
             // 
             this.lblSecretQuestion.AutoSize = true;
-            this.lblSecretQuestion.Location = new System.Drawing.Point(81, 80);
+            this.lblSecretQuestion.Location = new System.Drawing.Point(81, 62);
             this.lblSecretQuestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSecretQuestion.Name = "lblSecretQuestion";
             this.lblSecretQuestion.Size = new System.Drawing.Size(0, 16);
@@ -160,7 +171,7 @@
             // 
             this.forgotPasswordTitleLabel.AutoSize = true;
             this.forgotPasswordTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.forgotPasswordTitleLabel.Location = new System.Drawing.Point(148, 44);
+            this.forgotPasswordTitleLabel.Location = new System.Drawing.Point(147, 19);
             this.forgotPasswordTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.forgotPasswordTitleLabel.Name = "forgotPasswordTitleLabel";
             this.forgotPasswordTitleLabel.Size = new System.Drawing.Size(136, 20);
@@ -169,7 +180,7 @@
             // 
             // secretAnswerTextbox
             // 
-            this.secretAnswerTextbox.Location = new System.Drawing.Point(88, 98);
+            this.secretAnswerTextbox.Location = new System.Drawing.Point(84, 86);
             this.secretAnswerTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.secretAnswerTextbox.Name = "secretAnswerTextbox";
             this.secretAnswerTextbox.Size = new System.Drawing.Size(273, 22);
@@ -177,24 +188,14 @@
             // 
             // btnNewPassword
             // 
-            this.btnNewPassword.Location = new System.Drawing.Point(88, 214);
+            this.btnNewPassword.Location = new System.Drawing.Point(84, 202);
             this.btnNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewPassword.Name = "btnNewPassword";
             this.btnNewPassword.Size = new System.Drawing.Size(273, 37);
             this.btnNewPassword.TabIndex = 4;
-            this.btnNewPassword.Text = "Login";
+            this.btnNewPassword.Text = "Change Password";
             this.btnNewPassword.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(88, 259);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(273, 37);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnNewPassword.Click += new System.EventHandler(this.btnNewPassword_Click);
             // 
             // SomerenUILogin
             // 

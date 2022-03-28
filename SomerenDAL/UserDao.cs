@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using SomerenModel;
+using System.Diagnostics;
 
 namespace SomerenDAL
 {
@@ -49,6 +50,14 @@ namespace SomerenDAL
 
             DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
 
+            if (dataTable != null)
+            {
+                if (dataTable.Rows.Count == 0)
+                {
+                    throw new InvalidOperationException($"This account does not exist or has no secret question.");
+                }
+            }
+
             string secretQuestion = (string)dataTable.Rows[0]["secretQuestion"];
 
             return secretQuestion;
@@ -66,9 +75,9 @@ namespace SomerenDAL
 
             DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
 
-            int validUser = (int)dataTable.Rows[0]["valid"];
+            bool validUser = (bool)dataTable.Rows[0]["valid"];
 
-            return validUser == 1;
+            return validUser;
         }
         public void ChangePassword(string userName, string newPassWord)
         {
