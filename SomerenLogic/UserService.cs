@@ -38,5 +38,10 @@ namespace SomerenLogic
                 throw new Exception("This is not the correct answer!");
             }
         }
+        
+        public void AddUser(string userName, string passWord, string adminStatus, string secretQuestion, string secretAnswer)
+        {
+            userdb.AddUser(userName, passWord, adminStatus, secretQuestion, secretAnswer);
+        }
     }
 }

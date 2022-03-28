@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using SomerenModel;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace SomerenDAL
 {
@@ -91,7 +92,20 @@ namespace SomerenDAL
 
             ExecuteEditQuery(query, sqlParameters);
         }
-
+        public void AddUser(string userName, string passWord, string adminStatus, string secretQuestion, string secretAnswer)
+        {
+            string query = $"exec dbo.usp_createUser @userName = @userName, @passWord = @passWord, @adminStatus = @adminStatus, @secretQuestion = @secretQuestion, @secretAnswer = @secretAnswer;";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@userName", SqlDbType.VarChar) {Value = userName},
+                new SqlParameter("@passWord", SqlDbType.VarChar) {Value = passWord},
+                new SqlParameter("@adminStatus", SqlDbType.VarChar) {Value = adminStatus},
+                new SqlParameter("@secretQuestion", SqlDbType.VarChar) {Value = secretQuestion},
+                new SqlParameter("@secretAnswer", SqlDbType.VarChar) {Value = secretAnswer},
+            };
+            OpenConnection();
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }
 

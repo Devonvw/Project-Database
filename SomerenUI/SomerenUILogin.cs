@@ -23,11 +23,15 @@ namespace SomerenUI
 
         private void showPanel(Panel panel)
         {
+            pnlForgotPassword.Hide();
+            pnlRegister.Hide();
+
             if (panel == Panel.Login)
             {
                 pnlForgotPassword.Hide();
+                pnlRegister.Hide();
             }
-            if (panel == Panel.ForgotPassword)
+            else if (panel == Panel.ForgotPassword)
             {
                 try
                 {
@@ -39,6 +43,10 @@ namespace SomerenUI
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+            else if (panel == Panel.Register)
+            {
+                pnlRegister.Show();
             }
         }
 
@@ -68,12 +76,12 @@ namespace SomerenUI
 
         private void SomerenUILogin_Load(object sender, EventArgs e)
         {
-            pnlForgotPassword.Hide();
+            showPanel(Panel.Login);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            pnlForgotPassword.Hide();
+            showPanel(Panel.Login);
         }
 
         private void btnNewPassword_Click(object sender, EventArgs e)
@@ -92,6 +100,58 @@ namespace SomerenUI
                 MessageBox.Show(ex.Message);
             }
         
+        }
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            showPanel(Panel.Register);
+        }
+
+        private void registernewUserButton_Click(object sender, EventArgs e)
+        {
+            userService = new UserService();
+            string userName;
+            string passWord;
+            string adminStatus;
+            string secretQuestion;
+            string secretAnswer;
+
+            userName = registerUsernameTextbox.Text;
+            passWord = registerPasswordTextbox.Text;
+            adminStatus = "user";
+            secretQuestion = secretQuestionRegisterTextbox.Text;
+            secretAnswer = secretAnswerRegisterTextbox.Text;
+
+
+            string licenseKey = "XsZAb-tgz3PsD-qYh69un-WQCEx";
+            try
+            {
+                if (!String.IsNullOrEmpty(registerUsernameTextbox.Text) && (!String.IsNullOrEmpty(registerPasswordTextbox.Text)) && (!String.IsNullOrEmpty(secretQuestionRegisterTextbox.Text)) && (!String.IsNullOrEmpty(secretAnswerRegisterTextbox.Text)) && (!String.IsNullOrEmpty(licenseKeyTextbox.Text)))
+                {
+                    if (licenseKeyTextbox.Text == licenseKey)
+                    {
+                        userService.AddUser(userName, passWord, adminStatus, secretQuestion, secretAnswer);
+                        this.Hide();
+                        SomerenUILogin somerenUILogin = new SomerenUILogin();
+                        somerenUILogin.Show();
+
+                        MessageBox.Show("Succesfully registered!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid license key");
+                    }
+                }
+                else MessageBox.Show("Please fill in all requirements");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong while registering new user. " + ex.Message);
+            }
+        }
+
+        private void cancelRegisterButton_Click(object sender, EventArgs e)
+        {
+            showPanel(Panel.Login);
         }
     }
 }
