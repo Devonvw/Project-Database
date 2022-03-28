@@ -44,6 +44,7 @@
             this.secretAnswerTextbox = new System.Windows.Forms.TextBox();
             this.btnNewPassword = new System.Windows.Forms.Button();
             this.pnlRegister = new System.Windows.Forms.Panel();
+            this.cancelRegisterButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.secretQuestionRegisterTextbox = new System.Windows.Forms.TextBox();
             this.lblsecretAnswer = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.lblRegisterPassword = new System.Windows.Forms.Label();
             this.lblRegisterUsername = new System.Windows.Forms.Label();
             this.lblregisterwithLicensKey = new System.Windows.Forms.Label();
-            this.cancelRegisterButton = new System.Windows.Forms.Button();
             this.pnlForgotPassword.SuspendLayout();
             this.pnlRegister.SuspendLayout();
             this.SuspendLayout();
@@ -234,6 +234,16 @@
             this.pnlRegister.Size = new System.Drawing.Size(367, 224);
             this.pnlRegister.TabIndex = 7;
             // 
+            // cancelRegisterButton
+            // 
+            this.cancelRegisterButton.Location = new System.Drawing.Point(180, 182);
+            this.cancelRegisterButton.Name = "cancelRegisterButton";
+            this.cancelRegisterButton.Size = new System.Drawing.Size(147, 31);
+            this.cancelRegisterButton.TabIndex = 8;
+            this.cancelRegisterButton.Text = "Cancel";
+            this.cancelRegisterButton.UseVisualStyleBackColor = true;
+            this.cancelRegisterButton.Click += new System.EventHandler(this.cancelRegisterButton_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -248,7 +258,7 @@
             this.secretQuestionRegisterTextbox.Location = new System.Drawing.Point(198, 51);
             this.secretQuestionRegisterTextbox.Name = "secretQuestionRegisterTextbox";
             this.secretQuestionRegisterTextbox.Size = new System.Drawing.Size(129, 21);
-            this.secretQuestionRegisterTextbox.TabIndex = 10;
+            this.secretQuestionRegisterTextbox.TabIndex = 3;
             // 
             // lblsecretAnswer
             // 
@@ -264,21 +274,21 @@
             this.secretAnswerRegisterTextbox.Location = new System.Drawing.Point(198, 109);
             this.secretAnswerRegisterTextbox.Name = "secretAnswerRegisterTextbox";
             this.secretAnswerRegisterTextbox.Size = new System.Drawing.Size(129, 21);
-            this.secretAnswerRegisterTextbox.TabIndex = 8;
+            this.secretAnswerRegisterTextbox.TabIndex = 4;
             // 
             // licenseKeyTextbox
             // 
             this.licenseKeyTextbox.Location = new System.Drawing.Point(143, 150);
             this.licenseKeyTextbox.Name = "licenseKeyTextbox";
             this.licenseKeyTextbox.Size = new System.Drawing.Size(184, 21);
-            this.licenseKeyTextbox.TabIndex = 6;
+            this.licenseKeyTextbox.TabIndex = 5;
             // 
             // registernewUserButton
             // 
             this.registernewUserButton.Location = new System.Drawing.Point(24, 184);
             this.registernewUserButton.Name = "registernewUserButton";
             this.registernewUserButton.Size = new System.Drawing.Size(142, 30);
-            this.registernewUserButton.TabIndex = 7;
+            this.registernewUserButton.TabIndex = 6;
             this.registernewUserButton.Text = "Register";
             this.registernewUserButton.UseVisualStyleBackColor = true;
             this.registernewUserButton.Click += new System.EventHandler(this.registernewUserButton_Click);
@@ -288,14 +298,14 @@
             this.registerPasswordTextbox.Location = new System.Drawing.Point(24, 109);
             this.registerPasswordTextbox.Name = "registerPasswordTextbox";
             this.registerPasswordTextbox.Size = new System.Drawing.Size(117, 21);
-            this.registerPasswordTextbox.TabIndex = 5;
+            this.registerPasswordTextbox.TabIndex = 2;
             // 
             // registerUsernameTextbox
             // 
             this.registerUsernameTextbox.Location = new System.Drawing.Point(24, 48);
             this.registerUsernameTextbox.Name = "registerUsernameTextbox";
             this.registerUsernameTextbox.Size = new System.Drawing.Size(117, 21);
-            this.registerUsernameTextbox.TabIndex = 4;
+            this.registerUsernameTextbox.TabIndex = 1;
             // 
             // lblLicenseKey
             // 
@@ -333,16 +343,6 @@
             this.lblregisterwithLicensKey.Size = new System.Drawing.Size(264, 19);
             this.lblregisterwithLicensKey.TabIndex = 0;
             this.lblregisterwithLicensKey.Text = "Register now with License Key!";
-            // 
-            // cancelRegisterButton
-            // 
-            this.cancelRegisterButton.Location = new System.Drawing.Point(180, 182);
-            this.cancelRegisterButton.Name = "cancelRegisterButton";
-            this.cancelRegisterButton.Size = new System.Drawing.Size(147, 31);
-            this.cancelRegisterButton.TabIndex = 12;
-            this.cancelRegisterButton.Text = "Cancel";
-            this.cancelRegisterButton.UseVisualStyleBackColor = true;
-            this.cancelRegisterButton.Click += new System.EventHandler(this.cancelRegisterButton_Click);
             // 
             // SomerenUILogin
             // 
