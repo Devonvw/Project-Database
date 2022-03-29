@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SomerenLogic;
@@ -129,12 +130,23 @@ namespace SomerenUI
                 {
                     if (licenseKeyTextbox.Text == licenseKey)
                     {
-                        userService.AddUser(userName, passWord, adminStatus, secretQuestion, secretAnswer);
-                        this.Hide();
-                        SomerenUILogin somerenUILogin = new SomerenUILogin();
-                        somerenUILogin.Show();
+                        Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
-                        MessageBox.Show("Succesfully registered!");
+                        Match match = regex.Match(registerUsernameTextbox.Text);
+
+                        if (match.Success)
+                        {
+                            userService.AddUser(userName, passWord, adminStatus, secretQuestion, secretAnswer);
+                            this.Hide();
+                            SomerenUILogin somerenUILogin = new SomerenUILogin();
+                            somerenUILogin.Show();
+
+                            MessageBox.Show("Succesfully registered!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("invalid email");
+                        }
                     }
                     else
                     {
